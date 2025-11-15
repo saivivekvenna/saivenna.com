@@ -12,45 +12,81 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        html,
+        body {
+            height: 100%;
+        }
+
         .main-section {
             display: flex;
-            align-items: flex-start;
-            gap: 10rem;
-
-            position: relative;
-            /* makes this the reference for absolute children */
-            min-height: 100vh;
-            /* make it at least full screen height */
-            padding-right: 2rem;
-            /* optional: space so text doesn't go under gif */
+            flex-direction: column;
+            align-items: stretch;
+            gap: 2rem;
+            flex: 1;
+            min-height: calc(100vh - 1.5rem);
+            /* reserve viewport height so the palm can sit on the baseline */
         }
 
+        @media (min-width: 640px) {
+            .main-section {
+                min-height: calc(100vh - 2.5rem);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .main-section {
+                gap: 4rem;
+            }
+
+            .side-image {
+                width: clamp(320px, 55vw, 720px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .main-section {
+                flex-direction: row;
+                align-items: flex-end;
+                gap: 6rem;
+                min-height: calc(100vh - 3.5rem);
+            }
+        }
 
         .side-image {
-            position: fixed;
-            right: clamp(10rem, 4vw, 3rem);
-            bottom: 0;
-            width: clamp(420px, 55vw, 1200);
+            width: min(620px, 100vw);
             height: auto;
+            max-height: calc(100vh - 1.5rem);
+            border-radius: 12px;
             object-fit: contain;
-            pointer-events: none;
-            z-index: 0;
+            align-self: center;
+            margin-top: auto;
         }
 
-        .minecraft-footer {
-            width: 100%;
-            height: 120px;
-            margin-top: 0rem;
-            background-image: url('minecraft-sand.png');
-            background-repeat: repeat-x;
-            background-size: auto 100%;
-            background-position: bottom center;
+        @media (min-width: 640px) {
+            .side-image {
+                max-height: calc(100vh - 2.5rem);
+            }
         }
 
+        @media (min-width: 768px) {
+            .side-image {
+                width: clamp(360px, 65vw, 860px);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .side-image {
+                width: clamp(420px, 45vw, 960px);
+                align-self: flex-end;
+                margin-top: 0;
+                max-height: calc(100vh - 3.5rem);
+            }
+        }
 
         /* Let the text take remaining space */
         .main-text {
             flex: 1;
+            align-self: flex-start;
         }
 
         /* Page transition animation */
@@ -81,6 +117,13 @@
             background-color: #1a1a1a;
             color: #e5e5e5;
             font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+            margin: 0;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        footer {
+            display: none;
         }
 
         a {
@@ -89,13 +132,36 @@
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
+        }
+
+        .fancy-link-wrapper {
+            display: inline;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .fancy-link {
+            display: inline;
+            position: relative;
+            padding-bottom: 1px;
+            color: inherit;
+            border-bottom: 1px dotted #6b7280;
+            background-image: linear-gradient(to right, currentColor, currentColor);
+            background-repeat: no-repeat;
+            background-size: 0% 1px;
+            background-position: left calc(100% - 1px);
+            transition: background-size 0.3s ease-out;
+        }
+
+        .fancy-link-wrapper:hover .fancy-link {
+            background-size: 100% 1px;
         }
     </style>
 </head>
 
 <body
-    class="w-full p-6 sm:p-10 md:p-14 text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
+    class="w-full px-6 sm:px-10 md:px-14 pt-6 sm:pt-10 md:pt-14 pb-0 text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
     <div class="flex flex-col md:flex-row">
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16">
@@ -125,7 +191,7 @@
 
 
             <div class="main-text">
-                <main class="relative flex-1 max-w-2xl page-content fade-in">
+                <main class="relative flex-1 max-w-3xl page-content fade-in">
                     <!-- Vertical Bar -->
                     <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
 
@@ -133,15 +199,21 @@
                         <h1 class="font-semibold mb-7 text-white text-balance text-xl">hey! i'm sai.</h1>
 
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">what im up to right now:</h2>
+                            <h2 class="font-semibold mb-4 text-white">
+                                <span class="text-zinc-500">01</span>
+                                what i'm up to right now:
+                            </h2>
                             <ul class="list-disc pl-5 mt-7">
-                                <li>Building autonomous core drilling rigs.</li>
+                                <li>Tinkering with AI.</li>
                                 <li>Studying Computer Engineering @ UofT</li>
                             </ul>
                         </section>
 
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">about me:</h2>
+                            <h2 class="font-semibold mb-4 text-white">
+                                <span class="text-zinc-500">02</span>
+                                about me:
+                            </h2>
                             <ul class="list-disc pl-5 mt-7">
                                 <li>I love creating [writing, robots, software, startups].</li>
                                 <!-- <li>University Of Toronto ECE 29'</li> -->
@@ -150,9 +222,13 @@
                             </ul>
                         </section>
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">things I'm interested in:</h2>
+                            <h2 class="font-semibold mb-4 text-white">
+                                <span class="text-zinc-500">03</span>
+                                what i'm intrested in:
+                            </h2>
                             <ul class="list-disc pl-5 mt-7">
-                                <li>AI/ Robotics.</li>
+                                <li>AI.</li>
+                                <li>Robotics.</li>
                                 <li>Mining [Core Drilling, Automation]. </li>
                                 <li>I love learning. I like to learn about new ideas that can change our world.</li>
                                 <li>Basketball & Football.</li>
@@ -160,16 +236,28 @@
                             </ul>
                         </section>
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">contact:</h2>
+                            <h2 class="font-semibold mb-4 text-white">
+                                <span class="text-zinc-500">04</span>
+                                find me on:
+                            </h2>
                             <p>
-                                <a class="hover:underline" href="https://medium.com/@saivivekvenna" target="_blank"
-                                    rel="noopener noreferrer">Medium</a>,
-                                <a class="hover:underline" href="https://www.linkedin.com/in/sai-vivek-venna-079355212/"
-                                    target="_blank" rel="noopener noreferrer">LinkedIn</a>,
-                                <a class="hover:underline" href="https://github.com/saivivekvenna/" target="_blank"
-                                    rel="noopener noreferrer">Github</a>, or
-                                <a class="hover:underline" href="https://x.com/SaivivekVe43174" target="_blank"
-                                    rel="noopener noreferrer">Twitter</a>
+                                <a class="fancy-link-wrapper" href="https://medium.com/@saivivekvenna" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <span class="fancy-link">Medium</span>
+                                </a>,
+                                <!-- <a class="fancy-link-wrapper"
+                                    href="linkedin.com/in/sai-venna-079355212" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <span class="fancy-link">LinkedIn</span>
+                                </a>, -->
+                                <a class="fancy-link-wrapper" href="https://github.com/saivivekvenna/" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <span class="fancy-link">Github</span>
+                                </a>, or
+                                <a class="fancy-link-wrapper" href="https://x.com/SaivivekVe43174" target="_blank"
+                                    rel="noopener noreferrer">
+                                    <span class="fancy-link">Twitter</span>
+                                </a>
                             </p>
                         </section>
                     </article>

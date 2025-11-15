@@ -10,13 +10,9 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-
-        
         /* Page transition animation */
         .page-content {
             transition: opacity 0.3s ease-in-out;
@@ -167,16 +163,57 @@
                         <p class="text-gray-400 text-sm">Nov 2025</p>
                         <p class="mt-2">AI</p>
                         <div class="summary mt-4">
-                            <p>Allows users to input their engineering needs and scopes/plans the project in the form of
-                                a formal document. Inspired by me trying to see if parts of my engineering design course
-                                could be sped up.</p>
+                            <p>Takes in natural language and is able to navigate a live web browser to complete a task.
+                            </p>
                         </div>
                         <div class="button-group">
-                            <a href="https://scoper.onrender.com/" target="_blank" rel="noopener noreferrer">Visit
-                                scoper.</a>
+                            <a href="https://github.com/saivivekvenna/live-web-agent" target="_blank"
+                                rel="noopener noreferrer">Github
+                                </a>
                         </div>
 
                     </div>
+
+                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
+                        onclick="toggleCard(event, this)">
+                        <h2 class="font-semibold text-white">AI Real Estate App</h2>
+                        <p class="text-gray-400 text-sm">April 2025</p>
+                        <p class="mt-2">AI/ App Design</p>
+                        <div class="summary mt-4">
+                            <p>I built an app that takes in natural language queries and returns real-time houses for
+                                sale. I used the Flutter framework for the frontend and Node.js for the backend.</p>
+                        </div>
+                        <div class="button-group">
+                            <a href="https://github.com/saivivekvenna/estateAI" target="_blank"
+                                rel="noopener noreferrer">GitHub</a>
+                            <a href="https://www.loom.com/share/1bd2f79258d44d9bacfa568b6119ee3a" target="_blank"
+                                rel="noopener noreferrer">Demo</a>
+                            <a href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank"
+                                rel="noopener noreferrer">Write Up</a>
+                        </div>
+                    </div>
+
+
+                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
+                        onclick="toggleCard(event, this)">
+                        <h2 class="font-semibold text-white">Machine Learning Deep Dive</h2>
+                        <p class="text-gray-400 text-sm">August 2025</p>
+                        <p class="mt-2">ML</p>
+                        <div class="summary mt-4">
+                            <p>Deep dive into ML trying to learn as much as I can.</p>
+                        </div>
+                        <div class="button-group">
+                            <a href="https://github.com/saivivekvenna/machine-learning" target="_blank"
+                                rel="noopener noreferrer">GitHub</a>
+                        </div>
+
+                    </div>
+
+                    <!-- ///////////////////////////////////////// exhaustive list /////////////////////////////////////////-->
+
+                    <h2 class="flex justify-between items-center font-semibold mt-7 text-white text-balance text-xl">
+                        <span class=" opacity-50 text-sm text-gray-400">exhaustive list</span>
+                    </h2>
 
                     <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
                         onclick="toggleCard(event, this)">
@@ -195,6 +232,7 @@
 
                     </div>
 
+
                     <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
                         onclick="toggleCard(event, this)">
                         <h2 class="font-semibold text-white">Custom 6-DOF Robot Arm</h2>
@@ -209,45 +247,6 @@
                                 rel="noopener noreferrer">GitHub</a>
                             <a href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6"
                                 target="_blank" rel="noopener noreferrer">Write Up</a>
-                        </div>
-                    </div>
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Machine Learning Deep Dive</h2>
-                        <p class="text-gray-400 text-sm">August 2025</p>
-                        <p class="mt-2">ML</p>
-                        <div class="summary mt-4">
-                            <p>Deep dive into ML trying to learn as much as I can.</p>
-                        </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/machine-learning" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                        </div>
-
-                    </div>
-
-
-                    <h2 class="flex justify-between items-center font-semibold mt-7 text-white text-balance text-xl">
-                        <span class=" opacity-50 text-sm text-gray-400">exhaustive list</span>
-                    </h2>
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">AI Real Estate App</h2>
-                        <p class="text-gray-400 text-sm">April 2025</p>
-                        <p class="mt-2">AI/ App Design</p>
-                        <div class="summary mt-4">
-                            <p>I built an app that takes in natural language queries and returns real-time houses for
-                                sale. I used the Flutter framework for the frontend and Node.js for the backend.</p>
-                        </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/estateAI" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                            <a href="https://www.loom.com/share/1bd2f79258d44d9bacfa568b6119ee3a" target="_blank"
-                                rel="noopener noreferrer">Demo</a>
-                            <a href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank"
-                                rel="noopener noreferrer">Write Up</a>
                         </div>
                     </div>
 
