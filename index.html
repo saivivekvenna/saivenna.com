@@ -7,8 +7,52 @@
     <title>Sai Venna</title>
     <link rel="icon" type="image/png" href="/tab_icon.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .main-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 10rem;
+
+            position: relative;
+            /* makes this the reference for absolute children */
+            min-height: 100vh;
+            /* make it at least full screen height */
+            padding-right: 2rem;
+            /* optional: space so text doesn't go under gif */
+        }
+
+
+        .side-image {
+            position: fixed;
+            right: clamp(10rem, 4vw, 3rem);
+            bottom: 0;
+            width: clamp(420px, 55vw, 1200);
+            height: auto;
+            object-fit: contain;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .minecraft-footer {
+            width: 100%;
+            height: 120px;
+            margin-top: 0rem;
+            background-image: url('minecraft-sand.png');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            background-position: bottom center;
+        }
+
+
+        /* Let the text take remaining space */
+        .main-text {
+            flex: 1;
+        }
+
         /* Page transition animation */
         .page-content {
             transition: opacity 0.3s ease-in-out;
@@ -36,7 +80,7 @@
         body {
             background-color: #1a1a1a;
             color: #e5e5e5;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
         }
 
         a {
@@ -56,9 +100,9 @@
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16">
             <style>
-
                 .nav-link:hover {
-                    color: #1a7318; /* Keep the same color on hover, or change to another color if desired */
+                    color: #1a7318;
+                    /* Keep the same color on hover, or change to another color if desired */
                 }
             </style>
             <ul class="lowercase text-right md:sticky md:top-10 md:block flex gap-2 justify-end mb-6 md:mb-0">
@@ -74,49 +118,67 @@
             </ul>
         </nav>
 
+
         <!-- Main Content -->
-        <main class="relative flex-1 max-w-2xl page-content fade-in">
-            <!-- Vertical Bar -->
-            <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
 
-            <article class="pl-0 md:pl-14 pt-6 md:pt-0">
-                <h1 class="font-semibold mb-7 text-white text-balance text-xl">Sai Venna</h1>
-                <section>
-                    <h2 class="font-semibold mb-4 text-white">Some things about me:</h2>
-                    <ul class="list-disc pl-5 mt-7">
-                        <li>I love creating [writing, robots, software, startups].</li>
-                        <li>University Of Toronto ECE 29'</li>
-                        <li>I believe AI & robots will be pivotal for our society and the well being of our world.</li>
-                    </ul>
-                </section>
-                <section class="mt-7">
-                    <h2 class="font-semibold mb-4 text-white">Things I'm interested in:</h2>
-                    <ul class="list-disc pl-5 mt-7">
-                        <li>AI/ Robotics.</li>
-                        <li>Mining. The starting point for our most important supply chains such as energy and
-                            technology. A greener future also grows our dependence on mining.</li>
-                        <li>Economics. The teachings expand beyond the markets and how humans interact on a large scale.
-                            It's also a strong tell towards where society is moving.</li>
-                        <li>I love learning from people who are obsessed and see a beauty in their field. I like to
-                            learn about new ideas that can change our world [definite optimism].</li>
-                        <li>Basketball. Heat Nation.</li>
-                        <li>Movies, Books, TV Shows, Podcasts</li>
-                    </ul>
-                </section>
-                <section class="mt-7">
-                    <h2 class="font-semibold mb-4 text-white">Contact</h2>
-                    <p>
-                        Find me on 
-                        <a class="hover:underline" href="https://medium.com/@saivivekvenna" target="_blank" rel="noopener noreferrer">Medium</a>, 
-                        <a class="hover:underline" href="https://www.linkedin.com/in/sai-vivek-venna-079355212/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, 
-                        <a class="hover:underline" href="https://github.com/saivivekvenna/" target="_blank" rel="noopener noreferrer">Github</a>, or
+        <div class="main-section">
 
-                        hit me up via email at 
-                        <a class="hover:underline" href="mailto:saivivekvenna@gmail.com" target="_blank" rel="noopener noreferrer">saivivekvenna@gmail.com</a>.
-                      </p>
-                </section>
-            </article>
-        </main>
+
+            <div class="main-text">
+                <main class="relative flex-1 max-w-2xl page-content fade-in">
+                    <!-- Vertical Bar -->
+                    <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
+
+                    <article class="pl-0 md:pl-14 pt-6 md:pt-0">
+                        <h1 class="font-semibold mb-7 text-white text-balance text-xl">hey! i'm sai.</h1>
+
+                        <section class="mt-5">
+                            <h2 class="font-semibold mb-4 text-white">what im up to right now:</h2>
+                            <ul class="list-disc pl-5 mt-7">
+                                <li>Building autonomous core drilling rigs.</li>
+                                <li>Studying Computer Engineering @ UofT</li>
+                            </ul>
+                        </section>
+
+                        <section class="mt-5">
+                            <h2 class="font-semibold mb-4 text-white">about me:</h2>
+                            <ul class="list-disc pl-5 mt-7">
+                                <li>I love creating [writing, robots, software, startups].</li>
+                                <!-- <li>University Of Toronto ECE 29'</li> -->
+                                <li>I believe AI & robots will be pivotal for our society and the well being of our
+                                    world.</li>
+                            </ul>
+                        </section>
+                        <section class="mt-5">
+                            <h2 class="font-semibold mb-4 text-white">things I'm interested in:</h2>
+                            <ul class="list-disc pl-5 mt-7">
+                                <li>AI/ Robotics.</li>
+                                <li>Mining [Core Drilling, Automation]. </li>
+                                <li>I love learning. I like to learn about new ideas that can change our world.</li>
+                                <li>Basketball & Football.</li>
+                                <li>Movies, Books, TV Shows, Podcasts</li>
+                            </ul>
+                        </section>
+                        <section class="mt-5">
+                            <h2 class="font-semibold mb-4 text-white">contact:</h2>
+                            <p>
+                                <a class="hover:underline" href="https://medium.com/@saivivekvenna" target="_blank"
+                                    rel="noopener noreferrer">Medium</a>,
+                                <a class="hover:underline" href="https://www.linkedin.com/in/sai-vivek-venna-079355212/"
+                                    target="_blank" rel="noopener noreferrer">LinkedIn</a>,
+                                <a class="hover:underline" href="https://github.com/saivivekvenna/" target="_blank"
+                                    rel="noopener noreferrer">Github</a>, or
+                                <a class="hover:underline" href="https://x.com/SaivivekVe43174" target="_blank"
+                                    rel="noopener noreferrer">Twitter</a>
+                            </p>
+                        </section>
+                    </article>
+                </main>
+            </div>
+
+            <img src="RetroPalm.gif" alt="gif" class="side-image">
+        </div>
+
     </div>
 
     <script>
