@@ -23,13 +23,10 @@
             align-items: stretch;
             gap: 2rem;
             flex: 1;
-            min-height: calc(100vh - 1.5rem);
-            /* reserve viewport height so the palm can sit on the baseline */
         }
 
         @media (min-width: 640px) {
             .main-section {
-                min-height: calc(100vh - 2.5rem);
             }
         }
 
@@ -48,13 +45,13 @@
                 flex-direction: row;
                 align-items: flex-end;
                 gap: 6rem;
-                min-height: calc(100vh - 3.5rem);
             }
         }
 
         .side-image {
             width: min(620px, 100vw);
             height: auto;
+            bottom: 100;
             max-height: calc(100vh - 1.5rem);
             border-radius: 12px;
             object-fit: contain;
