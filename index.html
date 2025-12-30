@@ -12,11 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        html,
-        body {
-            height: 100%;
-        }
-
         .main-section {
             display: flex;
             flex-direction: column;
@@ -26,8 +21,7 @@
         }
 
         @media (min-width: 640px) {
-            .main-section {
-            }
+            .main-section {}
         }
 
         @media (min-width: 768px) {
@@ -35,9 +29,9 @@
                 gap: 4rem;
             }
 
-            .side-image {
+            /* .side-image {
                 width: clamp(320px, 55vw, 720px);
-            }
+            } */
         }
 
         @media (min-width: 1024px) {
@@ -48,14 +42,17 @@
             }
         }
 
+        .page-shell {
+            min-height: 100dvh;
+            box-sizing: border-box;
+        }
+
         .side-image {
-            width: min(620px, 100vw);
+            width: min(620px, 100%);
             height: auto;
-            bottom: 100;
-            max-height: calc(100vh - 1.5rem);
-            border-radius: 12px;
+            max-height: calc(100dvh - 3.5rem);
+            display: block;
             object-fit: contain;
-            align-self: center;
             margin-top: auto;
         }
 
@@ -84,6 +81,7 @@
         .main-text {
             flex: 1;
             align-self: flex-start;
+            min-width: 0;
         }
 
         /* Page transition animation */
@@ -115,7 +113,6 @@
             color: #e5e5e5;
             font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
             margin: 0;
-            min-height: 100vh;
             box-sizing: border-box;
         }
 
@@ -157,9 +154,8 @@
     </style>
 </head>
 
-<body
-    class="w-full px-6 sm:px-10 md:px-14 pt-6 sm:pt-10 md:pt-14 pb-0 text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
-    <div class="flex flex-col md:flex-row">
+<body class="w-full text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
+    <div class="page-shell flex flex-col md:flex-row w-full px-6 sm:px-10 md:px-14 pt-6 sm:pt-10 md:pt-14 pb-0">
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16">
             <style>
@@ -260,8 +256,9 @@
                     </article>
                 </main>
             </div>
-
-            <img src="RetroPalm.gif" alt="gif" class="side-image">
+            <div class="side-image-container">
+                <img src="plamtree.gif" alt="gif" class="side-image">
+            </div>
         </div>
 
     </div>
