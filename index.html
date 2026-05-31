@@ -85,16 +85,46 @@
         }
 
         /* Page transition animation */
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
         .page-content {
-            transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
         }
 
-        .fade-out {
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
             opacity: 0;
+            filter: blur(4px);
         }
 
-        .fade-in {
+        nav,
+        body.is-leaving nav {
             opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
         }
 
         /* Card hover animation */
@@ -291,27 +321,7 @@
 
     </div>
 
-    <script>
-        // Page transition effect
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const href = link.getAttribute('href');
-                document.querySelector('.page-content').classList.remove('fade-in');
-                document.querySelector('.page-content').classList.add('fade-out');
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-            });
-        });
-
-        // Ensure fade-in on page load
-        window.addEventListener('load', () => {
-            const content = document.querySelector('.page-content');
-            content.classList.remove('fade-out');
-            content.classList.add('fade-in');
-        });
-    </script>
+    <script src="page-transition.js"></script>
 </body>
 
 </html>

@@ -13,11 +13,47 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Page transition animation */
-        .page-content {
-            transition: opacity 0.3s ease-in-out;
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
         }
-        .fade-out { opacity: 0; }
-        .fade-in { opacity: 1; }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
 
         /* Warm light site colors */
         body {
@@ -40,6 +76,99 @@
             margin: 2rem 0 0.25rem;
         }
         .section-label:first-of-type { margin-top: 0.5rem; }
+
+        /* --- GitHub activity --- */
+        .activity-section {
+            --activity-cell-size: 9px;
+            --activity-cell-gap: 2px;
+            position: relative;
+            margin: 0 -0.85rem 1.6rem;
+            padding: 0.85rem;
+            border-top: 1px solid #e6dcc9;
+        }
+        .activity-summary {
+            margin-bottom: 0.75rem;
+        }
+        .activity-total {
+            font-weight: 600;
+            color: #000000;
+        }
+        .activity-scroll {
+            overflow-x: auto;
+            padding-bottom: 0.25rem;
+        }
+        .activity-shell {
+            display: inline-grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.45rem;
+            min-width: max-content;
+        }
+        .activity-weekdays {
+            display: grid;
+            grid-template-rows: repeat(7, var(--activity-cell-size));
+            gap: var(--activity-cell-gap);
+            padding-top: 0;
+            color: #a89c84;
+            font-size: 0.56rem;
+            line-height: var(--activity-cell-size);
+            text-align: right;
+        }
+        .activity-weekdays span:nth-child(odd) {
+            color: transparent;
+        }
+        .activity-grid {
+            display: grid;
+            grid-auto-flow: column;
+            grid-auto-columns: var(--activity-cell-size);
+            grid-template-rows: repeat(7, var(--activity-cell-size));
+            gap: var(--activity-cell-gap);
+        }
+        .activity-cell {
+            width: var(--activity-cell-size);
+            height: var(--activity-cell-size);
+            border: 1px solid #e6dcc9;
+            border-radius: 2px;
+            background-color: #f3ecdd;
+            padding: 0;
+        }
+        .activity-cell:not(.activity-cell-empty) {
+            cursor: pointer;
+        }
+        .activity-cell:focus-visible {
+            outline: 1px solid #000000;
+            outline-offset: 2px;
+        }
+        .activity-cell-empty {
+            visibility: hidden;
+        }
+        .activity-cell[data-level="1"] { background-color: #dfd2bd; border-color: #d7c8ad; }
+        .activity-cell[data-level="2"] { background-color: #c3ad88; border-color: #b79d73; }
+        .activity-cell[data-level="3"] { background-color: #8b7658; border-color: #7a684f; }
+        .activity-cell[data-level="4"] { background-color: #3f3529; border-color: #3f3529; }
+        .activity-tooltip {
+            position: absolute;
+            z-index: 20;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, calc(-100% - 0.75rem));
+            background-color: #000000;
+            color: #fbf7ee;
+            border-radius: 4px;
+            padding: 0.25rem 0.45rem;
+            font-size: 0.68rem;
+            line-height: 1.2;
+            white-space: nowrap;
+            transition: opacity 0.12s ease;
+        }
+        .activity-tooltip.visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .activity-summary {
+                margin-bottom: 0.65rem;
+            }
+        }
 
         /* --- Expandable project rows --- */
         .proj {
@@ -75,30 +204,6 @@
         }
         .proj.open .chevron { transform: rotate(90deg); }
 
-        .proj-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.4rem;
-            margin-top: 0.55rem;
-            padding-left: 1.1rem;
-        }
-        .tag {
-            font-size: 0.62rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #8a7d63;
-            background-color: #f3ecdd;
-            border: 1px solid #e7ddc8;
-            border-radius: 5px;
-            padding: 0.12rem 0.5rem;
-            white-space: nowrap;
-            transition: background-color 0.18s ease, color 0.18s ease;
-        }
-        .proj:hover .tag,
-        .proj.open .tag {
-            background-color: #ede3cf;
-            color: #6b6357;
-        }
         .proj-date {
             font-size: 0.7rem;
             color: #a89c84;
@@ -175,18 +280,36 @@
                 <h1 class="font-semibold mb-7 text-black text-balance text-lg">projects</h1>
 
                 <section>
+                    <p class="section-label">Git commit history</p>
+                    <div class="activity-section" data-github-activity onclick="event.stopPropagation()">
+                        <div class="activity-summary">
+                            <span class="activity-total" data-github-total>loading contributions...</span>
+                        </div>
+                        <div class="activity-scroll" aria-label="GitHub contribution history for the last year">
+                            <div class="activity-shell">
+                                <div class="activity-weekdays" aria-hidden="true">
+                                    <span>Sun</span>
+                                    <span>Mon</span>
+                                    <span>Tue</span>
+                                    <span>Wed</span>
+                                    <span>Thu</span>
+                                    <span>Fri</span>
+                                    <span>Sat</span>
+                                </div>
+                                <div class="activity-grid" data-github-grid role="group"></div>
+                            </div>
+                        </div>
+                        <div class="activity-tooltip" data-github-tooltip role="status" aria-live="polite"></div>
+                    </div>
+
                     <p class="section-label">selected work ⭐</p>
 
                     <div class="proj" onclick="toggleProject(event, this)">
                         <div class="proj-head">
                             <div class="proj-main">
-                                <div class="proj-title"><span class="chevron">›</span>Twin</div>
-                                <div class="proj-tags">
-                                    <span class="tag">Hardware</span>
-                                    <span class="tag">AI</span>
-                                </div>
+                                <div class="proj-title"><span class="chevron">›</span>Twin – MakeUofT</div>
                             </div>
-                            <span class="proj-date">MakeUofT Hackathon</span>
+                            <span class="proj-date">Feb 2026</span>
                         </div>
                         <div class="proj-body">
                             <div class="proj-body-inner">
@@ -205,10 +328,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>AI Real Estate App</div>
-                                <div class="proj-tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">App Design</span>
-                                </div>
                             </div>
                             <span class="proj-date">Apr 2025</span>
                         </div>
@@ -230,9 +349,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>Machine Learning Deep Dive</div>
-                                <div class="proj-tags">
-                                    <span class="tag">ML</span>
-                                </div>
                             </div>
                             <span class="proj-date">Aug 2025</span>
                         </div>
@@ -253,10 +369,27 @@
                     <div class="proj" onclick="toggleProject(event, this)">
                         <div class="proj-head">
                             <div class="proj-main">
-                                <div class="proj-title"><span class="chevron">›</span>Live AI Web Agent</div>
-                                <div class="proj-tags">
-                                    <span class="tag">AI</span>
+                                <div class="proj-title"><span class="chevron">›</span>Swing Around – YC Hackathon</div>
+                            </div>
+                            <span class="proj-date">May 2026</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>An event networking layer for rooms where the signal is there but the structure isn't. Instead of scrolling past everyone in one giant chat thread, you drop a 90-second voice memo about who you are, what you're looking for, and what you can offer. GBrain indexes it as a living profile and surfaces the people in the room you should actually meet. We ran it live at the YC hackathon: interviewed 50 people, fed every profile in, and let the system build the real graph of who should meet who. Founders raising matched to VCs writing checks at their stage, engineers stuck on infra matched to people who'd shipped the same thing. Works for any event with a guest list, and the bigger the room, the more it matters.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://swing-around.vercel.app" target="_blank" rel="noopener noreferrer">Live</a>
+                                        <a href="https://github.com/Lemirq/swing-around" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Live AI Web Agent</div>
                             </div>
                             <span class="proj-date">Nov 2025</span>
                         </div>
@@ -276,10 +409,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>AI Engineering Consultant Website</div>
-                                <div class="proj-tags">
-                                    <span class="tag">AI</span>
-                                    <span class="tag">Web Development</span>
-                                </div>
                             </div>
                             <span class="proj-date">Oct 2025</span>
                         </div>
@@ -299,10 +428,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>Custom 6-DOF Robot Arm</div>
-                                <div class="proj-tags">
-                                    <span class="tag">Robotics</span>
-                                    <span class="tag">Physics</span>
-                                </div>
                             </div>
                             <span class="proj-date">Aug 2025</span>
                         </div>
@@ -319,11 +444,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>TARS Prototype</div>
-                                <div class="proj-tags">
-                                    <span class="tag">Control Systems</span>
-                                    <span class="tag">Robotics</span>
-                                    <span class="tag">CAD</span>
-                                </div>
                             </div>
                             <span class="proj-date">Jan 2025</span>
                         </div>
@@ -344,10 +464,6 @@
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>Linear Actuated Robot Arm</div>
-                                <div class="proj-tags">
-                                    <span class="tag">Robotics</span>
-                                    <span class="tag">CAD</span>
-                                </div>
                             </div>
                             <span class="proj-date">May 2024</span>
                         </div>
@@ -368,26 +484,6 @@
     </div>
 
     <script>
-        // Page transition effect
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const href = link.getAttribute('href');
-                document.querySelector('.page-content').classList.remove('fade-in');
-                document.querySelector('.page-content').classList.add('fade-out');
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 300);
-            });
-        });
-
-        // Ensure fade-in on page load
-        window.addEventListener('load', () => {
-            const content = document.querySelector('.page-content');
-            content.classList.remove('fade-out');
-            content.classList.add('fade-in');
-        });
-
         // Toggle a single project open; close any others (accordion behavior)
         function toggleProject(event, el) {
             event.stopPropagation();
@@ -402,6 +498,9 @@
             document.querySelectorAll('.proj.open').forEach(p => p.classList.remove('open'));
         }
     </script>
+    <script src="github-activity-data.js"></script>
+    <script src="github-activity.js"></script>
+    <script src="page-transition.js"></script>
 </body>
 
 </html>
