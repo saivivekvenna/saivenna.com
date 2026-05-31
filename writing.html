@@ -17,52 +17,99 @@
         .page-content {
             transition: opacity 0.3s ease-in-out;
         }
-        .fade-out {
-            opacity: 0;
-        }
-        .fade-in {
-            opacity: 1;
-        }
-        /* Card hover animation */
-        .card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
-        }
-        /* Match reference site colors */
+        .fade-out { opacity: 0; }
+        .fade-in { opacity: 1; }
+
+        /* Warm light site colors */
         body {
-            background-color: #1a1a1a;
-            color: #e5e5e5;
+            background-color: #fbf7ee;
+            color: #000000;
             font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
         }
-        a {
-            color: #3b82f6; /* Tailwind's blue-500 */
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        /* --- Editorial writing index --- */
+        .year-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: #a89c84;
+            margin-top: 2rem;
+            margin-bottom: 0.25rem;
         }
-        a:hover {
-            text-decoration: underline;
+        .year-group:first-of-type .year-label { margin-top: 0.5rem; }
+
+        .entry {
+            display: block;
+            border-top: 1px solid #e6dcc9;
+            padding: 0.95rem 0.85rem;
+            margin: 0 -0.85rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.18s ease, transform 0.18s ease;
+        }
+        .entry:hover {
+            background-color: #fffdf7;
+            transform: translateX(3px);
+        }
+
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1rem;
+        }
+        .entry-title {
+            font-weight: 600;
+            color: #000000;
+        }
+        .entry-title .arrow {
+            display: inline-block;
+            margin-left: 0.35em;
+            opacity: 0;
+            transform: translate(-3px, 3px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            color: #a89c84;
+        }
+        .entry:hover .entry-title .arrow {
+            opacity: 1;
+            transform: translate(0, 0);
+        }
+        .entry-date {
+            font-size: 0.7rem;
+            color: #a89c84;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .entry-summary {
+            margin-top: 0.35rem;
+            color: #6b6357;
+            line-height: 1.5;
         }
     </style>
 </head>
-<body class="w-full p-6 sm:p-10 md:p-14 text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
     <div class="flex flex-col md:flex-row">
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16 text-right">
             <style>
-
                 .nav-link:hover {
-                    color: #1a7318; /* Keep the same color on hover, or change to another color if desired */
+                    color: #000000;
+                    text-decoration: underline;
                 }
             </style>
             <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="index.html">Home</a>
                 </li>
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="projects.html">Projects</a>
                 </li>
-                <li class="text-white font-semibold -mx-2 text-right">
+                <li class="text-black font-semibold -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="writing.html">Writing</a>
                 </li>
             </ul>
@@ -71,80 +118,98 @@
         <!-- Main Content -->
         <main class="relative flex-1 max-w-2xl page-content fade-in">
             <!-- Vertical Bar -->
-            <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
+            <div class="absolute w-px h-full bg-[#d8cfbf] left-0 hidden md:block"></div>
 
             <article class="pl-0 md:pl-14 pt-6 md:pt-0">
-                <h1 class="font-semibold mb-7 text-white text-balance text-xl">writing</h1>
+                <h1 class="font-semibold mb-7 text-black text-balance text-lg">writing</h1>
+
                 <section>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/autonomous-robot-mining-8b19eba84dbc" target="_blank" rel="noopener noreferrer" class="hover:underline">Autonomous Robot Mining</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">July 2025</p>
-                        <p class="mt-2">Exploring the issues with modern mining and how autonomous robot mining can solve them.</p>
+                    <div class="year-group">
+                        <p class="year-label">2025</p>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/autonomous-robot-mining-8b19eba84dbc" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Autonomous Robot Mining<span class="arrow">↗</span></span>
+                                <span class="entry-date">Jul 2025</span>
+                            </div>
+                            <p class="entry-summary">Exploring the issues with modern mining and how autonomous robot mining can solve them.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/the-dance-between-tenacity-and-pragmatism-fe09403643ad" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">The Dance Between Tenacity and Pragmatism<span class="arrow">↗</span></span>
+                                <span class="entry-date">Jun 2025</span>
+                            </div>
+                            <p class="entry-summary">A reflection on balancing persistence with practical decision-making in personal and professional pursuits.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">So I made an app.<span class="arrow">↗</span></span>
+                                <span class="entry-date">May 2025</span>
+                            </div>
+                            <p class="entry-summary">A discussion about the process and challenges of developing an app over the past month.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/reflection-frc-44d57d60c11b" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Reflection: FRC<span class="arrow">↗</span></span>
+                                <span class="entry-date">Apr 2025</span>
+                            </div>
+                            <p class="entry-summary">A personal take on experiences and lessons learned from participating in the FIRST Robotics Competition.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/progress-on-my-version-of-tars-feaa90a65285" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Progress on My Version of TARS<span class="arrow">↗</span></span>
+                                <span class="entry-date">Mar 2025</span>
+                            </div>
+                            <p class="entry-summary">An update on building a robot inspired by Interstellar's TARS, detailing design and progress.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/creating-a-linearly-actuated-robot-arm-pt-2-a7c9d2228a5b" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Creating a Linearly Actuated Robot Arm Pt. 2<span class="arrow">↗</span></span>
+                                <span class="entry-date">Feb 2025</span>
+                            </div>
+                            <p class="entry-summary">The second part of a series on designing and constructing a robot arm with linear actuation.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/creating-a-linear-actuated-robot-arm-pt-1-1d36071ea9fe" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Creating a Linearly Actuated Robot Arm Pt. 1<span class="arrow">↗</span></span>
+                                <span class="entry-date">Jan 2025</span>
+                            </div>
+                            <p class="entry-summary">The first part of a series, exploring the initial design and concepts for a linearly actuated robot arm.</p>
+                        </a>
                     </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/the-dance-between-tenacity-and-pragmatism-fe09403643ad" target="_blank" rel="noopener noreferrer" class="hover:underline">The Dance Between Tenacity and Pragmatism</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">June 2025</p>
-                        <p class="mt-2">A reflection on balancing persistence with practical decision-making in personal and professional pursuits.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank" rel="noopener noreferrer" class="hover:underline">So I made an app.</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">May 2025</p>
-                        <p class="mt-2">A discussion about the process and challenges of developing an app over the past month.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/reflection-frc-44d57d60c11b" target="_blank" rel="noopener noreferrer" class="hover:underline">Reflection: FRC</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">April 2025</p>
-                        <p class="mt-2">A personal take on experiences and lessons learned from participating in the FIRST Robotics Competition.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/progress-on-my-version-of-tars-feaa90a65285" target="_blank" rel="noopener noreferrer" class="hover:underline">Progress on My Version of TARS</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">March 2025</p>
-                        <p class="mt-2">An update on building a robot inspired by Interstellar’s TARS, detailing design and progress.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/creating-a-linearly-actuated-robot-arm-pt-2-a7c9d2228a5b" target="_blank" rel="noopener noreferrer" class="hover:underline">Creating a Linearly Actuated Robot Arm Pt. 2</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">February 2025</p>
-                        <p class="mt-2">The second part of a series on designing and constructing a robot arm with linear actuation.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/creating-a-linear-actuated-robot-arm-pt-1-1d36071ea9fe" target="_blank" rel="noopener noreferrer" class="hover:underline">Creating a Linearly Actuated Robot Arm Pt. 1</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">January 2025</p>
-                        <p class="mt-2">The first part of a series, exploring the initial design and concepts for a linearly actuated robot arm.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6" target="_blank" rel="noopener noreferrer" class="hover:underline">Quadruped Robot Inspired by Interstellar’s TARS</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">December 2024</p>
-                        <p class="mt-2">A project overview of a quadruped robot modeled after the TARS robot from Interstellar.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment-4fa89852cb2c" target="_blank" rel="noopener noreferrer" class="hover:underline">Using Object Detection to Allow Robots to Be More Adaptive</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">November 2024</p>
-                        <p class="mt-2">An exploration of how object detection enhances robotic adaptability in dynamic environments.</p>
-                    </div>
-                    <div class="card mt-7 border border-[#3a3a3a] rounded-md p-4 bg-[#1a1a1a]">
-                        <h2 class="font-semibold text-white">
-                            <a href="https://medium.com/@saivivekvenna/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration-ff8bcb88f670" target="_blank" rel="noopener noreferrer" class="hover:underline">Exploring Environments Beyond Imagination</a>
-                        </h2>
-                        <p class="text-gray-400 text-sm">October 2024</p>
-                        <p class="mt-2">A look at how soft robotics and AI are transforming exploration in challenging terrains.</p>
+
+                    <div class="year-group">
+                        <p class="year-label">2024</p>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Quadruped Robot Inspired by Interstellar's TARS<span class="arrow">↗</span></span>
+                                <span class="entry-date">Dec 2024</span>
+                            </div>
+                            <p class="entry-summary">A project overview of a quadruped robot modeled after the TARS robot from Interstellar.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment-4fa89852cb2c" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Using Object Detection to Allow Robots to Be More Adaptive<span class="arrow">↗</span></span>
+                                <span class="entry-date">Nov 2024</span>
+                            </div>
+                            <p class="entry-summary">An exploration of how object detection enhances robotic adaptability in dynamic environments.</p>
+                        </a>
+
+                        <a class="entry" href="https://medium.com/@saivivekvenna/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration-ff8bcb88f670" target="_blank" rel="noopener noreferrer">
+                            <div class="entry-head">
+                                <span class="entry-title">Exploring Environments Beyond Imagination<span class="arrow">↗</span></span>
+                                <span class="entry-date">Oct 2024</span>
+                            </div>
+                            <p class="entry-summary">A look at how soft robotics and AI are transforming exploration in challenging terrains.</p>
+                        </a>
                     </div>
                 </section>
             </article>
@@ -152,7 +217,7 @@
     </div>
 
     <script>
-        // Page transition effect
+        // Page transition effect (internal nav links only)
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();

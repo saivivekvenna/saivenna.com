@@ -104,13 +104,13 @@
 
         .card:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
+            box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.16), 0 2px 6px -2px rgba(0, 0, 0, 0.12);
         }
 
-        /* Match reference site colors */
+        /* Warm light site colors */
         body {
-            background-color: #1a1a1a;
-            color: #e5e5e5;
+            background-color: #fbf7ee;
+            color: #000000;
             font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
             margin: 0;
             box-sizing: border-box;
@@ -121,8 +121,7 @@
         }
 
         a {
-            color: #3b82f6;
-            /* Tailwind's blue-500 */
+            color: inherit;
         }
 
         a:hover {
@@ -140,7 +139,7 @@
             position: relative;
             padding-bottom: 1px;
             color: inherit;
-            border-bottom: 1px dotted #6b7280;
+            border-bottom: 1px dotted #737373;
             background-image: linear-gradient(to right, currentColor, currentColor);
             background-repeat: no-repeat;
             background-size: 0% 1px;
@@ -159,27 +158,43 @@
             vertical-align: -0.15em;
             margin-left: 0.28em;
         }
+
+        .epicurus-logo {
+            filter: brightness(0);
+        }
+
+        .text-black {
+            color: #000000 !important;
+        }
+
+        .text-neutral-600 {
+            color: #525252 !important;
+        }
+
+        .bg-\[\#d8cfbf\] {
+            background-color: #d8cfbf !important;
+        }
     </style>
 </head>
 
-<body class="w-full text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
+<body class="w-full text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
     <div class="page-shell flex flex-col md:flex-row w-full px-6 sm:px-10 md:px-14 pt-6 sm:pt-10 md:pt-14 pb-0">
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16 text-right">
             <style>
                 .nav-link:hover {
-                    color: #1a7318;
-                    /* Keep the same color on hover, or change to another color if desired */
+                    color: #000000;
+                    text-decoration: underline;
                 }
             </style>
             <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
-                <li class="text-white font-semibold -mx-2 text-right">
+                <li class="text-black font-semibold -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="index.html">Home</a>
                 </li>
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="projects.html">Projects</a>
                 </li>
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="writing.html">Writing</a>
                 </li>
             </ul>
@@ -194,21 +209,21 @@
             <div class="main-text">
                 <main class="relative flex-1 max-w-3xl page-content fade-in">
                     <!-- Vertical Bar -->
-                    <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
+                    <div class="absolute w-px h-full bg-[#d8cfbf] left-0 hidden md:block"></div>
 
                     <article class="pl-0 md:pl-14 pt-6 md:pt-0">
-                        <h1 class="font-semibold mb-7 text-white text-balance text-xl">hey! i'm sai.</h1>
+                        <h1 class="font-semibold mb-7 text-black text-balance text-lg">hey! i'm sai.</h1>
 
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">
-                                <span class="text-zinc-500">01</span>
+                            <h2 class="font-semibold mb-4 text-black">
+                                <span class="text-neutral-600">01</span>
                                 what i'm up to right now:
                             </h2>
                             <ul class="list-disc pl-5 mt-7">
                                 <li>Building <a class="fancy-link-wrapper" href="https://tryepicurus.com"
                                         target="_blank" rel="noopener noreferrer"><span
                                             class="fancy-link">Epicurus</span></a><img src="logos/epicurus.png"
-                                        alt="Epicurus" class="company-logo">.</li>
+                                        alt="Epicurus" class="company-logo epicurus-logo">.</li>
                                 <li>Studying Computer Engineering @ UofT</li>
                                 <li>Data Modernization Intern @ Enbridge<img src="logos/enbridge.png" alt="Enbridge"
                                         class="company-logo"></li>
@@ -216,8 +231,8 @@
                         </section>
 
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">
-                                <span class="text-zinc-500">02</span>
+                            <h2 class="font-semibold mb-4 text-black">
+                                <span class="text-neutral-600">02</span>
                                 about me:
                             </h2>
                             <ul class="list-disc pl-5 mt-7">
@@ -228,8 +243,8 @@
                             </ul>
                         </section>
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">
-                                <span class="text-zinc-500">03</span>
+                            <h2 class="font-semibold mb-4 text-black">
+                                <span class="text-neutral-600">03</span>
                                 what i'm intrested in:
                             </h2>
                             <ul class="list-disc pl-5 mt-7">
@@ -242,8 +257,8 @@
                             </ul>
                         </section>
                         <section class="mt-5">
-                            <h2 class="font-semibold mb-4 text-white">
-                                <span class="text-zinc-500">04</span>
+                            <h2 class="font-semibold mb-4 text-black">
+                                <span class="text-neutral-600">04</span>
                                 find me on:
                             </h2>
                             <p>
@@ -269,9 +284,9 @@
                     </article>
                 </main>
             </div>
-            <div class="side-image-container">
+            <!-- <div class="side-image-container">
                 <img src="plamtree.gif" alt="gif" class="side-image">
-            </div>
+            </div> -->
         </div>
 
     </div>

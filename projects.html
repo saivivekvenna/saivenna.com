@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>projects - sai venna</title>
@@ -17,278 +16,350 @@
         .page-content {
             transition: opacity 0.3s ease-in-out;
         }
+        .fade-out { opacity: 0; }
+        .fade-in { opacity: 1; }
 
-        .fade-out {
-            opacity: 0;
-        }
-
-        .fade-in {
-            opacity: 1;
-        }
-
-        .padded-text {
-            padding: 15px;
-            /* Add 15px padding around the text */
-        }
-
-        /* Card hover and expand animation */
-        .card {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, height 0.3s ease-in-out, padding 0.3s ease-in-out;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1), 0 2px 4px -1px rgba(255, 255, 255, 0.06);
-        }
-
-        .card.collapsed {
-            height: 100px;
-            /* Increased height for mobile to fit title, date, category */
-            padding: 1rem;
-        }
-
-        @media (min-width: 640px) {
-            .card.collapsed {
-                height: 80px;
-                /* Revert to original height for larger screens */
-            }
-        }
-
-        .card.expanded {
-            padding: 1.5rem;
-        }
-
-        /* Ensure summary and button-group are hidden in collapsed state */
-        .card.collapsed .summary,
-        .card.collapsed .button-group,
-        .card.collapsed .model-viewer-container {
-            display: none !important;
-        }
-
-        /* Match reference site colors */
+        /* Warm light site colors */
         body {
-            background-color: #1a1a1a;
-            color: #e5e5e5;
+            background-color: #fbf7ee;
+            color: #000000;
             font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
         }
 
-        a {
-            color: #1a7318;
-            /* Updated to match your nav link color */
-        }
+        a { color: inherit; }
 
-        a:hover {
-            text-decoration: underline;
-        }
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
 
-        .summary {
-            display: none;
+        /* --- Section labels --- */
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
+            color: #a89c84;
+            margin: 2rem 0 0.25rem;
         }
+        .section-label:first-of-type { margin-top: 0.5rem; }
 
-        .card.expanded .summary {
-            display: block;
+        /* --- Expandable project rows --- */
+        .proj {
+            border-top: 1px solid #e6dcc9;
+            margin: 0 -0.85rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.18s ease;
         }
+        .proj:hover { background-color: #fffdf7; }
+        .proj.open { background-color: #fffdf7; }
 
-        .button-group {
-            margin-top: 1rem;
-            display: none;
-        }
-
-        .card.expanded .button-group {
+        .proj-head {
             display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
             gap: 1rem;
+            padding: 0.95rem 0.85rem;
+        }
+        .proj-main { min-width: 0; }
+        .proj-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            color: #000000;
+        }
+        .chevron {
+            color: #a89c84;
+            font-size: 0.85em;
+            flex-shrink: 0;
+            transition: transform 0.25s ease;
+        }
+        .proj.open .chevron { transform: rotate(90deg); }
+
+        .proj-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: 0.55rem;
+            padding-left: 1.1rem;
+        }
+        .tag {
+            font-size: 0.62rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #8a7d63;
+            background-color: #f3ecdd;
+            border: 1px solid #e7ddc8;
+            border-radius: 5px;
+            padding: 0.12rem 0.5rem;
+            white-space: nowrap;
+            transition: background-color 0.18s ease, color 0.18s ease;
+        }
+        .proj:hover .tag,
+        .proj.open .tag {
+            background-color: #ede3cf;
+            color: #6b6357;
+        }
+        .proj-date {
+            font-size: 0.7rem;
+            color: #a89c84;
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding-top: 0.15rem;
         }
 
-        .button-group a {
-            border: 1px solid #3a3a3a;
+        /* Smooth height animation via grid-template-rows */
+        .proj-body {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease;
+        }
+        .proj.open .proj-body { grid-template-rows: 1fr; }
+        .proj-body-inner { overflow: hidden; }
+        .proj-detail {
+            padding: 0 0.85rem 1.1rem 1.95rem;
+            color: #6b6357;
+        }
+
+        .links {
+            margin-top: 0.85rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .links a {
+            border: 1px solid #d8cfbf;
             background-color: transparent;
-            color: #e5e5e5;
-            padding: 0.25rem 0.75rem;
+            color: #000000;
+            padding: 0.2rem 0.7rem;
             border-radius: 4px;
-            transition: background-color 0.2s ease-in-out;
+            font-size: 0.72rem;
+            transition: background-color 0.18s ease;
         }
-
-        .button-group a:hover {
-            background-color: #3a3a3a;
+        .links a:hover {
+            background-color: #f1eadc;
             text-decoration: none;
         }
     </style>
 </head>
 
 <body
-    class="w-full p-6 sm:p-10 md:p-14 text-sm sm:text-[15px] md:text-base leading-6 sm:leading-7 md:leading-7 antialiased">
+    class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
     <div class="flex flex-col md:flex-row">
         <!-- Navigation -->
         <nav class="md:mr-14 w-full md:w-16 text-right">
             <style>
                 .nav-link:hover {
-                    color: #1a7318;
+                    color: #000000;
+                    text-decoration: underline;
                 }
             </style>
             <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="index.html">Home</a>
                 </li>
-                <li class="text-white font-semibold -mx-2 text-right">
+                <li class="text-black font-semibold -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="projects.html">Projects</a>
                 </li>
-                <li class="text-[#e5e5e5] -mx-2 text-right">
+                <li class="text-black -mx-2 text-right">
                     <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="writing.html">Writing</a>
                 </li>
             </ul>
         </nav>
 
         <!-- Main Content -->
-        <main class="relative flex-1 max-w-2xl page-content fade-in" onclick="collapseAllCards(event)">
+        <main class="relative flex-1 max-w-2xl page-content fade-in" onclick="collapseAll(event)">
             <!-- Vertical Bar -->
-            <div class="absolute w-px h-full bg-[#3a3a3a] left-0 hidden md:block"></div>
+            <div class="absolute w-px h-full bg-[#d8cfbf] left-0 hidden md:block"></div>
 
             <article class="pl-0 md:pl-14 pt-6 md:pt-0">
-                <h3 class="flex justify-between items-center font-semibold mb-7 text-white text-balance text-xl">
-                    <span>projects</span>
-                    <!-- <span class="opacity-50 text-sm text-gray-400">*click on project for more information*</span> -->
-                </h3>
-
-                <h2 class="flex justify-between items-center font-semibold mb-7 text-white text-balance text-xl">
-                    <span class="opacity-50 text-sm text-gray-400">selected work ⭐</span>
-                </h2>
-
+                <h1 class="font-semibold mb-7 text-black text-balance text-lg">projects</h1>
 
                 <section>
+                    <p class="section-label">selected work ⭐</p>
 
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Twin</h2>
-                        <p class="text-gray-400 text-sm">MakeUofT Hackathon</p>
-                        <p class="mt-2">Hardware/ AI</p>
-                        <div class="summary mt-4">
-                            <p>A real-time AI assistant that can see what you see, is biometrically connected to you, and supports two-way voice conversation to help you navigate your current situation. Won 1st Overall @ MakeUofT, Largest Hardware Hackathon in Canada.</p>
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Twin</div>
+                                <div class="proj-tags">
+                                    <span class="tag">Hardware</span>
+                                    <span class="tag">AI</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">MakeUofT Hackathon</span>
                         </div>
-                        <div class="button-group">
-                            <a href="https://devpost.com/software/twin-pywkb4" target="_blank"
-                                rel="noopener noreferrer">Devpost</a>
-                            <a href="https://github.com/saivivekvenna/makeUofT" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                        </div>
-
-                    </div>
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">AI Real Estate App</h2>
-                        <p class="text-gray-400 text-sm">April 2025</p>
-                        <p class="mt-2">AI/ App Design</p>
-                        <div class="summary mt-4">
-                            <p>I built an app that takes in natural language queries and returns real-time houses for
-                                sale. I used the Flutter framework for the frontend and Node.js for the backend.</p>
-                        </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/estateAI" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                            <a href="https://www.loom.com/share/1bd2f79258d44d9bacfa568b6119ee3a" target="_blank"
-                                rel="noopener noreferrer">Demo</a>
-                            <a href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank"
-                                rel="noopener noreferrer">Write Up</a>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>A real-time AI assistant that can see what you see, is biometrically connected to you, and supports two-way voice conversation to help you navigate your current situation. Won 1st Overall @ MakeUofT, the largest hardware hackathon in Canada.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://devpost.com/software/twin-pywkb4" target="_blank" rel="noopener noreferrer">Devpost</a>
+                                        <a href="https://github.com/saivivekvenna/makeUofT" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Machine Learning Deep Dive</h2>
-                        <p class="text-gray-400 text-sm">August 2025</p>
-                        <p class="mt-2">ML</p>
-                        <div class="summary mt-4">
-                            <p>Deep dive into ML trying to learn as much as I can.</p>
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>AI Real Estate App</div>
+                                <div class="proj-tags">
+                                    <span class="tag">AI</span>
+                                    <span class="tag">App Design</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Apr 2025</span>
                         </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/machine-learning" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                        </div>
-
-                    </div>
-
-                    <!-- ///////////////////////////////////////// exhaustive list /////////////////////////////////////////-->
-
-                    <h2 class="flex justify-between items-center font-semibold mt-7 text-white text-balance text-xl">
-                        <span class=" opacity-50 text-sm text-gray-400">exhaustive list</span>
-                    </h2>
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Live AI Web Agent</h2>
-                        <p class="text-gray-400 text-sm">Nov 2025</p>
-                        <p class="mt-2">AI</p>
-                        <div class="summary mt-4">
-                            <p>Takes in natural language and is able to navigate a live web browser to complete a task.
-                            </p>
-                        </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/live-web-agent" target="_blank"
-                                rel="noopener noreferrer">Github
-                                </a>
-                        </div>
-
-                    </div>
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">AI Enigneering Consultant Website</h2>
-                        <p class="text-gray-400 text-sm">October 2025</p>
-                        <p class="mt-2">AI/ Web Development</p>
-                        <div class="summary mt-4">
-                            <p>Allows users to input their engineering needs and scopes/plans the project in the form of
-                                a formal document. Inspired by me trying to see if parts of my engineering design course
-                                could be sped up.</p>
-                        </div>
-                        <div class="button-group">
-                            <a href="https://scoper.onrender.com/" target="_blank" rel="noopener noreferrer">Visit
-                                scoper.</a>
-                        </div>
-
-                    </div>
-
-
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Custom 6-DOF Robot Arm</h2>
-                        <p class="text-gray-400 text-sm">August 2025</p>
-                        <p class="mt-2">Robotics/ Physics</p>
-                        <div class="summary mt-4">
-                            <p>I made a 6 DOF robot arm in CAD while also designing for motor constraints and robot arm kinematics.</p>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>An app that takes in natural language queries and returns real-time houses for sale. Built with Flutter for the frontend and Node.js for the backend.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://github.com/saivivekvenna/estateAI" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                        <a href="https://www.loom.com/share/1bd2f79258d44d9bacfa568b6119ee3a" target="_blank" rel="noopener noreferrer">Demo</a>
+                                        <a href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank" rel="noopener noreferrer">Write Up</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">TARS Prototype</h2>
-                        <p class="text-gray-400 text-sm">Jan 2025</p>
-                        <p class="mt-2">Control Systems/ Robotics/ CAD</p>
-                        <div class="summary mt-4">
-                            <p>I built the TARS robot from the movie Interstellar inorder to see if I could replicate
-                                the motion/ mechanics of the robot.</p>
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Machine Learning Deep Dive</div>
+                                <div class="proj-tags">
+                                    <span class="tag">ML</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Aug 2025</span>
                         </div>
-                        <div class="button-group">
-                            <a href="https://github.com/saivivekvenna/testWalkCode" target="_blank"
-                                rel="noopener noreferrer">GitHub</a>
-                            <a href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6"
-                                target="_blank" rel="noopener noreferrer">Write Up</a>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>A deep dive into ML, trying to learn as much as I can from the ground up.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://github.com/saivivekvenna/machine-learning" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="card collapsed mt-7 border border-[#3a3a3a] rounded-md bg-[#1a1a1a]"
-                        onclick="toggleCard(event, this)">
-                        <h2 class="font-semibold text-white">Linear Actuated Robot Arm</h2>
-                        <p class="text-gray-400 text-sm">May 2024</p>
-                        <p class="mt-2">Robotics/ CAD</p>
-                        <div class="summary mt-4">
-                            <p>Built a linear actuated robot arm. Designed from scratch including the linear actuator.
-                            </p>
+                    <p class="section-label">exhaustive list</p>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Live AI Web Agent</div>
+                                <div class="proj-tags">
+                                    <span class="tag">AI</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Nov 2025</span>
                         </div>
-                        <div class="button-group">
-                            <a href="https://medium.com/@saivivekvenna/creating-a-linear-actuated-robot-arm-pt-1-1d36071ea9fe"
-                                target="_blank" rel="noopener noreferrer">Write Up</a>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>Takes in natural language and navigates a live web browser to complete a task.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://github.com/saivivekvenna/live-web-agent" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>AI Engineering Consultant Website</div>
+                                <div class="proj-tags">
+                                    <span class="tag">AI</span>
+                                    <span class="tag">Web Development</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Oct 2025</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>Allows users to input their engineering needs and scopes/plans the project as a formal document. Inspired by wondering whether parts of my engineering design course could be sped up.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://scoper.onrender.com/" target="_blank" rel="noopener noreferrer">Visit scoper.</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Custom 6-DOF Robot Arm</div>
+                                <div class="proj-tags">
+                                    <span class="tag">Robotics</span>
+                                    <span class="tag">Physics</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Aug 2025</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>A 6-DOF robot arm designed in CAD, accounting for motor constraints and robot arm kinematics.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>TARS Prototype</div>
+                                <div class="proj-tags">
+                                    <span class="tag">Control Systems</span>
+                                    <span class="tag">Robotics</span>
+                                    <span class="tag">CAD</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">Jan 2025</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>Built the TARS robot from Interstellar to see if I could replicate the motion and mechanics of the robot.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://github.com/saivivekvenna/testWalkCode" target="_blank" rel="noopener noreferrer">GitHub</a>
+                                        <a href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6" target="_blank" rel="noopener noreferrer">Write Up</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Linear Actuated Robot Arm</div>
+                                <div class="proj-tags">
+                                    <span class="tag">Robotics</span>
+                                    <span class="tag">CAD</span>
+                                </div>
+                            </div>
+                            <span class="proj-date">May 2024</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>A linear actuated robot arm designed from scratch, including the linear actuator itself.</p>
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://medium.com/@saivivekvenna/creating-a-linear-actuated-robot-arm-pt-1-1d36071ea9fe" target="_blank" rel="noopener noreferrer">Write Up</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -317,40 +388,18 @@
             content.classList.add('fade-in');
         });
 
-        // Toggle card expansion
-        function toggleCard(event, card) {
+        // Toggle a single project open; close any others (accordion behavior)
+        function toggleProject(event, el) {
             event.stopPropagation();
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(c => {
-                if (c !== card && c.classList.contains('expanded')) {
-                    c.classList.remove('expanded');
-                    c.classList.add('collapsed');
-                    c.style.height = window.innerWidth < 640 ? '100px' : '80px';
-                }
+            document.querySelectorAll('.proj.open').forEach(p => {
+                if (p !== el) p.classList.remove('open');
             });
-
-            if (card.classList.contains('expanded')) {
-                card.classList.remove('expanded');
-                card.classList.add('collapsed');
-                card.style.height = window.innerWidth < 640 ? '100px' : '80px';
-            } else {
-                card.classList.remove('collapsed');
-                card.classList.add('expanded');
-                const height = card.scrollHeight + 20;
-                card.style.height = `${height}px`;
-            }
+            el.classList.toggle('open');
         }
 
-        // Collapse all cards when clicking outside
-        function collapseAllCards(event) {
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                if (card.classList.contains('expanded')) {
-                    card.classList.remove('expanded');
-                    card.classList.add('collapsed');
-                    card.style.height = window.innerWidth < 640 ? '100px' : '80px';
-                }
-            });
+        // Collapse all when clicking outside any project
+        function collapseAll(event) {
+            document.querySelectorAll('.proj.open').forEach(p => p.classList.remove('open'));
         }
     </script>
 </body>
