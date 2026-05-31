@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Linearly Actuated Robot Arm Pt.2 - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Jun 2024</p>
+                <h1 class="article-title font-semibold text-black text-balance">Creating a Linearly Actuated Robot Arm Pt.2</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/creating-a-linearly-actuated-robot-arm-pt-2-a7c9d2228a5b" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<p>Can a high school team build a working robot arm with a small budget, old parts and 4 weeks? I got the answer and it&#39;s more complicated than yes or no…</p><h3>End Effector :</h3><p>The biggest addition from last time is the end effector. The end effector is a device that you can attach to the “wrist” or end of the robot which allows the robot to interact with its environment. In our case, it is a scoop to pick up balls from a bucket.</p><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-01.png" loading="lazy"></figure><p>The end effector is driven by a chain sprocket which is connected to a Mini CIM motor.</p><h3>Electrical :</h3><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-02.jpeg" loading="lazy"></figure><p>Now this electrical job is not very pretty, but it works :) Threw this together in a rush in the last few days before the comp. As I mentioned in the previous article, I&#39;m using Talon SRXs as motor controllers to control the CIMs. For those of you who aren&#39;t aware of what a motor control is, it&#39;s sorta like the motor’s boss. The motor does whatever the motor controller says.</p><h3>Fixes:</h3><h4>Linear Actuator:</h4><p>As I mentioned in the previous article, the robot arm was experiencing lots of violent vibrations due to the ready rod not being in line with the motor shaft. I tried a few different things to fix this issue.</p><ol><li>Originally, I was using a 7/16th rod and tried to couple it to an 8mm shaft. I first used a normal coupler, the issue with this is that when I machined the inside of it to fix the 7/16th rod, I could never get it right. It was always just a little bigger than I needed.</li><li>Next, I tried to thread the inside of the coupler to 7/16. Now this should theoretically work but there was another variable I did not take into account. The angle of how I threaded into it. Now an easy fix to this is just to put the tap on the end of the drill chuck on a lathe and spin it by hand. Unfortunately, I didn&#39;t have access to a drill chuck for our lathe. So I took the risk and free-handed it… It didn&#39;t work but I did learn that I won&#39;t be becoming a surgeon anytime soon.</li><li>At this point, I was trying to look for anything that would work. I started to look into 3d printer actuators and turns out that instead of going through all that hassle I could just use a ready rod from a 3d printer. It wouldn&#39;t be 7/16ths, instead, it&#39;s T8 8mm, which fits perfectly onto a normal 8mm to 8mm coupler.</li></ol><p>After this, the arm was essentially fully assembled. Here are some flicks (try to ignore the cracks in my camera):</p><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-03.jpeg" loading="lazy"></figure><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-04.jpeg" loading="lazy"></figure><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-05.jpeg" loading="lazy"></figure><p>Yes, I know that chain isn’t tensioned 😔 I tensioned it but didn’t get a pic of it.</p><p>Here is a GIF of it working:</p><figure><img alt="" src="../writing-assets/creating-a-linearly-actuated-robot-arm-pt-2/image-06.gif" loading="lazy"></figure><h3>So how did the comp go…</h3><p>Unfortunately, the robot arm did NOT work during the comp. The reason was that we controlled the arm using Bluetooth, and when we were in the stadium, there were so many signals we could not connect to the robot. This was really unfortunate as it was working just a few hours before but it is what it is. I learned a very valuable lesson, HARD WIRE EVERYTHING. Regardless, our team still turnt up for the mystery challenges and placed Silver.</p><p>Overall, it was a lot of fun and it was truly the journey that is more enjoyable than the destination. I definitely want to make a better version of this robot arm in the near future. Thanks for following me on my journey tho :)</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

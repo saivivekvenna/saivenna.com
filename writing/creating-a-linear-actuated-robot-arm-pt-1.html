@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Linear Actuated Robot Arm Pt.1 - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">May 2024</p>
+                <h1 class="article-title font-semibold text-black text-balance">Creating a Linear Actuated Robot Arm Pt.1</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/creating-a-linear-actuated-robot-arm-pt-1-1d36071ea9fe" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<h3>Creating a Robot Arm using a Linear Actuator Pt.1</h3><p>Recently, my team and I have been working hard on our Science Olympics project. We were tasked with creating a robot arm that could collect and sort these multi-coloured balls from one bin and transport them to another bin. My main role on the team was designing and creating the arm itself and doing electrical for the arm so I am going to talk a bit about how that is going for me so far.</p><p>The moment I learned that we were making a robot arm, I went straight to the web and tried to find a design I could find inspiration from. Funny enough, my FRC team 4627 spent a lot of time post-season perfecting a robot arm so all of this was kinda ironic.</p><p>Eventually, I landed a design, it was the robot arm called “DUM-E” from the movie Iron Man. I thought it was the most cool-looking (and over-engineered) solution to our problem. Now obviously, our team had finite resources unlike the movie so I had to dumb it down a lot, but I made sure to keep the parts I thought were the most interesting on the robot.</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-01.jpg" loading="lazy"><figcaption>Robot “DUM-E” from Iron Man</figcaption></figure><p>The part of this arm that caught my attention first was the hydraulics that are used to move the first joint of the arm. I wanted to create something that could achieve the same motion. I landed on using a lead screw to create a linear actuator, but more on this later. First I’ll give a walkthrough of the arm from bottom to top.</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-02.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-03.png" loading="lazy"><figcaption>My CAD Design for this robot</figcaption></figure><p>The 3 main subsections of the arm are:</p><ol><li>Base and Swivel</li><li>Linear Actuator/ First Joint</li><li>Second Pivot/ Scoop</li></ol><h4>Fabrication Materials and Processes:</h4><p>Every part of this arm has either been 3D printed, recycled from old parts or borrowed from my robotics team. The tube part of the robot arm is an old PVC pipe and the swivel is an old lazy Susan from the dining table.</p><h3>1. Base and Swivel</h3><p>The base will house all the electronics — 12V Battery, Arduino Uno, and my own custom-made PDP. — and a Mini CIM motor to control the swivel of the arm.</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-04.png" loading="lazy"><figcaption>PDP and Ardunio aren’t in this image</figcaption></figure><h4>PDP</h4><p>Since we are using 12V motors, we needed to improvise a way to distribute the power to all the motors. So I created my this makeshift PDP:</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-05.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-06.png" loading="lazy"></figure><p>The positive and negative ends of the battery were attached to distribution lines. The positive end was connected to car fuses to act as breakers. The only downside to this was that they are not slow-blow fuses like a normal PDP, so it was important that we added a current limit in the code so we don&#39;t blow the fuses. I ran the negative end and the positive end from the fuses to terminal blocks so I could freely swap out the electronics I wanted.</p><p>The terminal blocks are on stand-offs, so I could save space as we are working in a tight space.</p><h4>Motor Contol</h4><p>We are using old Talon SRXs from our robotics team to control the Mini CIMs and we outfitted them to run off PWM instead of CANbus, the fact the talons are so versatile was a huge help in this project.</p><p>We simply took two of the four CAN wires and terminated them using 120 Ohm resistors and then took the last two CAN wires and ran one to the PWM port on the Arduino and the other one to the ground port.</p><h4>Swivel</h4><p>I am using a lazy susan to act like a turret. The outside part of the lazy susan is wrapped in an old belt, with the teeth facing outwards. There is a Mini CIM with a timing gear at the end of the shaft to control the spin of the lazy susan. The rest of the arm is attached on top of this lazy susan allowing for the arm to swivel.</p><h3>2. Linear Actuator/ First Joint</h3><p>I designed the robot arm’s main joint to operate using a linear actuator, for simplicity and reliability.</p><h4>Linear Actuator</h4><p>The linear actuator is by attaching a lead screw to the end of a mini CIM motor shaft. The CIM itself and the part of the linear actuator that is moving up and down are both attached and joined in order to allow the geometry to work. Both these joints along with the joint at the base of the arm allow for the entire joint to move up and down smoothly.</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-07.png" loading="lazy"></figure><h3>3. Second Pivot/ Scoop</h3><h4>Pivot and Motor</h4><p>The second pivot is also run off a Mini CIM. This motor might be a bit overkill for this purpose but why not 🤷‍♂️ .</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-08.png" loading="lazy"></figure><p>The motor (red box) is mounted away from the arm&#39;s end, this way we are avoiding unnecessary load at the end of the arm. The green box is the joint itself, this is where the end effector is attached, in this case, it is the scooper. The motor drives a belt which is connected to the joint.</p><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-09.png" loading="lazy"></figure><p>The end effector is a simple scooper that is designed to simply pick up play-pin balls from a bin.</p><h3>Progress so far:</h3><figure><img alt="" src="../writing-assets/creating-a-linear-actuated-robot-arm-pt-1/image-10.png" loading="lazy"></figure><h4>Unexpected troubleshooting so far:</h4><p>1. Vibrations: I noticed that vibrations, even the smallest ones, if consistent enough can cause a lot of damage. While testing the arm and the swivel, the small vibrations caused by the motors made the entire mechanism shake. Which eventually led to failure in several places including cracks in the prints and the joints coming apart.</p><p>2. Coupling: The linear actuator’s lead screw needed a coupler to attach to the motor shaft. The issue that arose was that when the lead screw was attached, it wasn&#39;t in line with the motor. This leads to an eccentric spin on the linear actuator, causing lots of violent vibrations.</p><p>Check out <a href="creating-a-linearly-actuated-robot-arm-pt-2.html">part two</a>!</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

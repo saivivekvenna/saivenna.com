@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reflection: FRC - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Mar 2025</p>
+                <h1 class="article-title font-semibold text-black text-balance">Reflection: FRC</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/reflection-frc-44d57d60c11b" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<p>I’ve participated in the First Robotics Competition (FRC) for 3 seasons, this season I’d say I put around 400 hours, more or less, into building the robot. And yet, the season&#39;s result was going 0–2 in the playoffs and a cumulative record of 5–7. It was a bad loss, to say the least.</p><figure><img alt="" src="../writing-assets/reflection-frc/image-01.jpeg" loading="lazy"></figure><figure><img alt="" src="../writing-assets/reflection-frc/image-02.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/reflection-frc/image-03.jpeg" loading="lazy"><figcaption>couple pictures from this year</figcaption></figure><p>In the previous season (2024), our robot was honestly not good and our season ended with a record of 5–9. We had changed a lot of things, a new type of drivetrain, a new approach to auto, and a new ambition of going to worlds. Nothing came to fruition. This season was a redemption arc for a lot of us, we wanted to take everything that went wrong last year and make the correct fixes to ensure we will never see the same result again. And before going into this year&#39;s competition, that is what I thought we had done successfully.</p><p>How could we have fixed so much, and made a consistent robot that would score 40 points on average only to arrive at the same result? Our robot had no breaks at comp, something I hadn&#39;t seen in the past two years of our team. Yet this feat did not translate into a higher placement at the competition. At first, it was very upsetting, but there is a lot that can be learnt here. Here are a couple of my thoughts:</p><ul><li><strong>Auto: </strong>Our auto was inconsistent, and did not use our robot to its fullest capacity. I believe, we should have focused on L4 scoring in auto, even if it was just one of two pieces. It would have been a key factor in being noticed by elite teams. I understand that our robot was far more consistent at scoring at L3, but perfecting L4 would have been worth our time. At the very least, we should have gone for a second piece of coral instead of scoring the ball. It is important to understand the advantageous parts of the auto period, scoring the ball wouldn&#39;t give us any extra points compared to Teleop, but Coral would.</li><li><strong>Focus on ranking points:</strong> There were too many ranking points that went unnoticed whilst we were playing matches. I believe a higher emphasis on ranking points over actual points would have been key in allowing us to rank higher. It&#39;s very obvious that elite teams almost exclusively focus on ranking points.</li><li><strong>Endgame(Rooted in Member Retention):</strong> Endgame is an insanely important part of the game and unfortunately due to low membership we were not able to focus on this aspect. I know for a fact if the same amount of members were to have spread themselves thin enough to build an endgame component, our robot would have performed far worse. It&#39;s important to not take everything on at the same time(something we tried to do last season and did not end well). This issue lies in our member retention. We always start off with a lot of kids, but eventually it dissipates into 10–15 members. I do think this is something we are beginning to fix though, with the establishment of a Jr team, so the future of our team shouldn&#39;t see this problem.</li></ul><p>Though I do dislike telling myself we lost because of things outside of our control, they are still important to acknowledge. The biggest factor is our alliance partners. A couple of times, we were fortunate enough to get with elite teams, for about 2 or 3 of the matches we played. The rest, seemed almost as if everything were against us. There were a couple of matches where our alliance partners wouldn&#39;t move at all, essentially forcing us to play a 2v3 or 1v3. Many of our alliance partners were not able to score, causing us to be the only major scoring team in our alliance, and we simply couldn&#39;t keep up.</p><p>Another important topic that I want to mention is that we are a student-run team. Emphasis on student. How well we do in a season is based on how many students show up and put in the work. Many other elite teams are mentor-run, and it is unmistakably obvious. This fact comes down to one thing, member retention. I touched on this but it must be restated as it is the core of our team. Mentors can take shared experiences from previous seasons and teach them to new members, but if there are not many people present to build the robot, there is no point.</p><p>Though there were things out of our control, there is a lot in our control that we can change. I do believe if we can brush up on the points I made previously, we are making serious progress into the territory of an elite team.</p><p>On a final note, the past three years have been incredible in my own personal development as an engineer and also as a human being, and all the thanks go to the mentors, teachers, and team members. Thank you. I am incredibly grateful, and can’t imagine who I would be without this program and the support.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

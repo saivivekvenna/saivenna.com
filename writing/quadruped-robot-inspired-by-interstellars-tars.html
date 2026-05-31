@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a Quadruped Robot Inspired by Interstellar’s “TARS” - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">May 2024</p>
+                <h1 class="article-title font-semibold text-black text-balance">Creating a Quadruped Robot Inspired by Interstellar’s “TARS”</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/quadruped-robot-inspired-by-interstellars-tars-ee95983e94a6" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<p>One of my favourite movies of all time is Christopher Nolan’s Interstellar Film, and beyond the plot, the black hole, the soundtrack, and the time relativity, the robot TARS has always had my attention. I think I like it so much honestly because it moves in a way I’ve never seen before (and it looks cool asf). The simple use cases of a robot with the ability to move like it does in the movie are out of this world. The most obvious use is as an exploration robot, to send it off to places that are too dangerous for humans. And without the lack of manipulability of wheels holding it down, it creates a great advantage.</p><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-01.jpg" loading="lazy"><figcaption>From Movie</figcaption></figure><p>The greatest hurdle with this robot is its balance. In the movie, the robot has mastered the ability to balance through all of its various movements. To start experimenting with this balance aspect I have started designing and assembling a prototype a more dumbed-down version of this robot.</p><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-02.png" loading="lazy"><figcaption>Simplified CAD Overview of My Version</figcaption></figure><h3><strong>Some key differences from the movie:</strong></h3><ol><li><strong>Single Axis: </strong>I chose to go with a single-axis design, which differs from the movie because it would allow me to experiment and get the simple movements dialled in first. Having a single axis is also a lot less resource-intensive.</li><li><strong>Center Console: </strong>The center console I designed is supposed to house all the main electronics, the camera and the battery. Since I am going with a 12v battery, I can’t integrate it into one of the legs without there being an irregular center of mass distribution which is crucial to this prototype. The center console also gives me a lot of space for the main electronics like the PDP, gyros, and Ardunio’s I plan to use.</li></ol><h3><strong>Goal 1:</strong></h3><p>My first goal with this project is to achieve a crutch-like motion with one of the two legs on each side acting like a crutch to lift up the rest of the robot and move it forward.</p><h3><strong>In-depth of Mechanics:</strong></h3><p>In order to achieve the desired crutch-like motion there will be two different types of legs. One leg will have to be on a fixed pivot and the second will have to be able to extend/ contract in order so that when the legs rotate past the bottom, it won’t interfere with the ground.</p><h3><strong>Fixed Leg Module:</strong></h3><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-03.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-04.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-05.png" loading="lazy"></figure><p>For the prototyping stage, I will use old CIM motors from my FRC team. I’ll have four 1-inch diameter PVC pipes to act as the frame for each leg.</p><p>I am using a piece of 2x1 box tubing that will attached to all the fixed components of this robot. On this 2x1 tubing, I will be attaching the CIM motors and attachment points for the center of the bearings (lazy susan from a dining table). The bearing will be used to make sure the legs are secured to the main box tubing whilst ensuring that the rotation is smooth.</p><p>The leg will rotate using a sun and planet gear. With the planet gear being attached to the CIM’s output shaft, I can also increase the torque being outputted while also maintaining a simple design. I will be using an AMT 10 Series encoder at the end of the motor shaft to figure out where the rotation of the leg is. I will multiply the rotations on the encoder by the 1:4 ratio on the gears to get the number of times the leg has rotated.</p><p>The majority of the components are 3D printed which I printed off the printers from my robotics team.</p><h3><strong>Extending/ Contacting Leg Module:</strong></h3><p>I have a few ideas for this but haven&#39;t settled on a single idea yet. The idea I have started to design is very similar to the fixed pivot leg. The biggest difference is the lengths of the leg and the ends of the leg.</p><h4><strong>1. End of the Leg:</strong></h4><p>The end of the leg will have a rotating eccentric semi-circle that will have two phases.</p><p><strong>Phase 1:</strong></p><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-06.png" loading="lazy"><figcaption>Side View</figcaption></figure><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-07.png" loading="lazy"><figcaption>Corner View</figcaption></figure><p>Phase one is retracted. When the semicircle is rotated in this ordination, the length of the leg is at its shortest point. Allowing for the leg to pass underneath the robot during the rotation.</p><p><strong>Phase 2:</strong></p><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-08.png" loading="lazy"><figcaption>Side View</figcaption></figure><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-09.png" loading="lazy"><figcaption>Corner View</figcaption></figure><p>Phase two is extended. When it is in the phase, the length of the leg is at its longest, giving it 1.5 inches of extra height. When it is in this phase it allows for the fixed legs to pass underneath the robot when rotating.</p><p>Here is what the final assembly is going to look like:</p><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-10.png" loading="lazy"></figure><figure><img alt="" src="../writing-assets/quadruped-robot-inspired-by-interstellars-tars/image-11.png" loading="lazy"></figure>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>
