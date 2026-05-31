@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress on my version of TARS… - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Aug 2024</p>
+                <h1 class="article-title font-semibold text-black text-balance">Progress on my version of TARS…</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/progress-on-my-version-of-tars-feaa90a65285" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<p>Hey… before you read my dope article, I recommend you to <a href="quadruped-robot-inspired-by-interstellars-tars.html">read this</a> also very awesome article so you get some context. 😎</p><p>Current progress: The entire first leg is assembled and all the electronics for it are connected. I got the PID working on this leg and can control the angle. I am using an Ardunio UNO as the micro controler for this robot. The second leg is being made as I write this… the plan is to create two legs. That way I have half of the robot and that is enough to emulate the correct motions, so I can get quick proof of concept.</p><p>Here are some pics of the one leg:</p><figure><img alt="" src="../writing-assets/progress-on-my-version-of-tars/image-01.jpeg" loading="lazy"><figcaption>bottom right corner is the second leg in the works :)</figcaption></figure><p>Heres a clip of the leg’s PID at work with the setpoint at 270 degrees:</p><figure><img alt="" src="../writing-assets/progress-on-my-version-of-tars/image-02.gif" loading="lazy"></figure><h3>Code</h3><p>Heres a look at the code I used to make that clip happen:</p><pre>#include &lt;Servo.h&gt;<br>#include &lt;QuadratureEncoder.h&gt;<br>#include &lt;PID_v1.h&gt;<br><br>// MOTOR<br>int motorPin = 3; // the signal output pin<br>Servo motor1;<br><br>int PWMvalue;<br><br>// ENCODER<br>long gearRatio = 4; <br>long encoderDiscretePositions = 8192; <br>long oneTurn = encoderDiscretePositions * gearRatio;<br>long angleMultiplier = oneTurn / 360;<br>Encoders encoder(11, 12); <br><br>// PID<br>double kp = 4, ki = 2, kd = 1; <br>double input = 0, output = 0, setpoint = 0;<br>PID myPID(&amp;input, &amp;output, &amp;setpoint, kp, ki, kd, DIRECT);<br><br>void setup() {<br>  // MOTOR<br>  motor1.attach(motorPin); // attach servo with min and max pulse widths<br>  <br>  Serial.begin(9600);<br><br>  // PID <br>  setpoint = 270; // in degrees<br>  myPID.SetMode(AUTOMATIC);   // set PID in Auto mode<br>  myPID.SetSampleTime(100);   // refresh rate of PID controller (in milliseconds)<br>  myPID.SetOutputLimits(1000, 2000); // Output range for the servo motor<br>  //myPID.SetTunings(kp,ki,kd);<br><br>  delay(5000); //gives me time to get out of the way of the leg and have my hand over the kill switch :(<br>}<br><br>void loop() {<br>  // ENCODER<br><br>  long currentEncoderCount = encoder.getEncoderCount();<br>  long angle = currentEncoderCount / angleMultiplier;<br><br>  // Serial.print(&quot;angle: &quot;);<br>  // Serial.println(angle);<br><br>  Serial.print(&quot;Input: &quot;);<br>  Serial.println(input);<br><br>  // Serial.print(&quot;Error: &quot;);<br>  // Serial.println(setpoint - input);<br><br><br>  // if (abs(currentEncoderCount) &gt; oneTurn) {<br>  //   encoder.setEncoderCount(0);<br>  //   // Serial.println(&quot;One Rotation&quot;);<br>  // }<br><br>  // if ((setpoint - abs(input)) &lt; 0){<br>  //     myPID.SetOutputLimits(1500, 2000); // Output range for the servo motor<br>  // }<br>  //   if ((setpoint - abs(input)) &gt; 0){<br>  //     myPID.SetOutputLimits(1000, 1500); // Output range for the servo motor<br>  // }<br><br>  // PID<br>  input = -angle;            <br>  myPID.Compute();          // compute the PID output<br><br>  Serial.print(&quot;Output: &quot;);<br>  Serial.println(output);<br><br>  // PWMvalue = output * 5 + 1500; //scale up to 1000-2000<br><br>  // Serial.print(&quot;pwm&quot;);<br><br>  //Serial.println(output);<br><br><br>  motor1.writeMicroseconds(output); <br>}</pre><h3>Issues I encountered and fixes:</h3><h4><strong>1. Encoder and Motor Shaft:</strong></h4><p>Something that was almost a constant hassle was the encoder constantly disengaging with the motor shaft. This caused a ton of issues, especially during PID testing. Whilst the motor was spinning, it would disengage, causing the error to be very large, such that the leg would eventually reach very fast speeds and parts would fly off. For some context:</p><figure><img alt="" src="../writing-assets/progress-on-my-version-of-tars/image-03.jpeg" loading="lazy"></figure><p>The part that would constantly disengage was that little black part between the motor shaft and the encoder&#39;s slot. The part was a motor shaft sleeve with the purpose of allowing the motor shaft to engage tightly with the encoder. The issue was that it would slide back on the motor shaft.</p><p><strong>FIX:</strong></p><p>The fix was two things, The first was an adhesive. Hot glue didn’t work because it would melt when the motor started to heat up, so I got some heat-resistant adhesives. The next thing was to add tape on the parts of the motor shaft that the sleeve was sliding back onto, that way the sleeve had nowhere to go.</p><h4>2. <strong>PID Direction</strong>:</h4><p>One of the primary issues I ran into while trying to get PID working was that the PID controller was just spinning at max speed in the same direction, not correcting for the setpoint. Tried a lot of different things, I came to the conclusion that the output from the PID controller causes the motor to spin in the wrong direction. This subsequently causes the error to increase, and for some reason the PID controller thinks that by going in the same direction will fix this. And as the error grew, the output grew, causing it to speed up real fast.</p><p><strong>FIX:</strong></p><p>My fix was really simple, I made it so that the input was -1*angle instead of just the angle (see the code earlier in the article), that way all the error calculations would be reversed. So instead of the error growing, it would get smaller.</p><p><strong>Thanks for reading</strong>, you a real one. I’ll post my next article/ update when I get the second leg working :)</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

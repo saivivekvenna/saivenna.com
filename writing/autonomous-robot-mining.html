@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autonomous Robot Mining - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Jul 2025</p>
+                <h1 class="article-title font-semibold text-black text-balance">Autonomous Robot Mining</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/autonomous-robot-mining-8b19eba84dbc" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<figure><img alt="" src="../writing-assets/autonomous-robot-mining/image-01.jpg" loading="lazy"></figure><p>When I was a kid, I learned about a concept called the Fermi Paradox. It speaks to the fact that the potential number of alien life is overwhelming, yet we see no sign of it. My favourite theory for this paradox is the idea of a great filter, which is ubiquitous to all civilizations at some point, acting as a single point where the fate of a species is determined. It implies that no species has passed this point. Now, I am not about to go on a rant about aliens; instead, I think this theory speaks to where our civilization is at right now. The choices we make over the next couple of decades will dictate how the next millennium will unfold.</p><p>Though Earth has been plentiful in resources, a time will come when it will not be able to keep up with our demands. The mining industry supplies 80% of materials for renewable energy, but demand for critical minerals like lithium and cobalt is projected to increase up to 12-fold by 2050, straining finite reserves. Moreover, within the coming 5 years, McKinsey predicts over 50% of the U.S. workforce will retire, paired with an average of 39% drop in US mining graduates. We are reaching our filter, and a change needs to happen.</p><p>Our current methods of mining will not keep up with the future.</p><h3>Why is Mining Important?</h3><p>The answer might seem obvious, but the real importance often goes understated.</p><ol><li>Economic Backbone: It would not be an exaggeration to say that almost everything that we use in our day-to-day and that enables our modern world to function depends on mining. The device you are using to read this article was made from an assortment of rare earth minerals, mined from every corner of the world.</li><li>Foundation for Green Tech: As our world is moving towards more renewable sources of energy, the minerals that make it possible do not come easily. The demand for critical minerals like lithium, cobalt, and graphite for things such as batteries and wind turbines is projected to increase 12-fold by 2050.</li><li>Food Security: Phosphorus and Potash are mined for fertilizers for agriculture. These ensure our global food supply is consistent and reliable.</li></ol><h3>Problem: Why won’t today’s mining keep up with the future?</h3><p>The mining industry faces a critical bottleneck: a shrinking workforce and depleting shallow mineral reserves cannot meet the exponential demand for critical minerals needed for global growth.</p><h4>Workforce:</h4><p>Over 50% of the workforce that currently fills the mining industry is <a href="https://www.mining.com/web/mining-industry-dogged-by-retirements-and-lack-of-new-recruits/">predicted to retire within the next decade</a>. Moreover, there has been a 39% drop in mining graduates over the past years. The current labour gap is one of the biggest problems that mining companies are worried about, with BHP and Teck Resources being some of the many companies with labour shortage at the top of their priority list. Just within Canada alone, it is predicted that 80,000 jobs will go unfilled by 2030, driving up costs per the <a href="https://www.canadianminingjournal.com/featured-article/costs-of-unfilled-jobs-add-up-for-canadas-miners/">Canadian Mining Journal</a>. Here are the specific jobs that need filling:</p><ul><li><strong>Exploration</strong>: Geologists and surveyors are retiring, and fewer graduates are entering the field, slowing the identification of new deposits.</li><li><strong>Extraction</strong>: Skilled operators for heavy machinery are in short supply, increasing reliance on automation.</li><li><strong>Processing</strong>: Technicians for ore refinement are dwindling, impacting efficiency.</li></ul><p>McKinsey indicated in a recent report that the mining industry, where value was derived from commodity prices, ore quality, location, reliability of equipment, and physical assets, has now shifted to workforce and talent. The value a company creates will be based on its workforce.</p><blockquote>Traditionally, the value derived from mining companies has been thought about in terms of commodity prices, ore quality, location, equipment, and physical assets. However, talent is increasingly being elevated from a simple enabler to a true value driver. — <a href="https://www.mckinsey.com/industries/metals-and-mining/our-insights/has-mining-lost-its-luster-why-talent-is-moving-elsewhere-and-how-to-bring-them-back">McKinsey</a></blockquote><p>Why are there fewer people who want to join the workforce? This is a question rooted in our changing times and the traditional structure of the mining workforce. Firstly, for the many mines that are situated in remote areas, many modern infrastructure such as stores, hospitals, roads, and basic facilities are not present. This is especially important in our time, where all these have become basic human commodities. Alongside this, the work is viewed as dangerous and labour-intensive. Even after talent is acquired, it is a field where career progression is limited. Overall, the employee value proposition has significantly declined, and other fields are simply more appealing. Here are the numbers, which also come from the McKinsey report.</p><figure><img alt="" src="../writing-assets/autonomous-robot-mining/image-02.png" loading="lazy"><figcaption>There has been a significant decline in mining graduates.</figcaption></figure><figure><img alt="" src="../writing-assets/autonomous-robot-mining/image-03.png" loading="lazy"><figcaption>Mining is the most unfavourable industry when it comes to people joining.</figcaption></figure><p>Mineral Scarcity:</p><p>Although mineral scarcity is not the most pressing issue right now, the next decade will see this issue more present than ever.</p><p>The same rare earth minerals we used to find near the surface are running scarce. With the need for these minerals growing at an exponential rate, we are required to start looking deeper into the earth for the same minerals. The paper “<a href="https://www.sciencedirect.com/science/article/pii/S0301420722006651">Moving towards deep underground mineral resources: Drivers, challenges and potential solutions</a>” notes that deep underground mining is extensively developed due to shallow deposit depletion, with depths often exceeding 500–2,000 meters, as seen in Canada’s Nechalacho mine</p><p>In essence, the smaller workforce paired with hard-to-access minerals turns the mining industry into an increasingly costly and time-consuming field. Companies are on their highest alert in an attempt to address these challenges.</p><h3>What would the business look like?</h3><p>Offering Robots as a Service (RaaS) is the best way to approach this industry, mitigating the regulatory issues we would have to deal with. In the current market, the only extent of robotics/ AI being used is with hauling trucks, but often, other bottlenecks need to be addressed for these hauling trucks to be used to their maximum potential. We would be aiming to maximize the presence of robotics in mining.</p><ol><li>Robot Sales: Price varies depending on the type of robot.</li><li>Robot Leasing: Price varies depending on the type of robot.</li><li>Software Subscriptions: Software updates, real-time analytics (e.g., ore yield optimization), and integration with other third-party software.</li><li>Maintenance Contracts: Recurring payment per robot for repairs, battery replacements, and on-site technician support.</li><li>Consulting Services: One-time cost for custom integration (e.g., retrofitting a custom fleet to suit niche needs).</li></ol><h3>How would these robots address modern mining bottlenecks?</h3><h4>Addressing Labour Shortages</h4><p>Issue: Over 50% of the U.S. mining workforce is expected to retire by 2030, with a 39% decline in mining graduates since 2016. Canada expects 80,000 unfilled jobs over the next 5 years. Specific roles — geologists and surveyors in exploration, skilled operators in extraction, and technicians in processing — are in short supply, threatening project timelines and productivity.</p><p><strong>Solutions</strong>:</p><ul><li><strong>Exploration</strong>: Autonomous drones and ground rovers replace human geologists and surveyors in hazardous or remote terrains. Equipped with LiDAR, ground-penetrating radar, and AI analytics, these robots can map deposits 50–70% faster than manual methods. Remote geologists oversee AI-generated data, reducing on-site staff needs by up to 80%.</li><li><strong>Extraction</strong>: The machines involved in extraction, such as diggers, can be extracted from placed by automated robots. Self-driving haul trucks and robotic excavators fill the gap left by retiring operators. For example, Rio Tinto’s autonomous trucks in Australia operate 24/7, increasing productivity by 20% and eliminating the need for human drivers in high-risk zones. AI optimizes digging patterns, reducing operator dependency. Paired with robotic excavators, autonomous trucks can reach peak efficiency. The Robotic excavators and diggers communicate with the haul trucks to create the most efficient methods.</li><li><strong>Processing</strong>: Automated sorting systems and robotic arms handle ore refinement, compensating for dwindling technicians. Machine vision and X-ray fluorescence systems, like those used by BHP, improve recovery rates by 10%, automating tasks traditionally requiring skilled labour.</li></ul><p><strong>Benefits</strong>: Robots fill critical labour gaps, enabling continuous operation without reliance on a shrinking talent pool. The RaaS model allows companies to lease these systems, avoiding the need for in-house robotics expertise, and the consulting services allow companies to tailor the robot for niche needs.</p><h3>What does Robotic Mining look like?</h3><p>Going from a potential area to producing ore can be generalized into these stages:</p><ol><li>Exploration: Identifying possible sites and mineral deposits</li><li>Feasibility Study: Taking into consideration the economic, technical and environmental factors to decide if a site is worth pursuing.</li><li>Mine Development: Building the appropriate infrastructure to begin the mining process.</li><li>Extraction: Mining ore out of the ground.</li><li>Processing: Refining the raw ore mined.</li></ol><p>Many of these stages can be automated, with appropriate human checks and decision-making. Low-level choices will be made by robots, and high-level choices will be made by humans.</p><h4>Exploration</h4><p>The first stage would be exploration, which would also be the stage at which the MVP is developed.</p><p>The human portion of this stage will be limited in terms of physical presence. At the beginning of the operation, the robot and other necessary systems will need to be brought into an open area on the site. An all-electric ground robot, fitted for off-road terrain and available for specific environments, will carry out the exploration stage. There will be a home base for the robot to come back to and recharge. The home base will have solar-powered charging stations and on-site generators to ensure robots remain operational in remote locations. The number of robots present will vary based on the area and the timeframe required to be covered.</p><h4>Feasibility Study</h4><p>Once data is collected from the exploration stage, a site can be assessed for its potential returns and whether it is profitable to mine. The data will be given AI insights by the robots. This data will be assessed by humans remotely.</p><h4>Mine Development</h4><p>Before we can extract, we need to develop the necessary infrastructure for the mining to take place. Depending on the site, the necessary infrastructure will be significantly less due to the smaller number of humans who will be involved. Traditionally, all the sites that are needed to cater to human needs will be rendered unnecessary. This can significantly speed up the timeline. Alongside this, diggers and extraction robots can begin to clear out the necessary areas instead of humans.</p><h4>Extraction</h4><p>Robotic excavators, self-driving haul trucks, and driving systems work in tandem to mine ore efficiently. AI optimizes the digging patterns and ensures that robots target more efficient and high-yield zones. These systems operate 24/7 in high-risk or remote environments, eliminating the need for human operators in dangerous conditions. Low-level decisions, such as when to refuel or deposit ore, are handled autonomously by robots, while human supervisors monitor performance and make strategic decisions, preserving accountability.</p><h4>Processing</h4><p>Robotic processing can take the form of automated sorting machines to mass spectrometers. All of which will operate more efficiently due to the fact that the ore itself will be less diluted due to more accurate mining by robots.</p><h4>Next steps with this technology.</h4><p>The potential with this technology is, frankly, unlimited. This tech can be refactored to fit the needs of agriculture. A similar industry where the next generation workforce is shrinking and demand is growing. Furthermore, if robotic mining is proven effective on Earth, it can be expanded to space, such as the moon or asteroids.</p><p>Thank you for reading.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

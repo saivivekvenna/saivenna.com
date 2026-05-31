@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So I made an App! - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">May 2025</p>
+                <h1 class="article-title font-semibold text-black text-balance">So I made an App!</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/so-i-made-an-app-d81f358c3447" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<h3>so i made an app</h3><p>I spent the past month or so working on an App that finds real time property listings using natural language quries.</p><p><a href="https://www.loom.com/share/1bd2f79258d44d9bacfa568b6119ee3a"><strong><em>Demo Video Link</em></strong></a></p><p><a href="https://github.com/saivivekvenna/estateAI"><strong><em>Github Link</em></strong></a></p><figure><img alt="" src="../writing-assets/so-i-made-an-app/image-01.png" loading="lazy"></figure><p>I learned a lot from a technical standpoint about different frameworks and how they mesh, but by far, the most profound thing I learned was how to approach building projects.</p><p>Here are some of the biggest things I learned:</p><h4><strong>1. Small pieces:</strong></h4><p>Setting a big goal is important. It&#39;s exciting. It keeps you up at night dreaming. It wakes you up in the morning. Unfortunately, this is not enough to keep someone motivated through a big project. Big goals alone are perishable; they can change circumstantially and lack solid foundations. And this was one of the biggest pitfalls I faced early on in the development of this app. I had a fairly big goal, which kept me excited, but it brought me to a situation where, even after 10-hour sessions of building the app, I wouldn&#39;t feel a thing.</p><p>Upon more introspection, I can draw so many parallels to my worst robotics season, where every day we would have the goal of competing in the championship events, and we failed to set small goals. On the other hand, our best season was marked by our team and me going in every day, not thinking past the current week. Setting goals, small enough to be done within a couple of days, but hard enough to be a challenge. These very goals allowed us to take our robot to heights I have never seen it reach before. Although I knew all this before, I wasn’t able to truly piece together the importance of it until I built this app. I also learned that the correct word for my epiphany is ‘milestone’, and a project immediately has a higher probability of success when it is characterized by small intentional milestones that lead to a goal.</p><p>There is one more piece to this puzzle that I believe is crucial in the overall process of building something, and I am unsure of the word, so I’ll call it ‘versions’. Milestones are imperative, but they, too, can get exhausting when a result can not be seen in due time. A big goal is big for a reason; it&#39;s ambitious, hard to reach, and it&#39;s exciting. It can take years to see this goal come into fruition. A version is my idea of what fills the gap between a milestone and a big goal. Milestones should build up to a completed version. A fully operational version of the product that might not be anywhere near the scale of the big goal, but regardless, it&#39;s a checkpoint.</p><p>I know I was throwing some words around too much. Here&#39;s a summary:</p><p><strong>Milestone</strong>: A small task, able to be completed within 3–4 days.</p><p><strong>Version</strong>: A scaled-down version of the bigger goal, encompassing a certain aspect of the finished product.</p><p><strong>Big Goal</strong>: An ambitious, exciting and important goal.</p><h4>2. Get feedback and reiterate as fast as possible:</h4><p>A trap I fell into early on while building this app was immediately trying to build something perfect. This caused me to never actually come to a point where I would release something, just stuck in a constant cycle of trying to perfect every small thing. On top of all this, I never really sought feedback from an array of individuals. I only ever asked one of my mentors for feedback now and then, which I now know wasn’t enough.</p><p>I recently heard this quote from Brian Chesky, I’ll paraphrase it: When you&#39;re building a product, you don&#39;t need a million people to use it and like it; all you need is 100 people who really love your product. Develop your product around these 100 people, and it will naturally grow outwards.</p><p>I thought this was really insightful, seeking advice and revoluting your product around about 100 people is the most efficient way to build a useful product.</p><h4>3. Put 100% in whenever you sit down to work:</h4><p>My workflow changed a lot during building the app, at the start, I worked non-stop on the app for about two weeks. No distractions, no nothing, I would put 100% in whenever I sat down, and this was a very productive time for me. Afterwards, I stopped putting in 100% every time I sat down, I think this is because I slowly burned out. At the time, I thought the solution was to just put in more hours, but I knew I wasn’t making as much headway as I wanted to.</p><p>After a conversation with a mentor who expressed the importance of putting in 100% when you do work and also finding time to cool down and relax, I tried to set aside small amounts of time to work on the app. And contrary to what I previously thought, less time but going at 100% was way more productive than any other method.</p><p>100% for 4 hours &gt; 50% for 12 hours</p><p>Overall, building this app has been transformative in how I am going to go about building projects. Special thanks to my mentors for all the feedback and advice!</p><p>Thank you for reading. To end, I will leave you with a passage from Meditations by Marcus Aurelius, a book I am currently reading:</p><figure><img alt="" src="../writing-assets/so-i-made-an-app/image-02.png" loading="lazy"></figure>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

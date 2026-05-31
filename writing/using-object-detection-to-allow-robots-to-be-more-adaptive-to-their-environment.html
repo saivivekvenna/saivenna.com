@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using Object Detection to Allow Robots to be more Adaptive to their Environment. - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Jan 2024</p>
+                <h1 class="article-title font-semibold text-black text-balance">Using Object Detection to Allow Robots to be more Adaptive to their Environment.</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment-4fa89852cb2c" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<p>Humans, by nature, are curious. We will go above and beyond to understand something new and or explore some of the most dangerous environments in the name of science. Now, although we want to explore, in many cases we lack the facilities to explore a certain environment. To bridge this gap, we turn to robots; yet, these machines often lack the rapid adaptability and instinctive responses that humans possess.</p><p>In this article, I will discuss how I used machine learning to perform object detection and my next steps on how we can leverage this.</p><h4><strong>1: Google Collab Setup</strong></h4><p>The first thing I did was set up a Google Collab Notebook. Since I am working off a relativity old laptop that does not have access to a GPU, I resorted to cloud-based processing within Google Collab. I set it up using Google Drive.</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-01.png" loading="lazy"></figure><h4><strong>2: Yolo Setup</strong></h4><p>I utilized the powerful YoloV7 pre-made datasets and software to achieve the most efficient overall program. Yolo is at the frontier of object detection and it was a must.</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-02.png" loading="lazy"></figure><h4><strong>2.1: Why YoloV7?</strong></h4><p>You might be asking, why is it so powerful? Why did I choose to go with this? Well, the answer is simple, I chose it for one simple feature, an Extended Efficient Layer Aggregation Network.</p><p>Imagine you have a system that’s good at recognizing different aspects of an image, like shapes or colours. Now, think about how you might improve this system without making it much more complicated.</p><p>The Extended Efficient Layer Aggregation Network (E-ELAN) is like a smarter version of this system. It doesn’t mess up how the original system learns from its mistakes, but it does something clever to make it even better.</p><p>Here’s the trick: Instead of changing the way the system learns, we add a special technique called group convolution. This technique helps the system pay attention to even more details in the image. It’s like having different groups of eyes looking at different parts of the picture.</p><p>Then, we do something called shuffle and merge cardinality. This is a fancy way of saying that we mix together the things each group noticed. It’s like combining the insights of different groups, making the system better at understanding the whole picture.</p><p>Why does this matter? Well, it means our system can learn more about the different features in an image and use its smarts more efficiently. It’s like upgrading your brain so that it can process information in a smarter way without making things too complicated. So, in simpler terms, E-ELAN helps computers get even better at understanding and recognizing things in pictures without making the learning process too tricky.</p><h4><strong>3: Uploading Video</strong></h4><p>I uploaded this video:</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-03.gif" loading="lazy"><figcaption>Taken late at night so I was a little sleepy 😴</figcaption></figure><p>Ran it using this code:</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-04.png" loading="lazy"></figure><h4><strong>4. Output and How It Works</strong></h4><p>Alright, let’s break down how YOLO detects objects in simple terms:</p><p>1. Dividing the Picture:<br> YOLO takes a picture and divides it into small squares, making it easier to focus on one area at a time.</p><p>2. Guessing in Squares:<br>For each square, YOLO tries to guess if there’s an object in it and, if yes, what kind of object it is. It’s like looking closely at different parts of the picture. (This is trained by us! Remember all those “Make sure you are not a robot” quizzes before you open a website)</p><p>3. Cleaning Up Guesses:<br>YOLO cleans up extra guesses by removing overlapping ones. This ensures that it doesn’t count the same object multiple times.</p><p>4. Detecting and Naming:<br>YOLO then outputs the remaining guesses as rectangles (boxes) around the objects it found and labels each box with the type of object it thinks is there.</p><p>In summary, YOLO quickly looks at different parts of a picture, figures out what objects are there, and draws boxes around them, telling you what’s in the picture. It’s like having a super-fast detective that can spot and name things in a photo.</p><p>With this method, Yolo V7 outputs this video:</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-05.gif" loading="lazy"></figure><p>YoloV7 can create bounding boxes around the object that it detects and provides it with a label. The output prints out:</p><figure><img alt="" src="../writing-assets/using-object-detection-to-allow-robots-to-be-more-adaptive-to-their-environment/image-06.png" loading="lazy"></figure><h4>Why is This Important for Robots?</h4><ol><li>Adaptability and Autonomy: Discuss the significance of rapid adaptability and instinctive responses in robots. Emphasize how these qualities can enable robots to navigate and operate more effectively in dynamic or unknown environments.</li><li>Human-Robot Interaction: Explore how improved object detection can enhance human-robot interaction. For instance, a robot with advanced object recognition capabilities can better understand and respond to human gestures or instructions.</li></ol><h4>How Could the Code Be Used in a Real Robot?</h4><ol><li>Navigation and Manipulation: Provide concrete examples of how the code could be applied in a real-world scenario. For instance, discuss how a robot equipped with your object detection system could navigate its environment and perform physical manipulations based on detected objects.</li><li>Safety and Efficiency: Highlight how improved object detection contributes to the safety and efficiency of robotic systems. Robots can avoid obstacles, identify and interact with objects of interest, and adapt their actions accordingly.</li></ol><h4>What Else Would Need to be Done?</h4><ol><li>Additional Training Data: Address the importance of continuous learning and the need for additional training data. Discuss potential challenges and strategies for collecting diverse and representative datasets to improve the model’s accuracy in various environments.</li><li>Fine-Tuning: Mention the possibility of fine-tuning the model for specific tasks or environments. This step could involve adjusting hyperparameters, incorporating domain-specific knowledge, or refining the model based on real-world feedback.</li></ol><h4><strong>Next Steps:</strong></h4><p>My next step, software-wise, is to create some sort of robot to conduct physical manipulations based on what it is seeing. Ex: If it sees something on the right of the camera, it moves left.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring Environments Beyond Imagination: Soft Robotics and AI Revolutionizing Exploration - sai venna</title>
+    <link rel="icon" type="image/png" href="../tab_icon.png">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes page-dissolve-in {
+            from {
+                opacity: 0;
+                filter: blur(4px);
+            }
+
+            to {
+                opacity: 1;
+                filter: blur(0);
+            }
+        }
+
+        .page-content {
+            transition: opacity 0.24s ease, filter 0.24s ease;
+            will-change: opacity, filter;
+        }
+
+        body:not(.is-leaving) .page-content {
+            animation: page-dissolve-in 0.38s ease-out both;
+        }
+
+        body.is-leaving .page-content {
+            opacity: 0;
+            filter: blur(4px);
+        }
+
+        nav,
+        body.is-leaving nav {
+            opacity: 1;
+            filter: none;
+            transform: none;
+            animation: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body:not(.is-leaving) .page-content {
+                animation: none;
+                transition: none;
+                filter: none;
+            }
+        }
+
+        body {
+            background-color: #fbf7ee;
+            color: #000000;
+            font-family: 'Fira Code', 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+        }
+
+        a { color: inherit; }
+
+        .text-black { color: #000000 !important; }
+        .text-neutral-600 { color: #525252 !important; }
+        .bg-\[\#d8cfbf\] { background-color: #d8cfbf !important; }
+
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .article-layout {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .article-layout {
+                display: block;
+            }
+
+            .article-layout > nav {
+                left: 3.5rem;
+                position: fixed;
+                top: 3.5rem;
+                z-index: 10;
+            }
+
+            .nav-rail {
+                background-color: #d8cfbf;
+                bottom: 3.5rem;
+                left: 11rem;
+                position: fixed;
+                top: 3.5rem;
+                width: 1px;
+            }
+        }
+
+        .article-kicker {
+            color: #a89c84;
+            font-size: 0.7rem;
+            margin-bottom: 0.7rem;
+            text-align: center;
+        }
+
+        .article-title {
+            font-size: clamp(1.35rem, 4vw, 2.3rem);
+            line-height: 1.15;
+            letter-spacing: 0;
+            margin-bottom: 0.85rem;
+            text-align: center;
+        }
+
+        .article-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1.4rem 0 2.2rem;
+        }
+
+        .article-back-row {
+            margin-bottom: 1.15rem;
+        }
+
+        .article-link,
+        .article-back {
+            color: #4f4638;
+            display: inline-flex;
+            font-size: 0.75rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: border-color 0.18s ease, color 0.18s ease;
+        }
+
+        .article-link,
+        .article-back {
+            border-bottom: 1px dotted #bfb29b;
+        }
+
+        .article-link:hover,
+        .article-back:hover {
+            border-bottom-style: solid;
+            color: #000000;
+        }
+
+        .article-body {
+            color: #211f1b;
+            font-size: 0.9rem;
+            line-height: 1.85;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 46rem;
+            text-align: left;
+        }
+
+        .article-body > * + * {
+            margin-top: 1.1rem;
+        }
+
+        .article-body h3,
+        .article-body h4 {
+            color: #000000;
+            font-weight: 600;
+            line-height: 1.35;
+            margin-top: 2.1rem;
+        }
+
+        .article-body h3 {
+            font-size: 1.05rem;
+        }
+
+        .article-body h4 {
+            font-size: 0.95rem;
+        }
+
+        .article-body a {
+            border-bottom: 1px dotted #8e826d;
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .article-body a:hover {
+            border-bottom-style: solid;
+        }
+
+        .article-body strong {
+            font-weight: 600;
+        }
+
+        .article-body ul,
+        .article-body ol {
+            padding-left: 1.25rem;
+        }
+
+        .article-body ul {
+            list-style: disc;
+        }
+
+        .article-body ol {
+            list-style: decimal;
+        }
+
+        .article-body li + li {
+            margin-top: 0.45rem;
+        }
+
+        .article-body figure {
+            margin: 1.6rem auto;
+        }
+
+        .article-body img {
+            background: #efe6d5;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            display: block;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 100%;
+        }
+
+        .article-body figcaption {
+            color: #7b705f;
+            font-size: 0.72rem;
+            line-height: 1.5;
+            margin-top: 0.55rem;
+        }
+
+        .article-body blockquote {
+            border-left: 1px solid #d8cfbf;
+            color: #5d554a;
+            padding-left: 1rem;
+        }
+
+        .article-body pre {
+            background: #fffdf7;
+            border: 1px solid #e6dcc9;
+            border-radius: 6px;
+            color: #211f1b;
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow-x: auto;
+            padding: 1rem;
+            white-space: pre-wrap;
+        }
+
+        @media (max-width: 767px) {
+            .article-body {
+                font-size: 0.86rem;
+            }
+        }
+    </style>
+</head>
+<body class="w-full p-6 sm:p-10 md:p-14 text-xs sm:text-[13px] md:text-sm leading-5 sm:leading-6 md:leading-6 antialiased">
+    <div class="article-layout">
+        <nav class="md:mr-14 w-full md:w-16 text-right">
+            <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../index.html">Home</a>
+                </li>
+                <li class="text-black -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../projects.html">Projects</a>
+                </li>
+                <li class="text-black font-semibold -mx-2 text-right">
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="../writing.html">Writing</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="nav-rail hidden md:block"></div>
+
+        <main class="relative w-full page-content fade-in">
+            <article class="relative w-full max-w-3xl mx-auto pt-6 md:pt-0">
+
+                <div class="article-back-row">
+                    <a class="article-back nav-link" href="../writing.html">Back</a>
+                </div>
+                <p class="article-kicker">Nov 2023</p>
+                <h1 class="article-title font-semibold text-black text-balance">Exploring Environments Beyond Imagination: Soft Robotics and AI Revolutionizing Exploration</h1>
+                <div class="article-actions">
+                    <a class="article-link" href="https://medium.com/@saivivekvenna/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration-ff8bcb88f670" target="_blank" rel="noopener noreferrer">Read in Medium</a>
+                </div>
+
+                <div class="article-body">
+<figure><img alt="" src="../writing-assets/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration/image-01.jpg" loading="lazy"></figure><p><strong>Introduction</strong></p><p>As a kid, I was fascinated with the Disney movie <em>Big Hero 6, </em>especially by the robot BayMax. For those of you who have never watched the movie and aren’t aware of BayMax, firstly, watch the movie, it’s fantastic. BayMax is an inflatable robot whose purpose was to provide a friendly accessible healthcare experience to humans. Throughout the movie, you see how his inflatable rounded frame gives him great advantages in the adventures he faces. This was my first introduction to soft robotics.</p><p>Soft Robotics is a relativity new field of engineering involving highly manipulable and flexible robots, allowing for a robot to mimic the natural movements of living organisms. Soft robots contrast traditional robots as they don’t use <em>rigid</em> and hard materials. Soft robotics has many uses, including exploring remote and dangerous environments without risk to human life. So imagine, exploring the vast expanse of other planets like Mars or even venturing into the depths of the Amazon Rain Forest, can all be done with a low-risk robot. Now although soft robotics do carry the physical capabilities to travel through these environments, they lack the brains to perceive and respond to their illusive environments. This brings us to the use of machine learning and AI. AI is a rapidly developing field, something new pops up. Imagine a brain, whose sole purpose is to carry out a certain task, and it’s trained on this task for days on end, this creates a system where tasks that might take humans weeks to accomplish can be done in a matter of minutes. Taking this same idea and applying it to our original example of exploring desolate landscapes you have a fully self-thinking and highly maneuverable robot.</p><p><strong>Modern Uses</strong></p><p>Soft robotics has been used to explore risky terrains before, notable uses come from Istituto Italiano di Tecnologia in Italy by researcher Riddhi Das, developing an earthworm-like modular soft robot. Earthworms use peristaltic waves generated by the alternating contractions of muscle layers in their hydrostatic skeleton to move both below and above the soil surface. The robot aims to replicate these mechanisms for applications in planetary excavation and confined spaces.</p><figure><img alt="" src="../writing-assets/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration/image-02.jpg" loading="lazy"></figure><p><a href="https://www.nature.com/articles/s41598-023-28873-w">https://www.nature.com/articles/s41598-023-28873-w</a></p><p>The researchers designed a peristaltic soft actuator (PSA) as a key component of the robot. The PSA mimics the antagonistic motion of earthworm segments, which involve elongation and compression, and produces both blocked and radial forces. The actuator is filled with various types and quantities of fluids, such as air, water, and carbopol gel, to control its performance. These fluid-filled chambers allow the robot to generate bidirectional peristaltic motion and facilitate motion in granular mediums. The robot’s design includes passive friction pads on its ventral side, similar to the setae found on earthworms, to generate anisotropic friction and prevent backward slipping while moving forward. The modular design of the actuator modules is assembled in series to create a soft robot that closely replicates the biological principles of earthworm locomotion. The development of this soft robot represents a novel approach to soft actuation, allowing for the independent control and adjustment of bidirectional peristaltic motion. The robot’s performance and characteristics are extensively evaluated through experiments involving different fluids, mediums, and motion behaviours, providing a foundation for further exploration of its capabilities in various environments.</p><p>Through articles and research like this, we understand that in order to more efficiently travel through subterranean environments we need to start developing our robots similarly to nature, as after all nature is the best engineer and builder.</p><p><strong>Potential In Space</strong></p><p>The integration of highly maneuverable smart robots in locations such as Mars offers an innovative solution to a multitude of contemporary challenges, one of which is in the realm of communication. Presently, the Mars rover faces a substantial delay of approximately 7 minutes when receiving new instructions. In the context of a mission as intricate, costly, and time-sensitive as exploring Mars, this delay leaves ample room for unexpected complications to arise. With the introduction of AI and soft robotics, we have the potential to revolutionize this landscape, eliminating the necessity for constant human communication and ushering in an era where these robotic explorers can make informed decisions grounded in their extensive training with human-derived data.</p><figure><img alt="" src="../writing-assets/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration/image-03.jpg" loading="lazy"></figure><p>In the past decade, NASA deployed sophisticated and cutting-edge robots to Mars for experimental purposes. Nevertheless, these robots encountered notable inefficiencies, particularly concerning their speed and maneuverability. With a maximum speed of only 0.14 km/h, the rovers faced challenges navigating the Martian terrain and were susceptible to becoming stuck in their surroundings. In 2018, NASA experienced unfortunate technical setbacks with both Mars rovers, involving communication troubles that left the rover at a standstill and the Curiosity rover losing its orientation. This led to a significant halt in mission progress. Hypothetically replacing these rovers with highly agile and intelligent soft robots could effectively address these challenges. A soft robot, with its flexible and adaptable design, could navigate Martian landscapes more efficiently, moving at a quicker pace while mitigating risks associated with its surroundings due to its soft exterior. Moreover, this new robotic approach wouldn’t be bound by the need for constant communication with Earth. Instead, it could autonomously make decisions, prioritizing its safety and survivability. Consider the dust storm situation in 2018 — a soft robot could retain essential data while independently navigating out of the storm without the need for continuous relay to NASA. This advancement holds immense potential to eliminate issues related to speed, mobility, and technical malfunctions, presenting a promising and transformative solution for future Mars exploration missions.</p><p>The physical nature of these soft robots adds a layer of adaptability that is particularly striking. Their flexibility allows them to seamlessly navigate and conform to various terrains and surfaces, making them well-suited for the dynamic challenges of extraterrestrial exploration.</p><p><strong>Current Developments</strong></p><p>While the advent of these cutting-edge technologies brings with it a multitude of advantages, it’s essential to acknowledge their notable drawbacks, with one of the most prominent being the inevitable wear and tear experienced by current fabrics and materials. When traversing rugged and unpredictable terrains, it’s only natural that a robot will encounter its fair share of wear and tear. However, the current limitation lies in the relatively short lifespan of these robots, calling for further advancements in material science and engineering to bolster their durability and longevity.</p><p>There has been a wide range of recent developments in material science related to soft robotics. Researchers at the University of Warwick in Coventry, England, have designed a self-healing polymer for various soft robotics uses. They created a leaf actuator, comprised of thermoplastic elastomers and piezoelectric microfibers which allows the materials to have a self-healing attribute. During testing, they made a cut in the leaf and left it at room temperature for a day. After 24 hours it had almost completely healed itself and after 48 hours the place of the cut was almost impossible to find. Developments like these greatly reduce the cons of soft robotics.</p><p>Furthermore, a substantial challenge arises in the realm of programming these robots. Unlike their rigid-framed counterparts with fixed dimensions, soft robots present a unique programming conundrum. The software governing a soft robot must be as adaptable as the robot itself, with code that can dynamically adjust to accommodate the robot’s changing shape. For instance, consider an inflatable robot; its code would need to take into account a multitude of factors, including variations in air pressure within the robot, which plays a pivotal role in dictating its functionality. This adds a layer of complexity to the programming process, requiring innovative solutions to ensure seamless and responsive control in the ever-changing landscape of soft robotics.</p><p><strong>Squishy Robotics</strong></p><figure><img alt="" src="../writing-assets/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration/image-04.jpg" loading="lazy"></figure><p>These technologies aren’t as far in the future as you think: <a href="https://squishy-robotics.com/">Squishy Robotics</a>, a robotics startup, has unveiled a unique and durable robot designed to withstand falls of hundreds of feet. Initially conceived for a NASA project aimed at creating a robot capable of surviving a drop from a spacecraft, the technology found terrestrial applications due to its potential to aid first responders in hazardous situations. The robot’s innovative “tensegrity structure” allows it to endure significant impact forces, enabling it to be dropped from heights of 600 feet or more and remain fully functional. The robot’s compliance and adaptability, along with its ability to shift its shape for different terrains, make it an ideal tool for reconnaissance in environments where deploying traditional robots poses challenges.</p><figure><img alt="" src="../writing-assets/exploring-environments-beyond-imagination-soft-robotics-and-ai-revolutionizing-exploration/image-05.jpg" loading="lazy"></figure><p>Squishy Robotics’ technology offers a groundbreaking solution to the trade-off between proximity and deployment of robots in challenging scenarios. Its durable and versatile robots could significantly enhance situational awareness for first responders, addressing issues encountered by traditional wheeled robots dropped from the air. The company’s unique approach, combining a robust design with machine learning and AI for control, positions Squishy Robotics as a pioneering force in the field of adaptable and resilient robotic systems, with the potential to revolutionize applications in disaster response, exploration, and beyond.</p><p><strong>Last Note</strong></p><p>Soft robots offer a unique advantage when it comes to exploration in challenging and uncharted territories. Whether it’s navigating complex landscapes on Earth or venturing into the unknown realms of other planets, the adaptability of soft robotics can prove invaluable. Imagine a soft robot capable of morphing its shape to traverse uneven terrain or squeeze through tight spaces, making it an ideal candidate for tasks such as planetary exploration, deep-sea investigation, or disaster-stricken areas where traditional robots might struggle. Soft robotics is also poised to make significant strides in handling hazardous environments. From conducting search and rescue operations in disaster-stricken areas to exploring environments with extreme temperatures or toxic substances, the adaptability of soft robots could be the key to overcoming challenges that traditional robots might find insurmountable. The prospect of soft robots contributing to space exploration, including missions to Mars, is particularly fascinating. Their ability to adapt to different terrains and navigate unpredictable landscapes could be instrumental in gathering valuable data and conducting experiments in extraterrestrial environments. Soft robots might be the technological leap needed to unlock the mysteries of other planets.</p><p>While soft robotics holds immense promise, there are still many unanswered questions and challenges to address. How can we enhance the durability and robustness of soft robotic systems for long-term deployment in challenging environments? What advancements are needed to ensure precise control and reliability in various applications? Additionally, understanding the optimal ways to integrate soft robots into existing technologies and infrastructures remains an ongoing area of exploration.</p><p>In conclusion, the integration of soft robotics and artificial intelligence represents a groundbreaking fusion of technology with immense potential for revolutionizing exploration in environments beyond imagination. Inspired by the adaptability of natural organisms, soft robots offer a unique capacity to navigate diverse terrains, from the depths of the Amazon Rainforest to the challenging landscapes of Mars. The union of soft robotics with AI enhances their autonomy, enabling them to make informed decisions based on extensive training with human-derived data, thereby reducing the need for constant human communication. However, challenges such as the durability of materials and the complex programming requirements underscore the ongoing need for advancements in material science and innovative coding solutions. As we venture further into the realm of soft robotics and AI, it is clear that these technologies not only push the boundaries of exploration but also necessitate continued interdisciplinary collaboration to unlock their full potential for the benefit of scientific discovery and human progress.</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script src="../page-transition.js"></script>
+</body>
+</html>
