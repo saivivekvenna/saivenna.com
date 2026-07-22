@@ -260,13 +260,13 @@
             </style>
             <ul class="lowercase md:sticky md:top-10 flex flex-row flex-wrap justify-end gap-2 mb-6 md:mb-0 md:w-full md:flex-col md:justify-start md:items-end">
                 <li class="text-black -mx-2 text-right">
-                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="index.html">Home</a>
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="/index.html">Home</a>
                 </li>
                 <li class="text-black font-semibold -mx-2 text-right">
-                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="projects.html">Projects</a>
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="/projects.html">Projects</a>
                 </li>
                 <li class="text-black -mx-2 text-right">
-                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="writing.html">Writing</a>
+                    <a class="nav-link inline-block w-full text-right px-2 transition-colors" href="/writing.html">Writing</a>
                 </li>
             </ul>
         </nav>
@@ -304,7 +304,7 @@
 
                     <p class="section-label">selected work ⭐</p>
 
-                    <div class="proj" onclick="toggleProject(event, this)">
+                    <div class="proj" id="epicurus-project" data-project-slug="epicurus" onclick="toggleProject(event, this)">
                         <div class="proj-head">
                             <div class="proj-main">
                                 <div class="proj-title"><span class="chevron">›</span>Epicurus</div>
@@ -314,7 +314,7 @@
                         <div class="proj-body">
                             <div class="proj-body-inner">
                                 <div class="proj-detail">
-                                    <p>An automated scientific discovery platform.</p>
+                                    <p>Epicurus gives researchers the reach of a thousand postdocs: a human-directed AI system that can autonomously generate novel biomedical hypotheses, test them in silico and in the wet lab, and iterate from the results. It uses multi-agent reasoning over a biomedical knowledge graph to support hypothesis generation, target discovery, and evidence-backed scientific discovery workflows.</p>
                                     <div class="links" onclick="event.stopPropagation()">
                                         <a href="https://tryepicurus.com" target="_blank" rel="noopener noreferrer">Live</a>
                                     </div>
@@ -523,19 +523,61 @@
     </div>
 
     <script>
-        // Toggle a single project open; close any others (accordion behavior)
-        function toggleProject(event, el) {
-            event.stopPropagation();
+        const projectPaths = {
+            epicurus: '/epicurus/'
+        };
+        const projectsPath = '/projects.html';
+
+        function isProjectDetailPath(pathname) {
+            return Object.values(projectPaths).includes(pathname);
+        }
+
+        function updateProjectUrl(el, isOpen) {
+            const slug = el.dataset.projectSlug;
+            if (!slug && !isProjectDetailPath(window.location.pathname)) return;
+
+            const nextPath = isOpen && projectPaths[slug] ? projectPaths[slug] : projectsPath;
+            if (window.location.pathname !== nextPath) {
+                history.pushState({ projectSlug: isOpen ? slug : null }, '', nextPath);
+            }
+        }
+
+        function setProjectOpen(el, isOpen, shouldUpdateUrl = true) {
             document.querySelectorAll('.proj.open').forEach(p => {
                 if (p !== el) p.classList.remove('open');
             });
-            el.classList.toggle('open');
+
+            el.classList.toggle('open', isOpen);
+            if (shouldUpdateUrl) updateProjectUrl(el, isOpen);
+        }
+
+        function syncProjectFromPath() {
+            const entry = Object.entries(projectPaths).find(([, path]) => window.location.pathname === path);
+            document.querySelectorAll('.proj.open').forEach(p => p.classList.remove('open'));
+            if (!entry) return;
+
+            const [slug] = entry;
+            const el = document.querySelector(`[data-project-slug="${slug}"]`);
+            if (el) setProjectOpen(el, true, false);
+        }
+
+        function toggleProject(event, el) {
+            event.stopPropagation();
+            setProjectOpen(el, !el.classList.contains('open'));
         }
 
         // Collapse all when clicking outside any project
         function collapseAll(event) {
-            document.querySelectorAll('.proj.open').forEach(p => p.classList.remove('open'));
+            document.querySelectorAll('.proj.open').forEach(p => {
+                p.classList.remove('open');
+            });
+            if (window.location.pathname === '/epicurus/' || window.location.pathname === '/epicurus') {
+                history.pushState({ projectSlug: null }, '', projectsPath);
+            }
         }
+
+        window.addEventListener('popstate', syncProjectFromPath);
+        syncProjectFromPath();
     </script>
     <script src="github-activity-data.js"></script>
     <script src="github-activity.js"></script>
