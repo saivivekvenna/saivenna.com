@@ -244,6 +244,44 @@
             background-color: #f1eadc;
             text-decoration: none;
         }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.55rem;
+            margin-top: 0.9rem;
+        }
+        .project-stat {
+            padding: 0.65rem;
+            border: 1px solid #e6dcc9;
+            border-radius: 4px;
+            background: #fbf7ee;
+        }
+        .project-stat strong {
+            display: block;
+            color: #000000;
+            font-size: 0.82rem;
+            line-height: 1.3;
+        }
+        .project-stat span,
+        .benchmark-note {
+            color: #8b806d;
+            font-size: 0.65rem;
+            line-height: 1.35;
+        }
+        .project-video {
+            display: block;
+            width: 100%;
+            margin-top: 0.9rem;
+            border: 1px solid #e6dcc9;
+            border-radius: 4px;
+            background: #000000;
+            aspect-ratio: 16 / 9;
+        }
+
+        @media (max-width: 560px) {
+            .project-stats { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 
@@ -317,6 +355,58 @@
                                     <p>Epicurus gives researchers the reach of a thousand postdocs: a human-directed AI system that can autonomously generate novel biomedical hypotheses, test them in silico and in the wet lab, and iterate from the results. It uses multi-agent reasoning over a biomedical knowledge graph to support hypothesis generation, target discovery, and evidence-backed scientific discovery workflows.</p>
                                     <div class="links" onclick="event.stopPropagation()">
                                         <a href="https://tryepicurus.com" target="_blank" rel="noopener noreferrer">Live</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="proj" onclick="toggleProject(event, this)">
+                        <div class="proj-head">
+                            <div class="proj-main">
+                                <div class="proj-title"><span class="chevron">›</span>Jevy Graph</div>
+                            </div>
+                            <span class="proj-date">Sep 2026</span>
+                        </div>
+                        <div class="proj-body">
+                            <div class="proj-body-inner">
+                                <div class="proj-detail">
+                                    <p>An open-schema text-to-RDF compiler. It deterministically generates candidate
+                                        relations, then uses Jev to select and independently verify source-grounded
+                                        triples—preserving evidence, modality, negation, and provenance.</p>
+
+                                    <div class="project-stats" aria-label="Jevy Graph benchmark results">
+                                        <div class="project-stat">
+                                            <strong>449 claims · 3.84s</strong>
+                                            <span>U.S. Constitution</span>
+                                        </div>
+                                        <div class="project-stat">
+                                            <strong>5,123 claims · 45.3s</strong>
+                                            <span>The Odyssey</span>
+                                        </div>
+                                        <div class="project-stat">
+                                            <strong>2.5–5.2× faster</strong>
+                                            <span>than published full OpenIE6 throughput</span>
+                                        </div>
+                                    </div>
+
+                                    <p class="benchmark-note mt-3">First-upload benchmarks include document parsing,
+                                        candidate generation, Jev selection and verification, and filtering; only
+                                        browser layout is excluded. OpenIE6 comparison extrapolates its published
+                                        31.7 sentences/s to the same document segmentation; hardware and output scope
+                                        differ.</p>
+
+                                    <div onclick="event.stopPropagation()">
+                                        <video class="project-video" controls preload="metadata" playsinline
+                                            poster="/project-assets/jevy-graph/demo.png">
+                                            <source src="/project-assets/jevy-graph/demo.mp4" type="video/mp4">
+                                            Your browser does not support embedded video.
+                                        </video>
+                                    </div>
+
+                                    <div class="links" onclick="event.stopPropagation()">
+                                        <a href="https://github.com/saivivekvenna/jevy-graph" target="_blank"
+                                            rel="noopener noreferrer">GitHub</a>
                                     </div>
                                 </div>
                             </div>
