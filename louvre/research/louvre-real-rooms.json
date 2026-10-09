@@ -1,0 +1,741 @@
+{
+  "researched_on": "2026-10-09",
+  "scope": "Connected 700 Mollien, 701 Salon Denon, 702 Daru, 711 Salle des États. Evidence-backed geometry and current room identities; no claim of a complete surveyed digital twin.",
+  "critical_corrections": [
+    "Salle Mollien is 700; Salle Daru is 702.",
+    "Do not use the la-salle-daru.jpg filename as a current-placement source.",
+    "Daru 2016 photo places Sabines and Coronation on the same long wall.",
+    "Room 715 is far west, not between Salon Denon and Salle des États.",
+    "Room711 Wedding wall has two doors flanking the centered painting in a dated2012 photograph; do not place Cana over a single central doorway.",
+    "Modern711 ceiling is plain white around a broad gridded skylight; do not copy red-gallery gilding or an invented fresco.",
+    "Pastoral Concert and Tintoretto SelfPortrait currently non exposé; Bella Nani currently LouvreAbuDhabi. Do not claim them currentroom711."
+  ],
+  "sources": [
+    {
+      "id": "map-svg",
+      "url": "https://collections.louvre.fr/assets/svg/niveau1.svg",
+      "publisher": "Musée du Louvre",
+      "local": "research/louvre-niveau1.svg",
+      "type": "Official current level 1 plan; SVG contains room rectangles and architectural masking",
+      "limitations": "Plan coordinates are arbitrary SVG units. No metric scale or exact surveyed architectural dimensions published. Room rectangles are interaction regions; actual walls are overlaid masks.",
+      "derived_visual": "research/louvre-denon-crop.png"
+    },
+    {
+      "id": "map-pdf-2026",
+      "url": "https://api-www.louvre.fr/sites/default/files/2026-05/2026-05_Plan_Louvre_FR.pdf",
+      "publisher": "Musée du Louvre",
+      "local": "research/louvre-map-2026.pdf",
+      "type": "May 2026 visitor map",
+      "limitations": "Perspective schematic, no metric scale"
+    },
+    {
+      "id": "accessible-plan",
+      "url": "https://collections.louvre.fr/plan-accessible",
+      "publisher": "Musée du Louvre",
+      "type": "Room names and collection-room IDs"
+    },
+    {
+      "id": "red-rooms",
+      "url": "https://www.louvre.fr/en/explore/the-palace/think-big",
+      "publisher": "Musée du Louvre",
+      "type": "Red room architecture and collection narrative"
+    },
+    {
+      "id": "mollien-photo",
+      "url": "https://api-www.louvre.fr/sites/default/files/2021-02/la-salle-mollien.jpg",
+      "publisher": "Musée du Louvre",
+      "local": "research/mollien-reference.jpg",
+      "type": "Official interior photograph",
+      "rights": "Copyright modern museum photograph; reference only, no redistribution rights checked",
+      "observations": [
+        "Long red gallery, huge rectangular gridded skylight, gilded cornice and decorated red cove",
+        "Chevron/herringbone parquet with rectangular edging and diamond green accents; dark baseboards",
+        "Central dark benches and low barrier ropes",
+        "Two offset rectangular openings on the far short wall with a smaller painting between",
+        "Jaffa foreground on left long wall; Charging Chasseur foreground on right long wall"
+      ],
+      "limitations": "Photograph upload path dates 2021, capture date unknown. Coordinates not surveyed."
+    },
+    {
+      "id": "misleading-daru-photo",
+      "url": "https://api-www.louvre.fr/sites/default/files/2021-01/la-salle-daru.jpg",
+      "publisher": "Musée du Louvre",
+      "local": "research/daru-reference.jpg",
+      "type": "Official photograph with filename/visible-art conflict",
+      "observations": [
+        "Raft appears on right long wall, Wounded Cuirassier to its viewer-left, Atala to its viewer-right"
+      ],
+      "limitations": "Current record places Raft in 700 and Atala in 702. This likely shows historical hanging. Do not treat filename as proof of current Daru or exact current row."
+    },
+    {
+      "id": "daru-photo-2016",
+      "url": "https://commons.wikimedia.org/wiki/File:Salle_Daru_du_Louvre_(30612872064).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Salle_Daru_du_Louvre_%2830612872064%29.jpg",
+      "publisher": "Fred Romero via Wikimedia Commons/Flickr",
+      "photographer": "Fred Romero (corno.fulgur75)",
+      "capture_date": "2016-08-31",
+      "local": "research/daru-romero-2016.jpg",
+      "rights": "CC BY 2.0 https://creativecommons.org/licenses/by/2.0/",
+      "type": "Dated in-room photographic primary observation; current room identities independently Louvre-verified",
+      "observations": [
+        "Oath of the Horatii is on the left long wall in this view, near camera",
+        "Intervention of the Sabine Women on right long wall near camera",
+        "Coronation on same right long wall further toward the end-wall doors",
+        "Two offset end-wall doors, small landscape centrally between them",
+        "Other paintings hang in dense rows including some above smaller paintings/doors",
+        "Dark central benches, rope barrier, gilded cornices, gridded skylight, chevron parquet"
+      ],
+      "limitations": "Relative viewer-left/right and depth are observed; compass orientation of view is not established. Dated 2016; not proof of unchanged 2026 hanging. Sabines and Coronation are NOT opposite in this photograph."
+    },
+    {
+      "id": "states-editorial",
+      "url": "https://www.louvre.fr/en/explore/the-palace/from-the-mona-lisa-to-the-wedding-feast-at-cana",
+      "publisher": "Musée du Louvre",
+      "type": "Confirms room 711, standalone Mona Lisa case in center since 2005, Venetian painting collection"
+    },
+    {
+      "id": "states-reopening",
+      "url": "https://presse.louvre.fr/reopening-of-the-newly-renovated-salle-des-etatsbr-the-emmona-lisa-em-back-in-its-rightful-place/?lang=en",
+      "publisher": "Musée du Louvre",
+      "date": "2019-10-07",
+      "type": "Official reopening press release",
+      "observations": [
+        "Mona Lisa opposite Wedding Feast at Cana",
+        "Mona Lisa on separate wall",
+        "Midnight blue walls introduced in 2019, new lighting and refurbished floors"
+      ]
+    },
+    {
+      "id": "states-close-photo",
+      "url": "https://api-www.louvre.fr/sites/default/files/2020-12/la-joconde-salle-des-etats.jpg",
+      "publisher": "Musée du Louvre",
+      "local": "research/states-reference.jpg",
+      "type": "Official Mona Lisa display photo",
+      "rights": "Copyright modern museum photograph; reference only",
+      "observations": [
+        "Mona Lisa behind tall protective glass inset on blue freestanding wall",
+        "Broad curved wooden guardrail and pale baseboards, light chevron parquet"
+      ],
+      "limitations": "Close view cannot establish entire room footprint or door locations."
+    },
+    {
+      "id": "denon-video",
+      "url": "https://www.louvre.fr/louvreplus/video-au-louvre-le-salon-denon-et-la-salle-mollien",
+      "publisher": "Musée du Louvre",
+      "type": "Official video/editorial on salon and romantic gallery",
+      "observations": [
+        "Salon Denon belongs to the Napoleon III renovations (1852–1870)",
+        "Mollien has Liberty and Raft"
+      ]
+    },
+    {
+      "id": "states-cana-wall-2012",
+      "url": "https://commons.wikimedia.org/wiki/File:P1080718_Louvre_salle_711_rwk.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/P1080718_Louvre_salle_711_rwk.jpg",
+      "photographer": "Mbzt",
+      "capture_date": "2012-02-27",
+      "rights": "CC BY3.0 Unported (also GFDL); https://creativecommons.org/licenses/by/3.0/",
+      "local": "research/711-cana-wall-2012.jpg",
+      "image_dimensions": [
+        2000,
+        1497
+      ],
+      "observations": [
+        "Wedding at Cana centered on broad wall panel between two doors, one to each side near the corners.",
+        "Door side wall strips extend to cornice, painting panel appears slightly forward of strips.",
+        "Large central grid skylight and plain white recessed ceiling perimeter visible."
+      ],
+      "limitations": "Pre2019 pale wall finish, only geometry reference; not proof of unchanged2026 exact hanging or door operation."
+    },
+    {
+      "id": "states-full-room-2022",
+      "url": "https://commons.wikimedia.org/wiki/File:Salle_des_%C3%89tats_-_salle_de_la_Joconde_-_Mona_Lisa_room_-_after_2109_renovation.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/43/Salle_des_%C3%89tats_-_salle_de_la_Joconde_-_Mona_Lisa_room_-_after_2109_renovation.jpg",
+      "photographer": "Shonagon",
+      "capture_date": "2022-02-22",
+      "rights": "CC0 1.0 Universal Public Domain Dedication; https://creativecommons.org/publicdomain/zero/1.0/",
+      "local": "research/711-full-room-2022.jpg",
+      "image_dimensions": [
+        3899,
+        2925
+      ],
+      "type": "Dated in-room photographic observation of post2019 architecture",
+      "observations": [
+        "Huge translucent rectangular skylight grid over main room axis.",
+        "Plain white smooth sloping/recessed ceiling perimeter and pale stone cornice; repeated small recessed light apertures along tops of walls.",
+        "Deep midnight blue walls, paintings at mixed heights densely hung with large works at higher level.",
+        "Tall blue freestanding Mona Lisa partition, with a monumental pale rectangular architectural outline extending close to ceiling cornice.",
+        "Mona Lisa protective glass is low in center of partition; curved wooden guardrail and pale chevron parquet."
+      ],
+      "limitations": "Compass heading275 degrees is metadata provided by contributor; architectural metric dimensions not surveyed. Does not show Wedding wall."
+    },
+    {
+      "id": "states-reopening-fr",
+      "url": "https://presse.louvre.fr/reouverture-denbspbr-la-salle-des-etats-renoveebr-emla-joconde-em-retrouve-sa-placebr/?lang=fr",
+      "publisher": "Musée du Louvre",
+      "date": "2019-10-07",
+      "observations": [
+        "Room floor area698m²,2700m² wall/ceiling treatments,43 paintings.",
+        "Original imperial painted ceiling removed in1886 and replaced by a glass roof."
+      ],
+      "limitations": "Floor area can constrain approximate scale but does not give surveyed room dimensions."
+    }
+  ],
+  "rooms": [
+    {
+      "room": 700,
+      "name": "Salle Mollien",
+      "wing": "Denon",
+      "level": 1,
+      "collection": "French Romantic painting",
+      "svg_interaction_rect": {
+        "x": 442.0217,
+        "y": 342.8126,
+        "width": 77.2775,
+        "height": 22.9226
+      },
+      "map_long_short_ratio": 3.371,
+      "metric_dimensions": null,
+      "footprint_status": "Known map proportions and architectural mask, no measured dimensions",
+      "verified_available_paintings": [
+        {
+          "id": "raft-medusa",
+          "title": "The Raft of the Medusa",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010059199",
+          "width_m": 7.16,
+          "height_m": 4.91,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        },
+        {
+          "id": "liberty",
+          "title": "Liberty Leading the People",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010065872",
+          "width_m": 3.25,
+          "height_m": 2.6,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        },
+        {
+          "id": "charging-chasseur",
+          "title": "The Charging Chasseur",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010059198",
+          "width_m": 2.66,
+          "height_m": 3.49,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        },
+        {
+          "id": "wounded-cuirassier",
+          "title": "The Wounded Cuirassier",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010059200",
+          "width_m": 2.94,
+          "height_m": 3.58,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        },
+        {
+          "id": "sardanapalus",
+          "title": "The Death of Sardanapalus",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010065757",
+          "width_m": 4.96,
+          "height_m": 3.92,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        },
+        {
+          "id": "jaffa",
+          "title": "Bonaparte Visiting the Plague Victims of Jaffa",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062570",
+          "width_m": 7.15,
+          "height_m": 5.23,
+          "actual_louvre_location": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme"
+        }
+      ]
+    },
+    {
+      "room": 701,
+      "name": "Salon Denon",
+      "wing": "Denon",
+      "level": 1,
+      "collection": "Decorated junction salon",
+      "svg_interaction_rect": {
+        "x": 519.1919,
+        "y": 333.919,
+        "width": 28.1424,
+        "height": 30.6747
+      },
+      "map_long_short_ratio": 1.09,
+      "metric_dimensions": null,
+      "footprint_status": "Known map proportions and architectural mask, no measured dimensions",
+      "verified_available_paintings": []
+    },
+    {
+      "room": 702,
+      "name": "Salle Daru",
+      "wing": "Denon",
+      "level": 1,
+      "collection": "French Neoclassical painting",
+      "svg_interaction_rect": {
+        "x": 547.2199,
+        "y": 341.2381,
+        "width": 72.6954,
+        "height": 24.8511
+      },
+      "map_long_short_ratio": 2.925,
+      "metric_dimensions": null,
+      "footprint_status": "Known map proportions and architectural mask, no measured dimensions",
+      "verified_available_paintings": [
+        {
+          "id": "oath-horatii",
+          "title": "The Oath of the Horatii",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062239",
+          "width_m": 4.25,
+          "height_m": 3.3,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        },
+        {
+          "id": "coronation",
+          "title": "The Coronation of Napoleon",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010065720",
+          "width_m": 9.79,
+          "height_m": 6.21,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        },
+        {
+          "id": "grande-odalisque",
+          "title": "La Grande Odalisque",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010065566",
+          "width_m": 1.62,
+          "height_m": 0.91,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        },
+        {
+          "id": "sabines",
+          "title": "The Intervention of the Sabine Women",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010065426",
+          "width_m": 5.22,
+          "height_m": 3.85,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        },
+        {
+          "id": "atala",
+          "title": "The Burial of Atala",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010064829",
+          "width_m": 2.67,
+          "height_m": 2.07,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        },
+        {
+          "id": "recamier",
+          "title": "Portrait of Madame Récamier",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010059215",
+          "width_m": 2.44,
+          "height_m": 1.74,
+          "actual_louvre_location": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme"
+        }
+      ]
+    },
+    {
+      "room": 711,
+      "name": "Salle des États",
+      "wing": "Denon",
+      "level": 1,
+      "collection": "Mona Lisa and Venetian paintings",
+      "svg_interaction_rect": {
+        "x": 518.8728,
+        "y": 364.2904,
+        "width": 28.3471,
+        "height": 56.2668
+      },
+      "map_long_short_ratio": 1.985,
+      "metric_dimensions": null,
+      "footprint_status": "Known map proportions and architectural mask, no measured dimensions",
+      "verified_available_paintings": [
+        {
+          "id": "mona-lisa",
+          "title": "Mona Lisa",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062370",
+          "width_m": 0.534,
+          "height_m": 0.794,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)"
+        },
+        {
+          "id": "man-with-glove",
+          "title": "Man with a Glove",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062290",
+          "width_m": 0.89,
+          "height_m": 1.0,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)"
+        },
+        {
+          "id": "wedding-cana",
+          "title": "The Wedding at Cana",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010064382",
+          "width_m": 9.94,
+          "height_m": 6.77,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)"
+        },
+        {
+          "id": "woman-mirror",
+          "title": "Woman with a Mirror",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062292",
+          "width_m": 0.76,
+          "height_m": 0.99,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)"
+        },
+        {
+          "id": "emmaus-veronese",
+          "title": "The Supper at Emmaus",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010067589",
+          "width_m": 4.16,
+          "height_m": 2.42,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+          "display_zone": "Salle des Etats"
+        },
+        {
+          "id": "madonna-rabbit",
+          "title": "Madonna of the Rabbit",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062261",
+          "width_m": 0.87,
+          "height_m": 0.71,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+          "display_zone": "Vestibule Salle des Etats"
+        },
+        {
+          "id": "paradise",
+          "title": "The Coronation of the Virgin, called Paradise",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010064392",
+          "width_m": 3.62,
+          "height_m": 1.43,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+          "display_zone": "Salle des Etats"
+        },
+        {
+          "id": "crucifixion",
+          "title": "The Crucifixion",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010061292",
+          "width_m": 1.02,
+          "height_m": 1.02,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+          "display_zone": "Salle des Etats"
+        },
+        {
+          "id": "entombment",
+          "title": "The Entombment of Christ",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062279",
+          "width_m": 2.12,
+          "height_m": 1.48,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+          "display_zone": "Vestibule Salle des Etats"
+        },
+        {
+          "id": "venus-pardo",
+          "title": "Jupiter and Antiope, called the Pardo Venus",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010062278",
+          "width_m": 3.85,
+          "height_m": 1.96,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+          "display_zone": "Vestibule Salle des Etats"
+        },
+        {
+          "id": "esther",
+          "title": "Esther and Ahasuerus",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010061270",
+          "width_m": 3.34,
+          "height_m": 2.06,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+          "display_zone": "Salle des Etats"
+        },
+        {
+          "id": "susannah",
+          "title": "Susannah and the Elders",
+          "source_url": "https://collections.louvre.fr/ark:/53355/cl010061271",
+          "width_m": 2.03,
+          "height_m": 2.0,
+          "actual_louvre_location": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+          "display_zone": "Salle des Etats"
+        }
+      ],
+      "published_floor_area_m2": 698,
+      "area_source": "states-reopening-fr",
+      "area_derived_metric_estimate": {
+        "width_m": 18.8,
+        "length_m": 37.3,
+        "status": "Approximation from698m² and1.985 plan bounding ratio before correcting for chamfers; do not call surveyed."
+      },
+      "area_derived_svg_scale_m_per_unit": 0.662
+    }
+  ],
+  "map_coordinate_convention": {
+    "x": "left to right on official SVG",
+    "y": "top to bottom on official SVG",
+    "geographic_compass": "Not derived here. Map-space direction labels below are not compass labels.",
+    "unit": "SVG units; arbitrary scale"
+  },
+  "connections": [
+    {
+      "rooms": [
+        700,
+        701
+      ],
+      "status": "Known via official SVG wall openings",
+      "description": "Shared short wall. Two offset parallel doorways rather than one center arch.",
+      "sources": [
+        "map-svg",
+        "mollien-photo",
+        "daru-photo-2016"
+      ]
+    },
+    {
+      "rooms": [
+        701,
+        702
+      ],
+      "status": "Known via official SVG wall openings",
+      "description": "Shared short wall. Two offset parallel doorways.",
+      "sources": [
+        "map-svg"
+      ]
+    },
+    {
+      "rooms": [
+        701,
+        711
+      ],
+      "status": "Known via official SVG wall opening",
+      "description": "Salon Denon bottom edge opens centrally into clipped/chamfered upper end of Salle des États.",
+      "sources": [
+        "map-svg"
+      ]
+    },
+    {
+      "rooms": [
+        711,
+        712
+      ],
+      "status": "Known adjacency; exact doors require photographic geometry",
+      "description": "Official simplified plan connects room711 and Grande Galerie712. It must not be used to infer a sole center door under Cana: actual Wedding wall photo shows two flanking doorways. Exact mapping of each opening to712 is not established by photo.",
+      "sources": [
+        "map-svg",
+        "states-cana-wall-2012"
+      ]
+    },
+    {
+      "rooms": [
+        702,
+        703
+      ],
+      "status": "Known map adjacency and doorway",
+      "description": "Daru opposite short end opens toward Daru staircase/Winged Victory.",
+      "sources": [
+        "map-svg",
+        "map-pdf-2026"
+      ]
+    },
+    {
+      "rooms": [
+        700,
+        "Mollien staircase"
+      ],
+      "status": "Known map adjacency and doorway",
+      "description": "Mollien opposite short end opens toward staircase.",
+      "sources": [
+        "map-svg"
+      ]
+    }
+  ],
+  "architectural_features": {
+    "700_and_702": {
+      "known": [
+        "Long rectilinear galleries with broad gridded skylights",
+        "Deep red walls with gilded ceiling edges and ornamented coved perimeter",
+        "Parquet chevrons with geometric borders/diamond accents",
+        "Central dark benches, dark baseboards, low rope barriers",
+        "Dense wall hanging with mixed very large canvases and smaller pictures, occasional second tier"
+      ],
+      "inferred": [
+        "Exact ceiling height, cornice profiles, floor plank dimensions and frame depths must be approximated",
+        "Do not put a single large centered arch at every end; two offset doorways are documented"
+      ]
+    },
+    "701": {
+      "known": [
+        "Approximately square junction salon on official map, projecting upward beyond neighboring gallery edges",
+        "Connects both red galleries and Salle des États"
+      ],
+      "inferred": [
+        "Precise ceiling decoration and surfaces need the official video or additional imagery; do not copy red gallery skylight arbitrarily"
+      ]
+    },
+    "711": {
+      "known": [
+        "Long axis perpendicular to the red gallery chain",
+        "Clipped/chamfered upper corners and short freestanding partition close to the upper end on official plan",
+        "Blue wall surfaces and protective Mona Lisa case",
+        "Mona Lisa stands on separate display wall opposite Wedding Feast at Cana",
+        "Wedding at Cana wall has two flanking doors in2012 photo.",
+        "Large central gridded skylight surrounded by plain white sloping/recessed ceiling and stone-colored cornice with recessed lights.",
+        "Post2019 tall blue Mona Lisa partition has a pale monumental outer rectangular architectural outline; glass display is low center."
+      ],
+      "inferred": [
+        "Identifying the SVG internal partition as Mona Lisa wall is strongly supported by separate-wall text, but map does not label the painting itself",
+        "Exact Mona Lisa wall and Wedding spatial distance, guardrail curves and window/skylight geometry are not surveyed"
+      ]
+    }
+  },
+  "placements": [
+    {
+      "room": 711,
+      "artwork": "mona-lisa",
+      "relation": "Facing wedding-cana across the room on a separate wall",
+      "status": "Known official text; approximate exact coordinates",
+      "sources": [
+        "states-editorial",
+        "states-reopening",
+        "map-svg"
+      ]
+    },
+    {
+      "room": 711,
+      "artwork": "wedding-cana",
+      "relation": "Opposite Mona Lisa",
+      "status": "Known official text; wall orientation inferred from map",
+      "sources": [
+        "states-reopening"
+      ]
+    },
+    {
+      "room": 711,
+      "artwork": "man-with-glove",
+      "relation": "Present in room 711; precise wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 711,
+      "artwork": "woman-mirror",
+      "relation": "Present in room 711; precise wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 702,
+      "artwork": "oath-horatii",
+      "relation": "Viewer-left long wall, nearer end in Daru 2016 photo",
+      "status": "Observed historical hanging, present room confirmed",
+      "sources": [
+        "daru-photo-2016"
+      ]
+    },
+    {
+      "room": 702,
+      "artwork": "sabines",
+      "relation": "Viewer-right long wall, nearer end in Daru 2016 photo",
+      "status": "Observed historical hanging, present room confirmed",
+      "sources": [
+        "daru-photo-2016"
+      ]
+    },
+    {
+      "room": 702,
+      "artwork": "coronation",
+      "relation": "Same viewer-right wall as Sabines, beyond it toward far pair of doors",
+      "status": "Observed historical hanging, present room confirmed",
+      "sources": [
+        "daru-photo-2016"
+      ]
+    },
+    {
+      "room": 702,
+      "artwork": "grande-odalisque",
+      "relation": "Room known; precise current wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 702,
+      "artwork": "atala",
+      "relation": "Room known; precise current wall unverified",
+      "status": "Current Louvre record only; historical conflicting photo must not override room record"
+    },
+    {
+      "room": 702,
+      "artwork": "recamier",
+      "relation": "Room known; precise current wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 700,
+      "artwork": "jaffa",
+      "relation": "Viewer-left long wall, foreground in official Mollien photo",
+      "status": "Observed photograph, date of capture unspecified; current room confirmed",
+      "sources": [
+        "mollien-photo"
+      ]
+    },
+    {
+      "room": 700,
+      "artwork": "charging-chasseur",
+      "relation": "Viewer-right long wall, foreground in official Mollien photo",
+      "status": "Observed photograph, date of capture unspecified; current room confirmed",
+      "sources": [
+        "mollien-photo"
+      ]
+    },
+    {
+      "room": 700,
+      "artwork": "raft-medusa",
+      "relation": "Room known; exact current wall unverified. Historical la-salle-daru.jpg shows it viewer-right between Wounded Cuirassier and Atala.",
+      "status": "Current Louvre record only for current hanging",
+      "sources": [
+        "misleading-daru-photo"
+      ]
+    },
+    {
+      "room": 700,
+      "artwork": "wounded-cuirassier",
+      "relation": "Room known; exact current wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 700,
+      "artwork": "liberty",
+      "relation": "Room known; exact current wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 700,
+      "artwork": "sardanapalus",
+      "relation": "Room known; exact current wall unverified",
+      "status": "Current Louvre record only"
+    },
+    {
+      "room": 711,
+      "source": "states-cana-wall-2012",
+      "painting": "wedding-cana",
+      "position": "Centered on broad end wall panel, with doors flanking left and right near room corners.",
+      "status": "Photo-observed2012 geometry, modern finish and operational door status not verified."
+    },
+    {
+      "room": 711,
+      "paintings": [
+        "emmaus-veronese",
+        "madonna-rabbit",
+        "paradise",
+        "crucifixion",
+        "entombment",
+        "venus-pardo",
+        "esther",
+        "susannah"
+      ],
+      "status": "Current room official-record verified, exact wall coordinates not established.",
+      "notes": "MadonnaRabbit, Entombment and Pardo Venus are explicitly Vestibule Salle des Etats; remaining5are mainSalleEtats. These must be represented as approximate hangings if placed without direct wall evidence."
+    }
+  ],
+  "reconstruction_recommendation": {
+    "faithful_minimum": [
+      "Use actual connected arrangement 700 ↔ 701 ↔ 702, with 701 ↔ 711 below center",
+      "Use official SVG proportions, door patterns, blue chamfered Salle des États, standalone partition and separate Mona Lisa/Cana facing relationship",
+      "Hang only verified paintings in each room. Reproduce photograph relative rows where dated evidence exists. Clearly disclose approximate hanging for unverified coordinates.",
+      "Use artifact dimensions from catalog; do not resize every painting to portrait scale. Coronation 9.79m wide, Cana9.94m wide, Raft7.16m wide, Jaffa7.15m wide."
+    ],
+    "coverage_limits": [
+      "24 downloadable painting textures in catalog, not all artworks in rooms.",
+      "No surveyed metric floorplan, exact door dimensions, photogrammetry mesh, complete present-day wall inventory, or 2026 hanging survey located.",
+      "Modern reference photos are not painting textures and should not be deployed as environment textures without their own rights."
+    ]
+  }
+}

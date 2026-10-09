@@ -1,0 +1,3367 @@
+{
+  "researched_on": "2026-10-09",
+  "scope": "Twenty-four genuine Louvre paintings with primary records; room identity verified, precise hanging must use separate room research.",
+  "image_processing": "Faithful Commons reproductions resized to max1600px normally; monumental Coronation/Wedding/Raft/Sabines upgraded to3840px longest side. Optimized JPEGs. No upscaled sources, generative artworks, or substituted copies.32 assets.",
+  "assets": [
+    {
+      "id": "mona-lisa",
+      "louvre_record": {
+        "arkId": "cl010062370",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062370",
+        "title": "Portrait de Lisa Gherardini, épouse de Francesco del Giocondo, dit La Joconde ou Monna Lisa",
+        "creator": [
+          {
+            "label": "Léonard de Vinci (Leonardo di ser Piero da Vinci, dit Leonardo da Vinci)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1519",
+                "place": "Amboise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1452",
+                "place": "Vinci (Florence)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q762"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XVIe siècle (1503 - 1519)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,794",
+            "displayDimension": "0,794 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,01",
+            "displayDimension": "1,01 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,534",
+            "displayDimension": "0,534 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "0,77",
+            "displayDimension": "0,77 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 779",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 316",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Mona Lisa, by Leonardo da Vinci, from C2RMF retouched.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "Cropped and relevelled from <a href=\"//commons.wikimedia.org/wiki/File:Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF.jpg\" title=\"File:Mona Lisa, by Leonardo da Vinci, from C2RMF.jpg\">File:Mona Lisa, by Leonardo da Vinci, from C2RMF.jpg</a>. Originally C2RMF: <a rel=\"nofollow\" class=\"external text\" href=\"http://web.archive.org/web/20120524155855/http://www.technologies.c2rmf.fr/imaging/showcase\">Galerie de tableaux en très haute définition</a>: <a rel=\"nofollow\" class=\"external text\" href=\"http://www.technologies.c2rmf.fr/iipimage/showcase/zoom/cop29\">image page</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/1280px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "virgin-rocks",
+      "louvre_record": {
+        "arkId": "cl010062373",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062373",
+        "title": "La Vierge, l'Enfant Jésus, saint Jean Baptiste et un ange, dit La Vierge aux rochers",
+        "creator": [
+          {
+            "label": "Léonard de Vinci (Leonardo di ser Piero da Vinci, dit Leonardo da Vinci)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1519",
+                "place": "Amboise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1452",
+                "place": "Vinci (Florence)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q762"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 4e quart du XVe siècle (vers 1483 - 1494)",
+        "currentLocation": "Denon, [Peint] Salle 710 - Grande Galerie, Salle 710 - (2e travée)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,995",
+            "displayDimension": "1,995 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "2,365",
+            "displayDimension": "2,365 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,22",
+            "displayDimension": "1,22 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,975",
+            "displayDimension": "1,975 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur",
+            "value": "23",
+            "displayDimension": "23 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 6,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur avec accessoire",
+            "value": "4,5",
+            "displayDimension": "4,5 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 7,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 777",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 320",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Leonardo da Vinci - Virgin of the Rocks (Louvre).jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.artres.com\">Art Resource</a>",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Leonardo_da_Vinci_-_Virgin_of_the_Rocks_%28Louvre%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Leonardo_da_Vinci_-_Virgin_of_the_Rocks_%28Louvre%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "saint-john",
+      "louvre_record": {
+        "arkId": "cl010062374",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062374",
+        "title": "Saint Jean Baptiste",
+        "creator": [
+          {
+            "label": "Léonard de Vinci (Leonardo di ser Piero da Vinci, dit Leonardo da Vinci)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1519",
+                "place": "Amboise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1452",
+                "place": "Vinci (Florence)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q762"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XVIe siècle (vers 1508 - 1519)",
+        "currentLocation": "Denon, [Peint] Salle 710 - Grande Galerie, Salle 710 - (2e travée)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,729",
+            "displayDimension": "0,729 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "0,945",
+            "displayDimension": "0,945 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,563",
+            "displayDimension": "0,563 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "0,8",
+            "displayDimension": "0,8 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 775",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 318",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Leonardo da Vinci - Saint John the Baptist C2RMF retouched.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "Based on <a href=\"//commons.wikimedia.org/wiki/File:Saint_Jean-Baptiste,_by_Leonardo_da_Vinci,_from_C2RMF.jpg\" title=\"File:Saint Jean-Baptiste, by Leonardo da Vinci, from C2RMF.jpg\">File:Saint Jean-Baptiste, by Leonardo da Vinci, from C2RMF.jpg</a>, originally: C2RMF: <a rel=\"nofollow\" class=\"external text\" href=\"http://web.archive.org/web/20120524155855/http://www.technologies.c2rmf.fr/imaging/showcase\">Galerie de tableaux en très haute définition</a>: <a rel=\"nofollow\" class=\"external text\" href=\"http://www.technologies.c2rmf.fr/iipimage/showcase/zoom/HD5\">image page</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg/1280px-Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b8/Leonardo_da_Vinci_-_Saint_John_the_Baptist_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "castiglione",
+      "louvre_record": {
+        "arkId": "cl010066418",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010066418",
+        "title": "Balthazar Castiglione (1478-1529), écrivain et diplomate",
+        "creator": [
+          {
+            "label": "Santi, Raffaello, dit Raphaël",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1520",
+                "place": "Rome",
+                "type": "date de mort"
+              },
+              {
+                "date": "1483",
+                "place": "Urbin",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q5597"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XVIe siècle (vers 1514 - 1515)",
+        "currentLocation": "Denon, [Peint] Salle 712 - Grande Galerie, Salle 712 - (Tribune)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,82",
+            "displayDimension": "0,82 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,67",
+            "displayDimension": "0,67 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 611",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 437",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Baldassare Castiglione, by Raffaello Sanzio, from C2RMF retouched.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "Photographed by Elsa Lambert of C2RMF on 2010-06-23, retouched from <a href=\"//commons.wikimedia.org/wiki/File:Balthazar_Castiglione,_by_Raffaello_Sanzio,_from_C2RMF.jpg\" title=\"File:Balthazar Castiglione, by Raffaello Sanzio, from C2RMF.jpg\">File:Balthazar Castiglione, by Raffaello Sanzio, from C2RMF.jpg</a>, originally C2RMF: <a rel=\"nofollow\" class=\"external text\" href=\"http://web.archive.org/web/20120524155855/http://www.technologies.c2rmf.fr/imaging/showcase\">Galerie de tableaux en très haute définition</a>: <a rel=\"nofollow\" class=\"external text\" href=\"http://www.technologies.c2rmf.fr/iipimage/showcase/zoom/LAE5953\">image page</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Baldassare_Castiglione%2C_by_Raffaello_Sanzio%2C_from_C2RMF_retouched.jpg/1280px-Baldassare_Castiglione%2C_by_Raffaello_Sanzio%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Baldassare_Castiglione%2C_by_Raffaello_Sanzio%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "man-with-glove",
+      "louvre_record": {
+        "arkId": "cl010062290",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062290",
+        "title": "Portrait d'homme, dit L'Homme au gant",
+        "creator": [
+          {
+            "label": "Titien (Tiziano Vecellio, dit Tiziano ou)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1576",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1488 ou 1490",
+                "place": "Pieve di Cadore (Belluno)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q47551"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XVIe siècle (1500 - 1525)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1",
+            "displayDimension": "1 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,26",
+            "displayDimension": "1,26 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,89",
+            "displayDimension": "0,89 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,14",
+            "displayDimension": "1,14 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 757",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 507",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Titian - Man with a Glove - WGA22939.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "<a href=\"https://en.wikipedia.org/wiki/en:Web_Gallery_of_Art\" class=\"extiw\" title=\"w:en:Web Gallery of Art\"><span title=\"virtual art gallery for European fine art created before 1900\">Web Gallery of Art</span></a>:  <span typeof=\"mw:File\"><a href=\"http://www.wga.hu/art/t/tiziano/10/21/06gloves.jpg\" rel=\"nofollow\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/20px-Inkscape.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"20\" height=\"20\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Inkscape.svg/40px-Inkscape.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"60\" data-file-height=\"60\"></a></span> <a rel=\"nofollow\" class=\"external text\" href=\"http://www.wga.hu/art/t/tiziano/10/21/06gloves.jpg\">Image</a> <span typeof=\"mw:File\"><a href=\"http://www.wga.hu/html/t/tiziano/10/21/06gloves.html\" rel=\"nofollow\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/20px-Information_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail\" decoding=\"async\" loading=\"lazy\" width=\"20\" height=\"20\" class=\"mw-file-element\" srcset=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Information_icon.svg/40px-Information_icon.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail 2x\" data-file-width=\"620\" data-file-height=\"620\"></a></span> <a rel=\"nofollow\" class=\"external text\" href=\"http://www.wga.hu/html/t/tiziano/10/21/06gloves.html\">Info about artwork</a><div style=\"display: none;\">wga QS:P11807,\"t/tiziano/10/21/06gloves\"</div>",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Titian_-_Man_with_a_Glove_-_WGA22939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Titian_-_Man_with_a_Glove_-_WGA22939.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "wedding-cana",
+      "louvre_record": {
+        "arkId": "cl010064382",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010064382",
+        "title": "Les Noces de Cana",
+        "creator": [
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "6,77",
+            "displayDimension": "6,77 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "9,94",
+            "displayDimension": "9,94 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 142",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 384",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Les Noces de Cana - Paolo Veronese - Musée du Louvre Peintures INV 142 ; MR 384.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2024-04-05",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Les_Noces_de_Cana_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_142_%3B_MR_384.jpg/1280px-Les_Noces_de_Cana_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_142_%3B_MR_384.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Les_Noces_de_Cana_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_142_%3B_MR_384.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        3840,
+        2571
+      ],
+      "output_bytes": 2484709
+    },
+    {
+      "id": "oath-horatii",
+      "louvre_record": {
+        "arkId": "cl010062239",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062239",
+        "title": "Le serment des Horaces, entre les mains de leur père",
+        "creator": [
+          {
+            "label": "David, Jacques-Louis",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1748",
+                "place": "Paris",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1825",
+                "place": "Bruxelles",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q83155"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 4e quart du XVIIIe siècle (1784)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "3,3",
+            "displayDimension": "3,3 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "3,85",
+            "displayDimension": "3,85 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "4,25",
+            "displayDimension": "4,25 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "4,7",
+            "displayDimension": "4,7 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 3692",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 1432",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Jacques-Louis David, Le Serment des Horaces.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://faculty.wartburg.edu/wilson/arthistory/images/28/28-21.jpg\">wartburg.edu</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg/1920px-Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Jacques-Louis_David%2C_Le_Serment_des_Horaces.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "coronation",
+      "louvre_record": {
+        "arkId": "cl010065720",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065720",
+        "title": "Le Couronnement de l'empereur Napoléon Ier et de l'impératrice Joséphine dans la cathédrale Notre-Dame de Paris, le 2 décembre 1804.",
+        "creator": [
+          {
+            "label": "David, Jacques-Louis",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1748",
+                "place": "Paris",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1825",
+                "place": "Bruxelles",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q83155"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          },
+          {
+            "label": "Rouget, Georges",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "Participation",
+            "dates": [
+              {
+                "date": "1869",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1783",
+                "place": "Paris",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "Peintre",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q2164632"
+          },
+          {
+            "label": "Degotti, Ignazio Eugenio",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "Participation",
+            "dates": [
+              {
+                "date": "28/02/1758",
+                "place": "Turin",
+                "type": "date de naissance"
+              },
+              {
+                "date": "31/12/1824",
+                "place": "Paris",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "Peintre",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1807)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "6,21",
+            "displayDimension": "6,21 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "9,79",
+            "displayDimension": "9,79 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 3699",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 1437",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Jacques-Louis David - The Coronation of Napoleon (1805-1807).jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "art database",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1e/Jacques-Louis_David_-_The_Coronation_of_Napoleon_%281805-1807%29.jpg/1280px-Jacques-Louis_David_-_The_Coronation_of_Napoleon_%281805-1807%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Jacques-Louis_David_-_The_Coronation_of_Napoleon_%281805-1807%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        3840,
+        2415
+      ],
+      "output_bytes": 2366562
+    },
+    {
+      "id": "grande-odalisque",
+      "louvre_record": {
+        "arkId": "cl010065566",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065566",
+        "title": "Une odalisque, dite La grande odalisque",
+        "creator": [
+          {
+            "label": "Ingres, Jean-Auguste-Dominique",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1867",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1780",
+                "place": "Montauban",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q23380"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1814)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,91",
+            "displayDimension": "0,91 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,372",
+            "displayDimension": "1,372 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,62",
+            "displayDimension": "1,62 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "2,067",
+            "displayDimension": "2,067 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "RF 1158",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "Jean Auguste Dominique Ingres, La Grande Odalisque, 1814.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://faculty.wartburg.edu/wilson/arthistory/images/28/28-37.jpg\">wartburg.edu</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Jean_Auguste_Dominique_Ingres%2C_La_Grande_Odalisque%2C_1814.jpg/1280px-Jean_Auguste_Dominique_Ingres%2C_La_Grande_Odalisque%2C_1814.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Jean_Auguste_Dominique_Ingres%2C_La_Grande_Odalisque%2C_1814.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "raft-medusa",
+      "louvre_record": {
+        "arkId": "cl010059199",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010059199",
+        "title": "Le radeau de la Méduse",
+        "creator": [
+          {
+            "label": "Géricault, Théodore",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1824",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1791",
+                "place": "Rouen",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q184212"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1818 - 1819)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "4,91",
+            "displayDimension": "4,91 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "7,16",
+            "displayDimension": "7,16 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 4884",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "C 51",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Le Radeau de la Méduse - Théodore Géricault - Musée du Louvre Peintures INV4884; C51.jpg",
+      "commons_license": "PD-Art (PD-old-auto-expired), Public Domain Mark",
+      "commons_license_url": null,
+      "commons_credit_html": "Shonagon, photograph2025-03-29",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Le_Radeau_de_la_M%C3%A9duse_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4884_%3B_C_51.jpg",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/85/Le_Radeau_de_la_M%C3%A9duse_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4884_%3B_C_51.jpg",
+      "output_image_dimensions": [
+        3840,
+        2595
+      ],
+      "output_bytes": 2464446,
+      "original_image_dimensions": [
+        10244,
+        6924
+      ],
+      "commons_url": "https://commons.wikimedia.org/wiki/File:Le_Radeau_de_la_M%C3%A9duse_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4884_;_C_51.jpg"
+    },
+    {
+      "id": "liberty",
+      "louvre_record": {
+        "arkId": "cl010065872",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065872",
+        "title": "Le 28 juillet 1830. La Liberté guidant le peuple",
+        "creator": [
+          {
+            "label": "Delacroix, Eugène",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1863",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1798",
+                "place": "Charenton-Saint-Maurice (Val-de-Marne)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q33477"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XIXe siècle (1830)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "2,6",
+            "displayDimension": "2,6 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "2,97",
+            "displayDimension": "2,97 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "3,25",
+            "displayDimension": "3,25 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "3,65",
+            "displayDimension": "3,65 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "RF 129",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "Eugène Delacroix - Le 28 Juillet. La Liberté guidant le peuple.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://artsy.net/artwork/eugene-victor-ferdinand-delacroix-eugene-delacroix-la-liberte-guidant-le-peuple-liberty-leading-the-people\">Erich Lessing Culture and Fine Arts Archives via artsy.net</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg/1280px-Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/5d/Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "mortefontaine",
+      "louvre_record": {
+        "arkId": "cl010066968",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010066968",
+        "title": "Souvenir de Mortefontaine (Oise).",
+        "creator": [
+          {
+            "label": "Corot, Jean-Baptiste Camille",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "22/02/1875",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "16/07/1796",
+                "place": "Paris",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q148475"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 3e quart du XIXe siècle (1850 - 1875)",
+        "currentLocation": "Sully, [Peint] Salle 952 - Jean-Baptiste Camille Corot (1796-1875)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,65",
+            "displayDimension": "0,65 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,02",
+            "displayDimension": "1,02 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,89",
+            "displayDimension": "0,89 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,25",
+            "displayDimension": "1,25 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "MI 692 bis",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "Souvenir de Mortefontaine - Jean-Baptiste Camille Corot - Musée du Louvre Peintures MI 692 bis - photo 2.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2024-02-15",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Souvenir_de_Mortefontaine_-_Jean-Baptiste_Camille_Corot_-_Mus%C3%A9e_du_Louvre_Peintures_MI_692_bis_-_photo_2.jpg/1920px-Souvenir_de_Mortefontaine_-_Jean-Baptiste_Camille_Corot_-_Mus%C3%A9e_du_Louvre_Peintures_MI_692_bis_-_photo_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Souvenir_de_Mortefontaine_-_Jean-Baptiste_Camille_Corot_-_Mus%C3%A9e_du_Louvre_Peintures_MI_692_bis_-_photo_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "arcadia",
+      "louvre_record": {
+        "arkId": "cl010062528",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062528",
+        "title": "Les Bergers d'Arcadie",
+        "creator": [
+          {
+            "label": "Poussin, Nicolas",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1665",
+                "place": "Rome",
+                "type": "date de mort"
+              },
+              {
+                "date": "1594",
+                "place": "Les Andelys",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q41554"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XVIIe siècle (vers 1638)",
+        "currentLocation": "Richelieu, [Peint] Salle 825 - Nicolas Poussin (1594-1665) : les chefs-d’œuvre",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,85",
+            "displayDimension": "0,85 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,12",
+            "displayDimension": "1,12 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,21",
+            "displayDimension": "1,21 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,46",
+            "displayDimension": "1,46 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 7300",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 2339",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "Nicolas Poussin - Et in Arcadia ego (deuxième version).jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": null,
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/df/Nicolas_Poussin_-_Et_in_Arcadia_ego_%28deuxi%C3%A8me_version%29.jpg/1280px-Nicolas_Poussin_-_Et_in_Arcadia_ego_%28deuxi%C3%A8me_version%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Nicolas_Poussin_-_Et_in_Arcadia_ego_%28deuxi%C3%A8me_version%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "lacemaker",
+      "louvre_record": {
+        "arkId": "cl010064918",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010064918",
+        "title": "La Dentellière",
+        "creator": [
+          {
+            "label": "Vermeer, Johannes",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1632",
+                "place": "Delft",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1675",
+                "place": "Delft",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q41264"
+          },
+          {
+            "label": "Pays-Bas",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 3e quart du XVIIe siècle (vers 1669 - 1670)",
+        "currentLocation": "Richelieu, [Peint] Salle 837 - Autour de Jacob van Ruisdael (vers 1628-1682)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,24",
+            "displayDimension": "0,24 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "0,68",
+            "displayDimension": "0,68 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,21",
+            "displayDimension": "0,21 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "0,62",
+            "displayDimension": "0,62 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur avec accessoire",
+            "value": "6,7",
+            "displayDimension": "6,7 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 5,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "MI 1448",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "Johannes Vermeer - The lacemaker (c.1669-1671).jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "Musée du Louvre",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Johannes_Vermeer_-_The_lacemaker_%28c.1669-1671%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "card-sharp",
+      "louvre_record": {
+        "arkId": "cl010066276",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010066276",
+        "title": "Le Tricheur à l’as de carreau",
+        "creator": [
+          {
+            "label": "La Tour, Georges de",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1652",
+                "place": "Lunéville",
+                "type": "date de mort"
+              },
+              {
+                "date": "1593",
+                "place": "Vic-sur-Seille",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q203371"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XVIIe siècle (vers 1636 - 1640)",
+        "currentLocation": "Sully, [Peint] Salle 912 - Georges de La Tour et Les frères Le Nain, Salle 912 - Georges de La Tour (1593-1652)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,06",
+            "displayDimension": "1,06 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,45",
+            "displayDimension": "1,45 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,46",
+            "displayDimension": "1,46 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,85",
+            "displayDimension": "1,85 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur avec accessoire",
+            "value": "11",
+            "displayDimension": "11 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 5,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "RF 1972 8",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "Le Tricheur à l'as de carreau - Georges de La Tour - Musée du Louvre Peintures RF 1972 8.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2024-04-05",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Le_Tricheur_%C3%A0_l%27as_de_carreau_-_Georges_de_La_Tour_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1972_8.jpg/1920px-Le_Tricheur_%C3%A0_l%27as_de_carreau_-_Georges_de_La_Tour_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1972_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Le_Tricheur_%C3%A0_l%27as_de_carreau_-_Georges_de_La_Tour_-_Mus%C3%A9e_du_Louvre_Peintures_RF_1972_8.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "ray",
+      "louvre_record": {
+        "arkId": "cl010065938",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065938",
+        "title": "La Raie",
+        "creator": [
+          {
+            "label": "Chardin, Jean Baptiste Siméon",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1779",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1699",
+                "place": "Paris",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q207447"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XVIIIe siècle (1728)",
+        "currentLocation": "Sully, [Peint] Salle 919 - Les peintres de Louis XV",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,145",
+            "displayDimension": "1,145 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,455",
+            "displayDimension": "1,455 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,46",
+            "displayDimension": "1,46 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,775",
+            "displayDimension": "1,775 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur avec accessoire",
+            "value": "10",
+            "displayDimension": "10 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 6,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 3197",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 1323",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "La Raie - Jean Baptiste Siméon Chardin - Musée du Louvre Peintures INV 3197.jpg",
+      "commons_license": "Public domain",
+      "commons_license_url": null,
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2022-06-21",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/La_Raie_-_Jean_Baptiste_Sim%C3%A9on_Chardin_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3197.jpg/1920px-La_Raie_-_Jean_Baptiste_Sim%C3%A9on_Chardin_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3197.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/La_Raie_-_Jean_Baptiste_Sim%C3%A9on_Chardin_-_Mus%C3%A9e_du_Louvre_Peintures_INV_3197.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "sabines",
+      "louvre_record": {
+        "arkId": "cl010065426",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065426",
+        "title": "Les Sabines",
+        "creator": [
+          {
+            "label": "David, Jacques-Louis",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1748",
+                "place": "Paris",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1825",
+                "place": "Bruxelles",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q83155"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 4e quart du XVIIIe siècle (1799)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "3,85",
+            "displayDimension": "3,85 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "5,22",
+            "displayDimension": "5,22 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "4,434",
+            "displayDimension": "4,434 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "5,8",
+            "displayDimension": "5,8 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 3691",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "L 3710",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:The Intervention of the Sabine Women - David (Louvre INV 3691).jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "Wilfredor, photograph2024; CC0/PD-Art",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b1/The_Intervention_of_the_Sabine_Women_-_David_%28Louvre_INV_3691%29.jpg/1920px-The_Intervention_of_the_Sabine_Women_-_David_%28Louvre_INV_3691%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b1/The_Intervention_of_the_Sabine_Women_-_David_%28Louvre_INV_3691%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        3840,
+        2887
+      ],
+      "output_bytes": 2279590,
+      "original_image_dimensions": [
+        9837,
+        7396
+      ]
+    },
+    {
+      "id": "charging-chasseur",
+      "louvre_record": {
+        "arkId": "cl010059198",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010059198",
+        "title": "Officier de chasseurs à cheval de la Garde impériale, chargeant",
+        "creator": [
+          {
+            "label": "Géricault, Théodore",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1824",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1791",
+                "place": "Rouen",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q184212"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1812)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "3,49",
+            "displayDimension": "3,49 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,66",
+            "displayDimension": "2,66 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 4885",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MN 50",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:An Officer of the Imperial Horse Guards Charging.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.allartpainting.com/an-officer-of-the-imperial-horse-guards-charging-p-4985.html\">http://www.allartpainting.com/an-officer-of-the-imperial-horse-guards-charging-p-4985.html</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/An_Officer_of_the_Imperial_Horse_Guards_Charging.jpg/1920px-An_Officer_of_the_Imperial_Horse_Guards_Charging.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/8/87/An_Officer_of_the_Imperial_Horse_Guards_Charging.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "wounded-cuirassier",
+      "louvre_record": {
+        "arkId": "cl010059200",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010059200",
+        "title": "Cuirassier blessé, quittant le feu",
+        "creator": [
+          {
+            "label": "Géricault, Théodore",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1824",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1791",
+                "place": "Rouen",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q184212"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1814)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "3,58",
+            "displayDimension": "3,58 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,94",
+            "displayDimension": "2,94 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 4886",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MN 51",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Cuirassier blessé, quittant le feu - Théodore Géricault - Musée du Louvre Peintures INV 4886 ; MN 51.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2026-06-17",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e1/Cuirassier_bless%C3%A9%2C_quittant_le_feu_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4886_%3B_MN_51.jpg/1920px-Cuirassier_bless%C3%A9%2C_quittant_le_feu_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4886_%3B_MN_51.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Cuirassier_bless%C3%A9%2C_quittant_le_feu_-_Th%C3%A9odore_G%C3%A9ricault_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4886_%3B_MN_51.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "sardanapalus",
+      "louvre_record": {
+        "arkId": "cl010065757",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010065757",
+        "title": "Mort de Sardanapale",
+        "creator": [
+          {
+            "label": "Delacroix, Eugène",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1863",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1798",
+                "place": "Charenton-Saint-Maurice (Val-de-Marne)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q33477"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XIXe siècle (1827)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "3,92",
+            "displayDimension": "3,92 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "4,96",
+            "displayDimension": "4,96 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "RF 2346",
+            "type": "Numéro principal"
+          }
+        ]
+      },
+      "commons_file": "File:Death of Sardanapalus by Eugène Delacroix.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<bdi><a href=\"https://www.wikidata.org/wiki/Q115464159\" class=\"extiw\" title=\"d:Q115464159\"><span title=\"developer analyst and photographer from Venezuela\">Wilfredor</span></a></bdi>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/03/Death_of_Sardanapalus_by_Eug%C3%A8ne_Delacroix.jpg/1920px-Death_of_Sardanapalus_by_Eug%C3%A8ne_Delacroix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/0/03/Death_of_Sardanapalus_by_Eug%C3%A8ne_Delacroix.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "jaffa",
+      "louvre_record": {
+        "arkId": "cl010062570",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062570",
+        "title": "Bonaparte visitant les pestiférés de Jaffa (11 mars 1799)",
+        "creator": [
+          {
+            "label": "Gros, Antoine-Jean Baron",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1771",
+                "place": "Paris",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1835",
+                "place": "Meudon (Hauts-de-Seine)",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q216999"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1804)",
+        "currentLocation": "Denon, [Peint] Salle 700 - Salle Mollien, romantisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "5,23",
+            "displayDimension": "5,23 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "5,69",
+            "displayDimension": "5,69 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "7,15",
+            "displayDimension": "7,15 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "7,57",
+            "displayDimension": "7,57 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 5064",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 1782",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Antoine-Jean Gros - Bonaparte visitant les pestiférés de Jaffa.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.louvre.fr/llv/oeuvres/detail_notice.jsp?CONTENT%3C%3Ecnt_id=10134198673225731&amp;CURRENT_LLV_NOTICE%3C%3Ecnt_id=10134198673225731&amp;FOLDER%3C%3Efolder_id=9852723696500815\">Musée du Louvre</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Antoine-Jean_Gros_-_Bonaparte_visitant_les_pestif%C3%A9r%C3%A9s_de_Jaffa.jpg/1920px-Antoine-Jean_Gros_-_Bonaparte_visitant_les_pestif%C3%A9r%C3%A9s_de_Jaffa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Antoine-Jean_Gros_-_Bonaparte_visitant_les_pestif%C3%A9r%C3%A9s_de_Jaffa.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "atala",
+      "louvre_record": {
+        "arkId": "cl010064829",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010064829",
+        "title": "Atala au tombeau, dit aussi Funérailles d'Atala (Chateaubriand, Atala).",
+        "creator": [
+          {
+            "label": "Girodet de Roucy-Trioson, Anne-Louis",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1824",
+                "place": "Paris",
+                "type": "date de mort"
+              },
+              {
+                "date": "1767",
+                "place": "Montargis",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q433434"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XIXe siècle (1800 - 1825)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "2,07",
+            "displayDimension": "2,07 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "2,496",
+            "displayDimension": "2,496 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,67",
+            "displayDimension": "2,67 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "3,09",
+            "displayDimension": "3,09 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 4958",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "L 3589",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Atala au tombeau - Anne-Louis Girodet - Musée du Louvre Peintures INV 4958.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2022-04-19",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/50/Atala_au_tombeau_-_Anne-Louis_Girodet_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4958.jpg/1920px-Atala_au_tombeau_-_Anne-Louis_Girodet_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4958.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/50/Atala_au_tombeau_-_Anne-Louis_Girodet_-_Mus%C3%A9e_du_Louvre_Peintures_INV_4958.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "woman-mirror",
+      "louvre_record": {
+        "arkId": "cl010062292",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062292",
+        "title": "La Femme au miroir",
+        "creator": [
+          {
+            "label": "Titien (Tiziano Vecellio, dit Tiziano ou)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1576",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1488 ou 1490",
+                "place": "Pieve di Cadore (Belluno)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q47551"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XVIe siècle (1525 - 1550)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,99",
+            "displayDimension": "0,99 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,185",
+            "displayDimension": "1,185 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,76",
+            "displayDimension": "0,76 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,05",
+            "displayDimension": "1,05 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          },
+          {
+            "type": "Epaisseur avec accessoire",
+            "value": "6,8",
+            "displayDimension": "6,8 cm",
+            "unit": "cm",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 5,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 755",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 504",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Portrait d'une Femme à sa Toilette, by Titian, from C2RMF retouched.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "Retouched from <a href=\"//commons.wikimedia.org/wiki/File:Portrait_d%27une_Femme_%C3%A0_sa_Toilette,_by_Titian,_from_C2RMF.jpg\" title=\"File:Portrait d'une Femme à sa Toilette, by Titian, from C2RMF.jpg\">File:Portrait d'une Femme à sa Toilette, by Titian, from C2RMF.jpg</a>, originally C2RMF: <a rel=\"nofollow\" class=\"external text\" href=\"http://web.archive.org/web/20120524155855/http://www.technologies.c2rmf.fr/imaging/showcase\">Galerie de tableaux en très haute définition</a>: <a rel=\"nofollow\" class=\"external text\" href=\"http://www.technologies.c2rmf.fr/iipimage/showcase/zoom/HD18\">image page</a>",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Portrait_d%27une_Femme_%C3%A0_sa_Toilette%2C_by_Titian%2C_from_C2RMF_retouched.jpg/1920px-Portrait_d%27une_Femme_%C3%A0_sa_Toilette%2C_by_Titian%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Portrait_d%27une_Femme_%C3%A0_sa_Toilette%2C_by_Titian%2C_from_C2RMF_retouched.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "recamier",
+      "louvre_record": {
+        "arkId": "cl010059215",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010059215",
+        "title": "Portrait de Juliette Récamier, née Bernard (1777-1849)",
+        "creator": [
+          {
+            "label": "David, Jacques-Louis",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1748",
+                "place": "Paris",
+                "type": "date de naissance"
+              },
+              {
+                "date": "1825",
+                "place": "Bruxelles",
+                "type": "date de mort"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q83155"
+          },
+          {
+            "label": "France",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : Fin du XVIIIe siècle - début du XIXè siècle (1800)",
+        "currentLocation": "Denon, [Peint] Salle 702 - Salle Daru, néoclassicisme",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,74",
+            "displayDimension": "1,74 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,44",
+            "displayDimension": "2,44 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 3708",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "C 124",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Madame Récamier, née Julie (dite Juliette) Bernard - Jacques-Louis David - Musée duLouvre Peintures INV 3708.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2022-04-19",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Madame_R%C3%A9camier%2C_n%C3%A9e_Julie_%28dite_Juliette%29_Bernard_-_Jacques-Louis_David_-_Mus%C3%A9e_duLouvre_Peintures_INV_3708.jpg/1920px-Madame_R%C3%A9camier%2C_n%C3%A9e_Julie_%28dite_Juliette%29_Bernard_-_Jacques-Louis_David_-_Mus%C3%A9e_duLouvre_Peintures_INV_3708.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Madame_R%C3%A9camier%2C_n%C3%A9e_Julie_%28dite_Juliette%29_Bernard_-_Jacques-Louis_David_-_Mus%C3%A9e_duLouvre_Peintures_INV_3708.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original"
+    },
+    {
+      "id": "emmaus-veronese",
+      "louvre_record": {
+        "arkId": "cl010067589",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010067589",
+        "title": "Les Pèlerins d'Emmaüs",
+        "creator": [
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "2,42",
+            "displayDimension": "2,42 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "2,76",
+            "displayDimension": "2,76 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "4,16",
+            "displayDimension": "4,16 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "4,5",
+            "displayDimension": "4,5 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 146",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 385",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Les Pèlerins d'Emmaüs - Paolo Veronese - Musée du Louvre Peintures INV 146 ; MR 385.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<span class=\"int-own-work\">Self-photographed</span> by <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a>, 5 April 2024",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/af/Les_P%C3%A8lerins_d%27Emma%C3%BCs_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_146_%3B_MR_385.jpg/1920px-Les_P%C3%A8lerins_d%27Emma%C3%BCs_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_146_%3B_MR_385.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Les_P%C3%A8lerins_d%27Emma%C3%BCs_-_Paolo_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_146_%3B_MR_385.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1600,
+        919
+      ],
+      "output_bytes": 555314,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "madonna-rabbit",
+      "louvre_record": {
+        "arkId": "cl010062261",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062261",
+        "title": "La Vierge à l'Enfant avec sainte Catherine d'Alexandrie et un berger,  dit La Vierge au lapin",
+        "creator": [
+          {
+            "label": "Titien (Tiziano Vecellio, dit Tiziano ou)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1576",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1488 ou 1490",
+                "place": "Pieve di Cadore (Belluno)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q47551"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "0,71",
+            "displayDimension": "0,71 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "0,94",
+            "displayDimension": "0,94 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "0,87",
+            "displayDimension": "0,87 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,1",
+            "displayDimension": "1,1 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 743",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 513",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Titien (dit), Vecellio Tiziano – La Vierge et l'Enfant avec sainte Catherine.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external text\" href=\"https://museoteca.com/r/fr/work/2166/titien_dit_vecellio_tiziano/la_vierge_et_l_enfant_avec_sainte_catherine_dit_la_vierge_au_lapin_/!/\">museoteca.com</a>",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Titien_%28dit%29%2C_Vecellio_Tiziano_%E2%80%93_La_Vierge_et_l%27Enfant_avec_sainte_Catherine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Titien_%28dit%29%2C_Vecellio_Tiziano_%E2%80%93_La_Vierge_et_l%27Enfant_avec_sainte_Catherine.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1469,
+        1200
+      ],
+      "output_bytes": 431552,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "paradise",
+      "louvre_record": {
+        "arkId": "cl010064392",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010064392",
+        "title": "Le Couronnement de la Vierge, dit Le Paradis",
+        "creator": [
+          {
+            "label": "Tintoret (Robusti, Jacopo, dit Tintoretto)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1594",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1518 ou 1519",
+                "place": "Venise",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9319"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 4e quart du XVIe siècle (1575 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,43",
+            "displayDimension": "1,43 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,69",
+            "displayDimension": "1,69 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "3,62",
+            "displayDimension": "3,62 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "3,89",
+            "displayDimension": "3,89 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 570",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 501",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:F0427 Louvre Le Tintoret Le Paradis INV570 rwk.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<span class=\"int-own-work\" lang=\"en\">Own work</span> <a href=\"//commons.wikimedia.org/wiki/User:Mbzt\" title=\"User:Mbzt\">Mbzt</a>, 2016-09-07 16:44:55",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/F0427_Louvre_Le_Tintoret_Le_Paradis_INV570_rwk.jpg/1920px-F0427_Louvre_Le_Tintoret_Le_Paradis_INV570_rwk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/F0427_Louvre_Le_Tintoret_Le_Paradis_INV570_rwk.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1600,
+        618
+      ],
+      "output_bytes": 490362,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "crucifixion",
+      "louvre_record": {
+        "arkId": "cl010061292",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010061292",
+        "title": "La Crucifixion",
+        "creator": [
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,02",
+            "displayDimension": "1,02 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,265",
+            "displayDimension": "1,265 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "1,02",
+            "displayDimension": "1,02 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "1,271",
+            "displayDimension": "1,271 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 145",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 389",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Veronese - La Crucifixion, INV 145 ; MR 389.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<a rel=\"nofollow\" class=\"external free\" href=\"https://collections.louvre.fr/recherche?page=1&amp;q=Paolo+Caliari%2C+dit+Veronese&amp;collection%5B0%5D=6\">https://collections.louvre.fr/recherche?page=1&amp;q=Paolo+Caliari%2C+dit+Veronese&amp;collection%5B0%5D=6</a>",
+      "direct_image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Veronese_-_La_Crucifixion%2C_INV_145_%3B_MR_389.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Veronese_-_La_Crucifixion%2C_INV_145_%3B_MR_389.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1495,
+        1500
+      ],
+      "output_bytes": 515232,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "entombment",
+      "louvre_record": {
+        "arkId": "cl010062279",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062279",
+        "title": "La Mise au tombeau ou Le Transport du Christ vers le tombeau",
+        "creator": [
+          {
+            "label": "Titien (Tiziano Vecellio, dit Tiziano ou)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1576",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1488 ou 1490",
+                "place": "Pieve di Cadore (Belluno)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q47551"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 1e quart du XVIe siècle (1500 - 1525)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,48",
+            "displayDimension": "1,48 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "1,71",
+            "displayDimension": "1,71 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,12",
+            "displayDimension": "2,12 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "2,55",
+            "displayDimension": "2,55 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 749",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 516",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Le Transport du Christ vers le tombeau - Titien - Musée du Louvre Peintures INV 749 ; MR 516.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<span class=\"int-own-work\">Self-photographed</span> by <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a>. Taken on 23 January 2026, 08:10.",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Le_Transport_du_Christ_vers_le_tombeau_-_Titien_-_Mus%C3%A9e_du_Louvre_Peintures_INV_749_%3B_MR_516.jpg/1920px-Le_Transport_du_Christ_vers_le_tombeau_-_Titien_-_Mus%C3%A9e_du_Louvre_Peintures_INV_749_%3B_MR_516.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/9/91/Le_Transport_du_Christ_vers_le_tombeau_-_Titien_-_Mus%C3%A9e_du_Louvre_Peintures_INV_749_%3B_MR_516.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1600,
+        989
+      ],
+      "output_bytes": 447205,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "venus-pardo",
+      "louvre_record": {
+        "arkId": "cl010062278",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010062278",
+        "title": "Jupiter et Antiope, dit aussi La Vénus du Pardo",
+        "creator": [
+          {
+            "label": "Titien (Tiziano Vecellio, dit Tiziano ou)",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1576",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1488 ou 1490",
+                "place": "Pieve di Cadore (Belluno)",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q47551"
+          },
+          {
+            "label": "Italie Vénétie Venise",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : 2e quart du XVIe siècle (1525 - 1550)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Vestibule Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "1,96",
+            "displayDimension": "1,96 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "3,85",
+            "displayDimension": "3,85 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 752",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 521",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Jupiter et Antiope, dit aussi La Vénus du Pardo - Titien - Musée du Louvre Sculptures INV 752 ; MR 521.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "<span class=\"int-own-work\">Self-photographed</span> by <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a>. Taken on 29 March 2025.",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/52/Jupiter_et_Antiope%2C_dit_aussi_La_V%C3%A9nus_du_Pardo_-_Titien_-_Mus%C3%A9e_du_Louvre_Sculptures_INV_752_%3B_MR_521.jpg/1920px-Jupiter_et_Antiope%2C_dit_aussi_La_V%C3%A9nus_du_Pardo_-_Titien_-_Mus%C3%A9e_du_Louvre_Sculptures_INV_752_%3B_MR_521.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/5/52/Jupiter_et_Antiope%2C_dit_aussi_La_V%C3%A9nus_du_Pardo_-_Titien_-_Mus%C3%A9e_du_Louvre_Sculptures_INV_752_%3B_MR_521.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1600,
+        796
+      ],
+      "output_bytes": 453763,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "esther",
+      "louvre_record": {
+        "arkId": "cl010061270",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010061270",
+        "title": "Esther et Assuérus",
+        "creator": [
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          },
+          {
+            "label": "Caliari, Benedetto",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "?",
+            "dates": [
+              {
+                "date": "1598",
+                "place": "Vérone",
+                "type": "date de mort"
+              },
+              {
+                "date": "1538",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q2054338"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "2,06",
+            "displayDimension": "2,06 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Hauteur avec accessoire",
+            "value": "2,255",
+            "displayDimension": "2,255 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 2,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "3,34",
+            "displayDimension": "3,34 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          },
+          {
+            "type": "Largeur avec accessoire",
+            "value": "3,34",
+            "displayDimension": "3,34 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 4,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 138",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 387",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Esther et Assuérus - Paul Véronèse - Musée du Louvre Peintures INV 138 ; MR 387.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2024-04-05",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Esther_et_Assu%C3%A9rus_-_Paul_V%C3%A9ron%C3%A8se_-_Mus%C3%A9e_du_Louvre_Peintures_INV_138_%3B_MR_387.jpg/1920px-Esther_et_Assu%C3%A9rus_-_Paul_V%C3%A9ron%C3%A8se_-_Mus%C3%A9e_du_Louvre_Peintures_INV_138_%3B_MR_387.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Esther_et_Assu%C3%A9rus_-_Paul_V%C3%A9ron%C3%A8se_-_Mus%C3%A9e_du_Louvre_Peintures_INV_138_%3B_MR_387.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1600,
+        977
+      ],
+      "output_bytes": 683997,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    },
+    {
+      "id": "susannah",
+      "louvre_record": {
+        "arkId": "cl010061271",
+        "url": "https://collections.louvre.fr/ark:/53355/cl010061271",
+        "title": "Suzanne et les vieillards",
+        "creator": [
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          },
+          {
+            "label": "Caliari, Benedetto",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "?",
+            "dates": [
+              {
+                "date": "1598",
+                "place": "Vérone",
+                "type": "date de mort"
+              },
+              {
+                "date": "1538",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q2054338"
+          },
+          {
+            "label": "Italie",
+            "attributionLevel": "Attribution actuelle",
+            "linkType": "École de",
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": ""
+          },
+          {
+            "label": "Paolo Caliari, dit Veronese",
+            "attributionLevel": "Ancienne Attribution",
+            "linkType": "",
+            "dates": [
+              {
+                "date": "1588",
+                "place": "Venise",
+                "type": "date de mort"
+              },
+              {
+                "date": "1528",
+                "place": "Vérone",
+                "type": "date de naissance"
+              }
+            ],
+            "creatorRole": "",
+            "authenticationType": "",
+            "doubt": "",
+            "attributedBy": "",
+            "attributedYear": "",
+            "wikidata": "Q9440"
+          }
+        ],
+        "displayDateCreated": "Date de création/fabrication : XVIe siècle (1500 - 1600)",
+        "currentLocation": "Denon, [Peint] Salle 711 - Salle de la Joconde, Salle 711 - (Salle des Etats)",
+        "dimension": [
+          {
+            "type": "Hauteur",
+            "value": "2",
+            "displayDimension": "2 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 1,
+            "note": ""
+          },
+          {
+            "type": "Largeur",
+            "value": "2,03",
+            "displayDimension": "2,03 m",
+            "unit": "m",
+            "anteriorPrecision": "",
+            "posteriorPrecision": "",
+            "tri": 3,
+            "note": ""
+          }
+        ],
+        "objectNumber": [
+          {
+            "value": "INV 137",
+            "type": "Numéro principal"
+          },
+          {
+            "value": "MR 388",
+            "type": "Autre numéro d'inventaire"
+          }
+        ]
+      },
+      "commons_file": "File:Suzanne et les Vieillards - Paolo Caliari, dit Veronese - Musée du Louvre Peintures INV 137 ; MR 388.jpg",
+      "commons_license": "Public domain",
+      "commons_credit_html": "photo <a href=\"//commons.wikimedia.org/wiki/User:Shonagon\" title=\"User:Shonagon\">Shonagon</a> 2024-02-09",
+      "direct_image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Suzanne_et_les_Vieillards_-_Paolo_Caliari%2C_dit_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_137_%3B_MR_388.jpg/1920px-Suzanne_et_les_Vieillards_-_Paolo_Caliari%2C_dit_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_137_%3B_MR_388.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "original_image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2a/Suzanne_et_les_Vieillards_-_Paolo_Caliari%2C_dit_Veronese_-_Mus%C3%A9e_du_Louvre_Peintures_INV_137_%3B_MR_388.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "output_image_dimensions": [
+        1592,
+        1600
+      ],
+      "output_bytes": 1015756,
+      "placement_status": "Currentroom verified from official record; exact wall position approximated unless separately photo documented."
+    }
+  ],
+  "excluded_candidates_current_location": [
+    {
+      "id": "pastoral-concert",
+      "source_url": "https://collections.louvre.fr/ark:/53355/cl010062281",
+      "current_location": "non exposé",
+      "reason": "Not currently room711 per official record"
+    },
+    {
+      "id": "bella-nani",
+      "source_url": "https://collections.louvre.fr/ark:/53355/cl010065927",
+      "current_location": "Abu Dhabi (Emirats Arabes Unis), Louvre Abu Dhabi, Salle d'exposition permanente",
+      "reason": "Not currently room711 per official record"
+    },
+    {
+      "id": "tintoretto-self",
+      "source_url": "https://collections.louvre.fr/ark:/53355/cl010062253",
+      "current_location": "non exposé",
+      "reason": "Not currently room711 per official record"
+    }
+  ]
+}

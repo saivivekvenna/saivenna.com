@@ -1,0 +1,29 @@
+{
+  "assets": [
+    {
+      "path": "dist/assets/materials/parquet-color.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/herringbone_parquet/herringbone_parquet_diff_2k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/herringbone_parquet"
+    },
+    {
+      "path": "dist/assets/materials/parquet-normal.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/herringbone_parquet/herringbone_parquet_nor_gl_1k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/herringbone_parquet"
+    },
+    {
+      "path": "dist/assets/materials/parquet-rough.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/herringbone_parquet/herringbone_parquet_rough_1k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/herringbone_parquet"
+    },
+    {
+      "path": "dist/assets/materials/marble-color.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/marble_01/marble_01_diff_2k.jpg",
+      "license": "CC0",
+      "source": "https://polyhaven.com/a/marble_01"
+    }
+  ],
+  "license_source": "https://polyhaven.com/license"
+}
