@@ -39,7 +39,7 @@ export const placements={
  'madonna-rabbit':{room:'711',wall:'north',u:4,y:1.80,evidence:'Current record specifies room 711 vestibule; exact wall approximate'},
  'woman-mirror':{room:'711',wall:'east',u:-10,y:1.84,evidence:'Room confirmed; wall position approximate'}
 };
-export async function buildMuseum(scene,renderer,onProgress){
+export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
  const blockers=[],targets=[],floorMeshes=[],roomGroups={},artworks=[];
  const loader=new THREE.TextureLoader();loader.setCrossOrigin(undefined);
  async function loadTexture(url){for(let attempt=0;attempt<3;attempt++){try{return await loader.loadAsync(url);}catch(error){if(attempt===2)throw new Error('Could not load '+url);await new Promise(r=>setTimeout(r,300*(attempt+1)));}}}
@@ -129,7 +129,7 @@ export async function buildMuseum(scene,renderer,onProgress){
  }
  scene.add(new THREE.HemisphereLight('#e8eff5','#6e4832',.5));scene.environmentIntensity=.42;
  // The diffuse area lights do most of the work; this restrained sun adds directional relief.
- const sunlight=new THREE.DirectionalLight('#fff2d8',.8);sunlight.position.set(-10,45,15);sunlight.target.position.set(0,0,12);scene.add(sunlight,sunlight.target);sunlight.castShadow=true;sunlight.shadow.mapSize.set(4096,4096);Object.assign(sunlight.shadow.camera,{left:-75,right:75,top:55,bottom:-40,near:1,far:120});sunlight.shadow.normalBias=.025;sunlight.shadow.bias=-.0001;sunlight.shadow.autoUpdate=false;sunlight.shadow.needsUpdate=true;
+ const sunlight=new THREE.DirectionalLight('#fff2d8',.8);sunlight.position.set(-10,45,15);sunlight.target.position.set(0,0,12);scene.add(sunlight,sunlight.target);sunlight.castShadow=true;const shadowSize=Math.min(mobile?2048:4096,renderer.capabilities.maxTextureSize);sunlight.shadow.mapSize.set(shadowSize,shadowSize);Object.assign(sunlight.shadow.camera,{left:-75,right:75,top:55,bottom:-40,near:1,far:120});sunlight.shadow.normalBias=.025;sunlight.shadow.bias=-.0001;sunlight.shadow.autoUpdate=false;sunlight.shadow.needsUpdate=true;
  function artwork(art,t,placement){const r=roomById[placement.room],w=art.width_m,h=art.height_m,g=new THREE.Group();const side=placement.wall;let x=r.x,z=r.z,rot=0;
   if(side==='north'){x+=placement.u;z-=r.d/2-.24;rot=0;}if(side==='south'){x+=placement.u;z+=r.d/2-.24;rot=Math.PI;}if(side==='west'){x-=r.w/2-.24;z+=placement.u;rot=Math.PI/2;}if(side==='east'){x+=r.w/2-.24;z+=placement.u;rot=-Math.PI/2;}if(side==='partition'){z=r.z-r.d/2+5.7+.48;rot=0;}if(side==='partition-back'){z=r.z-r.d/2+5.7-.48;rot=Math.PI;}
   g.position.set(x,placement.y,z);g.rotation.y=rot;scene.add(g);const frameWidth=art.id==='mona-lisa'?.11:Math.min(.26,.1+Math.max(w,h)*.025);
@@ -143,7 +143,7 @@ export async function buildMuseum(scene,renderer,onProgress){
   const normal=new THREE.Vector3(0,0,1).applyAxisAngle(new THREE.Vector3(0,1,0),rot);art.position={x,z,y:placement.y,room:r.id,normal:{x:normal.x,z:normal.z},distance:Math.max(2.2,Math.min(7,w*.65))};art.placement=placement;art.displayScale=1;artworks.push(art);
  }
  const response=await fetch('./assets/art/catalog.json');if(!response.ok)throw Error('Catalogue unavailable');const catalog=await response.json();let done=0;
- const placed=catalog.filter(a=>placements[a.id]);await Promise.all(placed.map(async art=>{const t=await loadTexture('./assets/art/'+art.image);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=16;artwork(art,t,placements[art.id]);onProgress(++done,placed.length);}));
+ const placed=catalog.filter(a=>placements[a.id]);await Promise.all(placed.map(async art=>{const t=await loadTexture('./assets/art/'+(mobile?'mobile/':'')+art.image);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=16;artwork(art,t,placements[art.id]);onProgress(++done,placed.length);}));
  // Batch static opaque meshes by material; retain interactive hit targets separately.
  scene.updateMatrixWorld(true);const batches=new Map();scene.traverse(m=>{if(!m.isMesh||m.isInstancedMesh||!m.visible||!m.material?.isMeshStandardMaterial||m.material.transparent)return;const k=m.material.uuid;let b=batches.get(k);if(!b){b={mat:m.material,meshes:[],geo:[]};batches.set(k,b);}let geo=m.geometry.clone().applyMatrix4(m.matrixWorld);if(geo.index){const flat=geo.toNonIndexed();geo.dispose();geo=flat;}b.geo.push(geo);b.meshes.push(m);});for(const b of batches.values()){const merged=mergeGeometries(b.geo);if(merged){const m=new THREE.Mesh(merged,b.mat);m.receiveShadow=m.castShadow=true;scene.add(m);b.meshes.forEach(m=>{m.removeFromParent();m.geometry.dispose();});}b.geo.forEach(g=>g.dispose());}
  sunlight.shadow.needsUpdate=true;

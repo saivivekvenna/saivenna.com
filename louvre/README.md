@@ -1,4 +1,4 @@
-# The Louvre — Denon After Hours
+# Louvre
 
 A walkable Three.js reconstruction of four connected first-floor Louvre rooms: Salle Mollien (700), Salon Denon (701), Salle Daru (702), and Salle des États (711).
 
@@ -43,6 +43,8 @@ Material textures: Poly Haven, CC0 (Jenelle van Heerden, Sergej Majboroda, Rob T
 
 The opening page shares saivenna.com’s warm paper background, Fira Code typography, left-hand navigation, and thin divider. The menu, collection, and painting details use the same colors and type; walking keeps the compact Menu control. Home, Projects, and Writing links return to the portfolio.
 
-WASD walk; Shift moves faster; mouse look, or drag / arrow keys when mouse capture is unavailable. E or click inspects. M opens the room map; G opens the collection. Escape pauses; Entrance resets. Touch controls and optional locally generated ambience are included. During walking, desktop UI is limited to a small Menu button and a tiny aim dot only while mouse capture is active. Hovering or aiming at paintings shows no title block or other information. Click a painting or its clearer, larger wall label to open details. Room location, navigation, sound and help are inside the menu; closing details resumes the walk.
+WASD walk; Shift moves faster; mouse look, or drag / arrow keys when mouse capture is unavailable. E or click inspects. M opens the room map; G opens the collection. Escape pauses; Entrance resets. Touch controls are included. During walking, desktop UI is limited to a small Menu button and a tiny aim dot only while mouse capture is active. Hovering or aiming at paintings shows no title block or other information. Click a painting or its clearer, larger wall label to open details. Room location, navigation and help are inside the menu; closing details resumes the walk.
 
 Browser verification covers real walking through all three room junctions, the room jump guide, Mona Lisa inspection and room metadata, original dimensions, all 24 installed texture loads, collection records outside the wing, collision boundaries, pause/resume and reset. UI checks also cover absence of hover information, painting clicks, label clicks, compact menu navigation, and resuming after closing details. Exact real-world wall positions remain subject to the evidence limits above.
+
+On mobile, hold the larger arrows to walk, drag to look, and tap paintings for details. Menu stays at the top right. The entrance and menu include a return-to-main-website link. Sound controls and generated audio have been removed. Mobile painting previews are capped at 1024px; details retain full resolution.
