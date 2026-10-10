@@ -7,7 +7,7 @@ import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { FXAAShader } from 'three/addons/shaders/FXAAShader.js';
-import { buildMuseum, rooms, roomById } from './museum.js?v=20261009-vault';
+import { buildMuseum, rooms, roomById } from './museum.js?v=20261009-layout-fix';
 const $=id=>document.getElementById(id),canvas=$('gallery'),touch=matchMedia('(any-pointer: coarse), (max-width: 767px)').matches;
 const pixelRatio=Math.min(devicePixelRatio,touch?1:1.35);
 let renderer;try{renderer=new THREE.WebGLRenderer({canvas,antialias:false,powerPreference:'high-performance'});}catch(e){$('load-status').textContent='Please enable WebGL to enter the museum.';throw e;}

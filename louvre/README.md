@@ -41,7 +41,7 @@ Research and evidence:
 
 ## Rendering
 
-The red galleries have skylights, patterned coved ceilings, gilded cornices and dentils, dark skirting, full-size paintings, deep beaded frames and central navy benches. Salle des États has a plain white roof basin, midnight-blue walls, a tall framed display partition, protective glazing and curved oak rail. Photographed CC0 parquet has normal and roughness maps. Area lighting, cached directional shadows, screen-space ambient occlusion, tone mapping and antialiasing give the space depth. Static geometry is batched; frame beadwork is instanced. Texture loading retries transient failures and reports final errors.
+The red galleries have skylights, patterned coved ceilings, gilded cornices and dentils, dark skirting, full-size paintings, deep beaded frames and central navy benches. Salle des États has a plain white roof basin, midnight-blue walls, a tall framed display partition, protective glazing and curved oak rail. Photographed CC0 parquet has normal and roughness maps. Area lighting, cached directional shadows, screen-space ambient occlusion, tone mapping and antialiasing give the space depth. Standard wall labels sit below their frames. The layout validator accounts for wall rotation, and the scene checks the actual transformed frame and label bounds before opening. Display-wall artworks preserve their individual horizontal offsets. Static geometry is batched; frame beadwork is instanced. Texture loading retries transient failures and reports final errors.
 
 Material textures: Poly Haven, CC0 (Jenelle van Heerden, Sergej Majboroda, Rob Tuytel). Three.js 0.186.1 is MIT licensed. No generated paintings. An independent project, unaffiliated with the Musée du Louvre.
 

@@ -40,7 +40,7 @@ export const placements={
  'woman-mirror':{room:'711',wall:'east',u:-10,y:1.84,evidence:'Room confirmed; wall position approximate'}
 };
 export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
- const blockers=[],targets=[],floorMeshes=[],roomGroups={},artworks=[];
+ const blockers=[],targets=[],floorMeshes=[],roomGroups={},artworks=[],mountedSurfaces=[];
  const loader=new THREE.TextureLoader();loader.setCrossOrigin(undefined);
  async function loadTexture(url){for(let attempt=0;attempt<3;attempt++){try{return await loader.loadAsync(url);}catch(error){if(attempt===2)throw new Error('Could not load '+url);await new Promise(r=>setTimeout(r,300*(attempt+1)));}}}
  const maps=await Promise.all(['parquet-color','parquet-normal','parquet-rough','marble-color'].map(n=>loadTexture('./assets/materials/'+n+'.jpg')));
@@ -167,19 +167,33 @@ export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
    art.position={x:r.x+dx*r.w*.38,z:r.z+dz*r.d*.38,y:11.3,room:r.id,normal:{x:0,z:0},distance:0,viewX:r.x,viewZ:r.z,lookY:11.3};
    art.placement=placement;art.displayScale=null;art.display_note='The continuous vault uses JonWestra’s 2013 ceiling photograph (CC BY 2.0). Curvature, scale and compass orientation are estimated; the recorded dimensions shown are not the reconstructed vault dimensions.';artworks.push(art);return;
   }
-  if(side==='north'){x+=placement.u;z-=r.d/2-.24;rot=0;}if(side==='south'){x+=placement.u;z+=r.d/2-.24;rot=Math.PI;}if(side==='west'){x-=r.w/2-.24;z+=placement.u;rot=Math.PI/2;}if(side==='east'){x+=r.w/2-.24;z+=placement.u;rot=-Math.PI/2;}if(side==='partition'){z=r.z-r.d/2+5.7+.48;rot=0;}if(side==='partition-back'){z=r.z-r.d/2+5.7-.48;rot=Math.PI;}
+  if(side==='north'){x+=placement.u;z-=r.d/2-.24;rot=0;}if(side==='south'){x+=placement.u;z+=r.d/2-.24;rot=Math.PI;}if(side==='west'){x-=r.w/2-.24;z+=placement.u;rot=Math.PI/2;}if(side==='east'){x+=r.w/2-.24;z+=placement.u;rot=-Math.PI/2;}if(side==='partition'){x+=placement.u;z=r.z-r.d/2+5.7+.48;rot=0;}if(side==='partition-back'){x+=placement.u;z=r.z-r.d/2+5.7-.48;rot=Math.PI;}
   g.position.set(x,placement.y,z);g.rotation.y=rot;scene.add(g);const frameWidth=art.frame_in_image?0:art.id==='mona-lisa'?.11:Math.min(.26,.1+Math.max(w,h)*.025);
   // Deep mitred gilded profiles, shadowed rebate and continuous carved beads.
   if(!art.frame_in_image){const levels=[[frameWidth,.04,goldDark],[frameWidth*.94,.075,gold],[frameWidth*.76,.11,goldLight],[frameWidth*.58,.125,gold],[frameWidth*.3,.13,goldDark],[frameWidth*.17,.15,goldLight]];
   for(const [out,depth,m] of levels){const fw=w+out*2,fh=h+out*2,thick=Math.max(.018,out*.24);for(const s of [-1,1]){box(fw,thick,.09,m,0,s*(fh/2-thick/2),depth,g);box(thick,fh,.09,m,s*(fw/2-thick/2),0,depth,g);}}
   const ornamentRadius=Math.min(.026,frameWidth*.15),spacing=ornamentRadius*2.5,nx=Math.max(2,Math.ceil((w+frameWidth)/spacing)),ny=Math.max(2,Math.ceil((h+frameWidth)/spacing));const bead=new THREE.InstancedMesh(new THREE.SphereGeometry(ornamentRadius,6,5),goldLight,(nx+ny)*2);const ob=new THREE.Object3D();let n=0;for(const s of [-1,1]){for(let i=0;i<nx;i++){ob.position.set(-w/2-frameWidth*.55+(w+frameWidth*1.1)*i/(nx-1),s*(h/2+frameWidth*.55),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}for(let i=0;i<ny;i++){ob.position.set(s*(w/2+frameWidth*.55),-h/2-frameWidth*.55+(h+frameWidth*1.1)*i/(ny-1),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}}g.add(bead);}
   box(w+.025,h+.025,.07,charcoal,0,0,.04,g);const panel=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:t,color:'#ded7ca'}));panel.position.z=.16;g.add(panel);
-  if(side!=='partition'){for(const sx of [-1,1]){const wireLength=Math.max(.05,7.5-(placement.y+h/2+frameWidth));box(.004,wireLength,.004,charcoal,sx*w*.35,h/2+frameWidth+wireLength/2,-.03,g);}const tag=paintingLabel(art);tag.position.set(placement.label?.x??w/2+.70,(placement.label?.y??1.15)-placement.y,.20);g.add(tag);}
-  const pick=new THREE.Mesh(new THREE.BoxGeometry(w+frameWidth*2,h+frameWidth*2,.35),new THREE.MeshBasicMaterial());pick.visible=false;pick.userData.art=art;g.add(pick);targets.push(pick);
+  if(side!=='partition'){for(const sx of [-1,1]){const wireLength=Math.max(.05,7.5-(placement.y+h/2+frameWidth));box(.004,wireLength,.004,charcoal,sx*w*.35,h/2+frameWidth+wireLength/2,-.03,g);}const tag=paintingLabel(art);tag.position.set(placement.label?.x??0,(placement.label?.y??placement.y-h/2-frameWidth-.35)-placement.y,.20);g.add(tag);mountedSurfaces.push({art,placement,mesh:tag,kind:'label'});}
+  const pick=new THREE.Mesh(new THREE.BoxGeometry(w+frameWidth*2,h+frameWidth*2,.35),new THREE.MeshBasicMaterial());pick.visible=false;pick.userData.art=art;g.add(pick);targets.push(pick);mountedSurfaces.push({art,placement,mesh:pick,kind:'frame'});
   const normal=new THREE.Vector3(0,0,1).applyAxisAngle(new THREE.Vector3(0,1,0),rot);art.position={x,z,y:placement.y,room:r.id,normal:{x:normal.x,z:normal.z},distance:Math.max(2.2,Math.min(7,w*.65))};art.placement=placement;art.displayScale=1;artworks.push(art);
  }
  const response=await fetch('./assets/art/catalog.json',{cache:'no-cache'});if(!response.ok)throw Error('Catalogue unavailable');const catalog=await response.json();const layoutResponse=await fetch('./assets/art/placements.json',{cache:'no-cache'});if(!layoutResponse.ok)throw Error('Room artwork layout unavailable');Object.assign(placements,await layoutResponse.json());let done=0;
  const placed=catalog.filter(a=>placements[a.id]);await Promise.all(placed.map(async art=>{const t=await loadTexture('./assets/art/'+(mobile?'mobile/':'')+art.image);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=16;artwork(art,t,placements[art.id]);onProgress(++done,placed.length);}));
+ // Verify the mounted geometry after all wall rotations and offsets. Checking the
+ // actual transformed bounds catches mistakes that a proposed 2D layout can miss.
+ scene.updateMatrixWorld(true);
+ const mountedBounds=mountedSurfaces.map(surface=>{
+  surface.mesh.geometry.computeBoundingBox();
+  return {...surface,bounds:surface.mesh.geometry.boundingBox.clone().applyMatrix4(surface.mesh.matrixWorld)};
+ });
+ for(let i=0;i<mountedBounds.length;i++)for(let j=i+1;j<mountedBounds.length;j++){
+  const a=mountedBounds[i],b=mountedBounds[j];
+  if(a.placement.room!==b.placement.room||a.placement.wall!==b.placement.wall)continue;
+  const axis=['east','west'].includes(a.placement.wall)?'z':'x';
+  if(a.bounds.min[axis]<b.bounds.max[axis]-.001&&a.bounds.max[axis]>b.bounds.min[axis]+.001&&a.bounds.min.y<b.bounds.max.y-.001&&a.bounds.max.y>b.bounds.min.y+.001)
+   throw new Error('Artwork layout overlap: '+a.art.title+' ('+a.kind+') / '+b.art.title+' ('+b.kind+')');
+ }
  // Batch static opaque meshes by material; retain interactive hit targets separately.
  scene.updateMatrixWorld(true);const batches=new Map();scene.traverse(m=>{if(!m.isMesh||m.isInstancedMesh||!m.visible||!m.material?.isMeshStandardMaterial||m.material.transparent)return;const k=m.material.uuid;let b=batches.get(k);if(!b){b={mat:m.material,meshes:[],geo:[]};batches.set(k,b);}let geo=m.geometry.clone().applyMatrix4(m.matrixWorld);if(geo.index){const flat=geo.toNonIndexed();geo.dispose();geo=flat;}b.geo.push(geo);b.meshes.push(m);});for(const b of batches.values()){const merged=mergeGeometries(b.geo);if(merged){const m=new THREE.Mesh(merged,b.mat);m.receiveShadow=m.castShadow=true;scene.add(m);b.meshes.forEach(m=>{m.removeFromParent();m.geometry.dispose();});}b.geo.forEach(g=>g.dispose());}
  sunlight.shadow.needsUpdate=true;
