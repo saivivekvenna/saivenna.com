@@ -30,8 +30,8 @@ export const placements={
  'wedding-cana':{room:'711',wall:'south',u:0,y:4.75,evidence:'Documented opposite the Mona Lisa on the south end wall'},
  'man-with-glove':{room:'711',wall:'east',u:-3,y:1.84,evidence:'Room confirmed; wall position approximate'},
  'emmaus-veronese':{room:'711',wall:'west',u:3,y:2.50,evidence:'Current room confirmed; wall position approximate'},
- 'paradise':{room:'711',wall:'west',u:-11,y:4.65,evidence:'Current room confirmed; wall position approximate'},
- 'esther':{room:'711',wall:'west',u:-5,y:2.35,evidence:'Current room confirmed; wall position approximate'},
+ 'paradise':{room:'711',wall:'west',u:-5,y:4.65,label:{x:-2.5,y:3.45},evidence:'Above Esther and Ahasuerus in the 22 February 2022 room photograph; current room confirmed, exact coordinates estimated'},
+ 'esther':{room:'711',wall:'west',u:-5,y:2.35,evidence:'Below Paradise in the 22 February 2022 room photograph; current room confirmed, exact coordinates estimated'},
  'crucifixion':{room:'711',wall:'west',u:11.3,y:1.90,evidence:'Current room confirmed; wall position approximate'},
  'susannah':{room:'711',wall:'east',u:4.5,y:2.26,evidence:'Current room confirmed; wall position approximate'},
  'venus-pardo':{room:'711',wall:'partition-back',u:0,y:2.50,evidence:'Current record specifies room 711 vestibule; exact wall approximate'},
@@ -138,7 +138,7 @@ export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
   for(const [out,depth,m] of levels){const fw=w+out*2,fh=h+out*2,thick=Math.max(.018,out*.24);for(const s of [-1,1]){box(fw,thick,.09,m,0,s*(fh/2-thick/2),depth,g);box(thick,fh,.09,m,s*(fw/2-thick/2),0,depth,g);}}
   const ornamentRadius=Math.min(.026,frameWidth*.15),spacing=ornamentRadius*2.5,nx=Math.max(2,Math.ceil((w+frameWidth)/spacing)),ny=Math.max(2,Math.ceil((h+frameWidth)/spacing));const bead=new THREE.InstancedMesh(new THREE.SphereGeometry(ornamentRadius,6,5),goldLight,(nx+ny)*2);const ob=new THREE.Object3D();let n=0;for(const s of [-1,1]){for(let i=0;i<nx;i++){ob.position.set(-w/2-frameWidth*.55+(w+frameWidth*1.1)*i/(nx-1),s*(h/2+frameWidth*.55),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}for(let i=0;i<ny;i++){ob.position.set(s*(w/2+frameWidth*.55),-h/2-frameWidth*.55+(h+frameWidth*1.1)*i/(ny-1),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}}g.add(bead);
   box(w+.025,h+.025,.07,charcoal,0,0,.04,g);const panel=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:t,color:'#ded7ca'}));panel.position.z=.16;g.add(panel);
-  if(side!=='partition'){for(const sx of [-1,1]){const wireLength=Math.max(.05,7.5-(placement.y+h/2+frameWidth));box(.004,wireLength,.004,charcoal,sx*w*.35,h/2+frameWidth+wireLength/2,-.03,g);}const tag=paintingLabel(art);tag.position.set(w/2+.70,-placement.y+1.15,.20);g.add(tag);}
+  if(side!=='partition'){for(const sx of [-1,1]){const wireLength=Math.max(.05,7.5-(placement.y+h/2+frameWidth));box(.004,wireLength,.004,charcoal,sx*w*.35,h/2+frameWidth+wireLength/2,-.03,g);}const tag=paintingLabel(art);tag.position.set(placement.label?.x??w/2+.70,(placement.label?.y??1.15)-placement.y,.20);g.add(tag);}
   const pick=new THREE.Mesh(new THREE.BoxGeometry(w+frameWidth*2,h+frameWidth*2,.35),new THREE.MeshBasicMaterial());pick.visible=false;pick.userData.art=art;g.add(pick);targets.push(pick);
   const normal=new THREE.Vector3(0,0,1).applyAxisAngle(new THREE.Vector3(0,1,0),rot);art.position={x,z,y:placement.y,room:r.id,normal:{x:normal.x,z:normal.z},distance:Math.max(2.2,Math.min(7,w*.65))};art.placement=placement;art.displayScale=1;artworks.push(art);
  }

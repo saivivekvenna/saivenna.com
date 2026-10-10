@@ -723,6 +723,21 @@
       ],
       "status": "Current room official-record verified, exact wall coordinates not established.",
       "notes": "MadonnaRabbit, Entombment and Pardo Venus are explicitly Vestibule Salle des Etats; remaining5are mainSalleEtats. These must be represented as approximate hangings if placed without direct wall evidence."
+    },
+    {
+      "room": 711,
+      "artwork": "paradise",
+      "relation": "Hung above Esther and Ahasuerus on the same wall, rather than offset into a separate empty bay.",
+      "status": "Relative hanging observed in photograph dated 2022-02-22; exact metric coordinates and present-day unchanged hanging are not established.",
+      "sources": [
+        "states-full-room-2022"
+      ],
+      "model_coordinates": {
+        "wall": "west",
+        "u": -5,
+        "y": 4.65
+      },
+      "label": "Below the upper frame on its left; position estimated to keep it close to the painting and separate from the Esther label."
     }
   ],
   "reconstruction_recommendation": {
