@@ -8,7 +8,7 @@ const scale=.67;
 function room(id,x,z,w,d,name,color){return {id,x:(x+w/2-533.25)*scale,z:(z+d/2-350)*scale,w:w*scale,d:d*scale,name,color};}
 export const rooms=[
  room('700',442.02,342.81,77.28,22.92,'Salle Mollien','#78372f'),
- room('701',519.19,333.92,28.14,30.67,'Salon Denon','#756257'),
+ room('701',519.19,333.92,28.14,30.67,'Salon Denon','#813b32'),
  room('702',547.22,341.24,72.70,24.85,'Salle Daru','#813b32'),
  room('711',518.87,364.29,28.35,56.27,'Salle des États','#273e4e')
 ];
@@ -101,6 +101,37 @@ export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
   for(let x=r.x-glassW/2;x<=r.x+glassW/2+.1;x+=5.8){box(.14,.21,glassD+.5,gold,x,top-.07,r.z);for(const s of [-1,1]){for(let k=0;k<3;k++){const ring=new THREE.Mesh(new THREE.TorusGeometry(.24+k*.055,.026,6,20),goldLight);ring.rotation.x=.72*s;ring.position.set(x,top-.3-k*.06,r.z+s*(glassD/2+.16+k*.07));scene.add(ring);}}}
  }
  function skylight(x,z,w,d,y,strength=1){const glass=new THREE.Mesh(new THREE.PlaneGeometry(w,d),new THREE.MeshBasicMaterial({color:'#dfe7e6',side:THREE.DoubleSide}));glass.rotation.x=Math.PI/2;glass.position.set(x,y,z);scene.add(glass);for(let xx=-w/2;xx<=w/2+.01;xx+=1.15)box(.035,.075,d,charcoal,x+xx,y-.045,z);for(let zz=-d/2;zz<=d/2+.01;zz+=1.15)box(w,.075,.035,charcoal,x,y-.045,z+zz);const l=new THREE.RectAreaLight('#fff4e0',strength,w,d);l.position.set(x,y-.18,z);l.lookAt(x,0,z);scene.add(l);}
+ // One continuous photographic vault, projected from the room centre. Four shared-edge
+ // patches preserve the real decorative programme without detached picture planes.
+ const ceilingBays={};
+ async function denonCeiling(r){
+  const texture=await loadTexture('./assets/materials/denon-ceiling'+(mobile?'-mobile':'')+'.jpg');
+  texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=Math.min(16,renderer.capabilities.getMaxAnisotropy());
+  const finish=new THREE.MeshBasicMaterial({map:texture,color:'#fff7ea',side:THREE.DoubleSide});
+  for(const side of ['north','east','south','west']){
+   const positions=[],uv=[],indices=[],pickIndices=[],across=64,radial=48;
+   for(let j=0;j<=radial;j++)for(let i=0;i<=across;i++){
+    // Sine spacing gives a smooth, near-vertical spring at the cornice.
+    const q=Math.sin(j/radial*Math.PI/2),t=i/across*2-1;
+    const [nx,nz]=side==='north'?[t*q,-q]:side==='south'?[-t*q,q]:side==='east'?[q,t*q]:[-q,-t*q];
+    const y=9.05+3.5*Math.sqrt(Math.max(0,1-q*q));
+    positions.push(r.x+nx*(r.w/2-.14),y,r.z+nz*(r.d/2-.14));
+    const projection=7.38/(y-1.67);uv.push(.5+nx*projection*.5,.5-nz*projection*.5);
+    if(j<radial&&i<across){const a=j*(across+1)+i,tri=[a,a+1,a+across+2,a,a+across+2,a+across+1];indices.push(...tri);if(q>.53)pickIndices.push(...tri);}
+   }
+   const geo=new THREE.BufferGeometry();geo.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));geo.setAttribute('uv',new THREE.Float32BufferAttribute(uv,2));geo.setIndex(indices);geo.computeVertexNormals();
+   scene.add(new THREE.Mesh(geo,finish));
+   const hitGeo=geo.clone();hitGeo.setIndex(pickIndices);const hit=new THREE.Mesh(hitGeo,new THREE.MeshBasicMaterial({side:THREE.DoubleSide}));hit.visible=false;scene.add(hit);ceilingBays[side]=hit;
+  }
+  // Layered cornice and real depth at the transition into the curved painted vault.
+  for(const side of [-1,1])for(const [height,depth,y,mat] of [[.16,.40,8.75,goldDark],[.10,.55,8.88,gold],[.065,.62,8.97,goldLight]]){
+   box(r.w,height,depth,mat,r.x,y,r.z+side*(r.d/2-.15));box(depth,height,r.d,mat,r.x+side*(r.w/2-.15),y,r.z);
+  }
+  for(const side of [-1,1]){
+   for(let x=-r.w/2+.3;x<r.w/2-.2;x+=.27)box(.10,.16,.23,ivory,r.x+x,8.68,r.z+side*(r.d/2-.23));
+   for(let z=-r.d/2+.3;z<r.d/2-.2;z+=.27)box(.23,.16,.10,ivory,r.x+side*(r.w/2-.23),8.68,r.z+z);
+  }
+ }
  RectAreaLightUniformsLib.init();
  for(const r of rooms){floor(r);roomGroups[r.id]=new THREE.Group();scene.add(roomGroups[r.id]);if(r.id==='700'||r.id==='702'){
    wall(r,'north');wall(r,'south');const side=r.id==='700'?'east':'west';wall(r,side,[{u:-1-r.z,w:2.1},{u:6-r.z,w:2.1}]);wall(r,side==='east'?'west':'east');redCeiling(r);
@@ -108,9 +139,8 @@ export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
    for(const s of [-1,1]){let last=null;for(let x=r.x-r.w/2+1.5;x<r.x+r.w/2-1;x+=4.4){const z=r.z+s*(r.d/2-1.05);cylinder(.025,.75,brass,x,.375,z);cylinder(.115,.025,brass,x,.012,z);if(last!==null)tube([[last,.74,z],[(last+x)/2,.705,z],[x,.74,z]],.008,charcoal);last=x;}}
   }else if(r.id==='701'){
    wall(r,'north');wall(r,'south',[{u:0,w:2.7}]);wall(r,'west',[{u:-1-r.z,w:2.1},{u:6-r.z,w:2.1}]);wall(r,'east',[{u:-1-r.z,w:2.1},{u:6-r.z,w:2.1}]);
-   // The salon is an architectural junction, with a restrained coffered interpretation.
-   box(r.w,1,r.d,wallMat('#c2b394'),r.x,11.8,r.z);for(let x=-7.4;x<=7.5;x+=3.7)for(let z=-7.4;z<=7.5;z+=3.7){box(3.3,.14,3.3,goldDark,r.x+x,11.18,r.z+z);box(3.1,.15,3.1,ivory,r.x+x,11.10,r.z+z);box(2.85,.12,2.85,wallMat('#927a5b'),r.x+x,11.0,r.z+z);}
-   const glow=new THREE.PointLight('#fff0d5',220,24,2);glow.position.set(r.x,8.8,r.z);scene.add(glow);for(const x of [-7.8,7.8])for(const z of [-7.7,7.7]){box(.9,.2,.9,ivory,r.x+x,.1,r.z+z);cylinder(.3,8.5,ivory,r.x+x,4.45,r.z+z);box(1,.24,1,gold,r.x+x,8.7,r.z+z);blockers.push({x:r.x+x,z:r.z+z,w:.9,d:.9});}
+   await denonCeiling(r);
+   const glow=new THREE.PointLight('#fff0d5',220,24,2);glow.position.set(r.x,8.8,r.z);scene.add(glow);
    for(const [txt,xx,zz,rot] of [['700 · SALLE MOLLIEN',-8.9,0,Math.PI/2],['702 · SALLE DARU',8.9,0,-Math.PI/2],['711 · LA JOCONDE',0,9.5,Math.PI]]){const s=label([txt,'DENON · NIVEAU 1',''],1.5,.54,'#383730','#e6dcc5');s.position.set(r.x+xx,3,r.z+zz);s.rotation.y=rot;scene.add(s);}
   }else{
    wall(r,'north',[{u:0,w:2.7}]);wall(r,'south',[{u:-7.1,w:2.1},{u:7.1,w:2.1}]);wall(r,'east');wall(r,'west');for(const x of [-7.1,7.1]){box(2.1,4.3,.25,charcoal,r.x+x,2.15,r.z+r.d/2+.7,scene,true);const sign=label(['712 · GRANDE GALERIE','Outside this reconstruction',''],.8,.3);sign.position.set(r.x+x,2.1,r.z+r.d/2+.55);sign.rotation.y=Math.PI;scene.add(sign);}
@@ -130,19 +160,25 @@ export async function buildMuseum(scene,renderer,onProgress,{mobile=false}={}){
  scene.add(new THREE.HemisphereLight('#e8eff5','#6e4832',.5));scene.environmentIntensity=.42;
  // The diffuse area lights do most of the work; this restrained sun adds directional relief.
  const sunlight=new THREE.DirectionalLight('#fff2d8',.8);sunlight.position.set(-10,45,15);sunlight.target.position.set(0,0,12);scene.add(sunlight,sunlight.target);sunlight.castShadow=true;const shadowSize=Math.min(mobile?2048:4096,renderer.capabilities.maxTextureSize);sunlight.shadow.mapSize.set(shadowSize,shadowSize);Object.assign(sunlight.shadow.camera,{left:-75,right:75,top:55,bottom:-40,near:1,far:120});sunlight.shadow.normalBias=.025;sunlight.shadow.bias=-.0001;sunlight.shadow.autoUpdate=false;sunlight.shadow.needsUpdate=true;
- function artwork(art,t,placement){const r=roomById[placement.room],w=art.width_m,h=art.height_m,g=new THREE.Group();const side=placement.wall;let x=r.x,z=r.z,rot=0;
+ function artwork(art,t,placement){const r=roomById[placement.room],w=art.render_width_m??art.width_m,h=art.render_height_m??art.height_m,g=new THREE.Group();const side=placement.wall;let x=r.x,z=r.z,rot=0;
+  if(side==='ceiling'){
+   const offsets={north:[0,-1],south:[0,1],west:[-1,0],east:[1,0]},[dx,dz]=offsets[placement.side];
+   const panel=ceilingBays[placement.side];panel.userData.art=art;targets.push(panel);
+   art.position={x:r.x+dx*r.w*.38,z:r.z+dz*r.d*.38,y:11.3,room:r.id,normal:{x:0,z:0},distance:0,viewX:r.x,viewZ:r.z,lookY:11.3};
+   art.placement=placement;art.displayScale=null;art.display_note='The continuous vault uses JonWestra’s 2013 ceiling photograph (CC BY 2.0). Curvature, scale and compass orientation are estimated; the recorded dimensions shown are not the reconstructed vault dimensions.';artworks.push(art);return;
+  }
   if(side==='north'){x+=placement.u;z-=r.d/2-.24;rot=0;}if(side==='south'){x+=placement.u;z+=r.d/2-.24;rot=Math.PI;}if(side==='west'){x-=r.w/2-.24;z+=placement.u;rot=Math.PI/2;}if(side==='east'){x+=r.w/2-.24;z+=placement.u;rot=-Math.PI/2;}if(side==='partition'){z=r.z-r.d/2+5.7+.48;rot=0;}if(side==='partition-back'){z=r.z-r.d/2+5.7-.48;rot=Math.PI;}
-  g.position.set(x,placement.y,z);g.rotation.y=rot;scene.add(g);const frameWidth=art.id==='mona-lisa'?.11:Math.min(.26,.1+Math.max(w,h)*.025);
+  g.position.set(x,placement.y,z);g.rotation.y=rot;scene.add(g);const frameWidth=art.frame_in_image?0:art.id==='mona-lisa'?.11:Math.min(.26,.1+Math.max(w,h)*.025);
   // Deep mitred gilded profiles, shadowed rebate and continuous carved beads.
-  const levels=[[frameWidth,.04,goldDark],[frameWidth*.94,.075,gold],[frameWidth*.76,.11,goldLight],[frameWidth*.58,.125,gold],[frameWidth*.3,.13,goldDark],[frameWidth*.17,.15,goldLight]];
+  if(!art.frame_in_image){const levels=[[frameWidth,.04,goldDark],[frameWidth*.94,.075,gold],[frameWidth*.76,.11,goldLight],[frameWidth*.58,.125,gold],[frameWidth*.3,.13,goldDark],[frameWidth*.17,.15,goldLight]];
   for(const [out,depth,m] of levels){const fw=w+out*2,fh=h+out*2,thick=Math.max(.018,out*.24);for(const s of [-1,1]){box(fw,thick,.09,m,0,s*(fh/2-thick/2),depth,g);box(thick,fh,.09,m,s*(fw/2-thick/2),0,depth,g);}}
-  const ornamentRadius=Math.min(.026,frameWidth*.15),spacing=ornamentRadius*2.5,nx=Math.max(2,Math.ceil((w+frameWidth)/spacing)),ny=Math.max(2,Math.ceil((h+frameWidth)/spacing));const bead=new THREE.InstancedMesh(new THREE.SphereGeometry(ornamentRadius,6,5),goldLight,(nx+ny)*2);const ob=new THREE.Object3D();let n=0;for(const s of [-1,1]){for(let i=0;i<nx;i++){ob.position.set(-w/2-frameWidth*.55+(w+frameWidth*1.1)*i/(nx-1),s*(h/2+frameWidth*.55),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}for(let i=0;i<ny;i++){ob.position.set(s*(w/2+frameWidth*.55),-h/2-frameWidth*.55+(h+frameWidth*1.1)*i/(ny-1),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}}g.add(bead);
+  const ornamentRadius=Math.min(.026,frameWidth*.15),spacing=ornamentRadius*2.5,nx=Math.max(2,Math.ceil((w+frameWidth)/spacing)),ny=Math.max(2,Math.ceil((h+frameWidth)/spacing));const bead=new THREE.InstancedMesh(new THREE.SphereGeometry(ornamentRadius,6,5),goldLight,(nx+ny)*2);const ob=new THREE.Object3D();let n=0;for(const s of [-1,1]){for(let i=0;i<nx;i++){ob.position.set(-w/2-frameWidth*.55+(w+frameWidth*1.1)*i/(nx-1),s*(h/2+frameWidth*.55),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}for(let i=0;i<ny;i++){ob.position.set(s*(w/2+frameWidth*.55),-h/2-frameWidth*.55+(h+frameWidth*1.1)*i/(ny-1),.17);ob.updateMatrix();bead.setMatrixAt(n++,ob.matrix);}}g.add(bead);}
   box(w+.025,h+.025,.07,charcoal,0,0,.04,g);const panel=new THREE.Mesh(new THREE.PlaneGeometry(w,h),new THREE.MeshBasicMaterial({map:t,color:'#ded7ca'}));panel.position.z=.16;g.add(panel);
   if(side!=='partition'){for(const sx of [-1,1]){const wireLength=Math.max(.05,7.5-(placement.y+h/2+frameWidth));box(.004,wireLength,.004,charcoal,sx*w*.35,h/2+frameWidth+wireLength/2,-.03,g);}const tag=paintingLabel(art);tag.position.set(placement.label?.x??w/2+.70,(placement.label?.y??1.15)-placement.y,.20);g.add(tag);}
   const pick=new THREE.Mesh(new THREE.BoxGeometry(w+frameWidth*2,h+frameWidth*2,.35),new THREE.MeshBasicMaterial());pick.visible=false;pick.userData.art=art;g.add(pick);targets.push(pick);
   const normal=new THREE.Vector3(0,0,1).applyAxisAngle(new THREE.Vector3(0,1,0),rot);art.position={x,z,y:placement.y,room:r.id,normal:{x:normal.x,z:normal.z},distance:Math.max(2.2,Math.min(7,w*.65))};art.placement=placement;art.displayScale=1;artworks.push(art);
  }
- const response=await fetch('./assets/art/catalog.json');if(!response.ok)throw Error('Catalogue unavailable');const catalog=await response.json();let done=0;
+ const response=await fetch('./assets/art/catalog.json',{cache:'no-cache'});if(!response.ok)throw Error('Catalogue unavailable');const catalog=await response.json();const layoutResponse=await fetch('./assets/art/placements.json',{cache:'no-cache'});if(!layoutResponse.ok)throw Error('Room artwork layout unavailable');Object.assign(placements,await layoutResponse.json());let done=0;
  const placed=catalog.filter(a=>placements[a.id]);await Promise.all(placed.map(async art=>{const t=await loadTexture('./assets/art/'+(mobile?'mobile/':'')+art.image);t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=16;artwork(art,t,placements[art.id]);onProgress(++done,placed.length);}));
  // Batch static opaque meshes by material; retain interactive hit targets separately.
  scene.updateMatrixWorld(true);const batches=new Map();scene.traverse(m=>{if(!m.isMesh||m.isInstancedMesh||!m.visible||!m.material?.isMeshStandardMaterial||m.material.transparent)return;const k=m.material.uuid;let b=batches.get(k);if(!b){b={mat:m.material,meshes:[],geo:[]};batches.set(k,b);}let geo=m.geometry.clone().applyMatrix4(m.matrixWorld);if(geo.index){const flat=geo.toNonIndexed();geo.dispose();geo=flat;}b.geo.push(geo);b.meshes.push(m);});for(const b of batches.values()){const merged=mergeGeometries(b.geo);if(merged){const m=new THREE.Mesh(merged,b.mat);m.receiveShadow=m.castShadow=true;scene.add(m);b.meshes.forEach(m=>{m.removeFromParent();m.geometry.dispose();});}b.geo.forEach(g=>g.dispose());}

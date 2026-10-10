@@ -7,7 +7,7 @@ import { SSAOPass } from 'three/addons/postprocessing/SSAOPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
 import { FXAAShader } from 'three/addons/shaders/FXAAShader.js';
-import { buildMuseum, rooms, roomById } from './museum.js';
+import { buildMuseum, rooms, roomById } from './museum.js?v=20261009-vault';
 const $=id=>document.getElementById(id),canvas=$('gallery'),touch=matchMedia('(any-pointer: coarse), (max-width: 767px)').matches;
 const pixelRatio=Math.min(devicePixelRatio,touch?1:1.35);
 let renderer;try{renderer=new THREE.WebGLRenderer({canvas,antialias:false,powerPreference:'high-performance'});}catch(e){$('load-status').textContent='Please enable WebGL to enter the museum.';throw e;}
@@ -35,7 +35,7 @@ $('enter').onclick=enter;controls.addEventListener('lock',()=>setWalking(true));
 function openDialog(id){if(id!=='menu-dialog'&&$('menu-dialog').open)$('menu-dialog').close();$(id).showModal();$(id).scrollTop=0;controls.unlock();setWalking(false);$('welcome').hidden=true;}
 let zoom=1;
 function setZoom(value){zoom=THREE.MathUtils.clamp(value,1,3);$('detail-image').style.transform=`scale(${zoom})`;}
-function inspect(art){if(!art)return;$('detail-image').src='./assets/art/'+art.image;$('detail-image').alt=art.title+' by '+art.artist;$('detail-title').textContent=art.title;$('detail-artist').textContent=art.artist;$('detail-year').textContent=art.year;$('detail-description').textContent=art.description;$('detail-location').textContent=art.position?'Room '+art.position.room+' · '+roomById[art.position.room].name:(art.actual_louvre_location||'See museum record');$('detail-size').textContent=`${Math.round(art.width_m*100)} × ${Math.round(art.height_m*100)} cm`;$('detail-credit').textContent=art.credit+'. '+art.rights+' '+(art.placement?.evidence||'This work is in another Louvre room, outside the reconstructed wing.');$('detail-source').href=art.source_url;setZoom(1);openDialog('art-dialog');}
+function inspect(art){if(!art)return;$('detail-image').src='./assets/art/'+art.image;$('detail-image').alt=art.title+' by '+art.artist;$('detail-title').textContent=art.title;$('detail-artist').textContent=art.artist;$('detail-year').textContent=art.year;$('detail-description').textContent=art.description;$('detail-location').textContent=art.position?'Room '+art.position.room+' · '+roomById[art.position.room].name:(art.actual_louvre_location||'See museum record');$('detail-size').textContent=`${Math.round(art.width_m*100)} × ${Math.round(art.height_m*100)} cm`;$('detail-credit').textContent=art.credit+'. '+art.rights+' '+(art.display_note||'')+' '+(art.placement?.evidence||'This work is in another Louvre room, outside the reconstructed wing.');$('detail-source').href=art.source_url;setZoom(1);openDialog('art-dialog');}
 $('zoom-in').onclick=()=>setZoom(zoom+.3);$('zoom-out').onclick=()=>setZoom(zoom-.3);$('zoom-reset').onclick=()=>setZoom(1);$('art-close').onclick=()=>{$('art-dialog').close();if(started)enter();};$('return-gallery').onclick=()=>{$('art-dialog').close();enter();};
 for(const d of document.querySelectorAll('dialog'))d.addEventListener('close',()=>{if(!anyDialog()){setWalking(started);if(!started)$('enter').focus();}});
 $('menu-open').onclick=()=>{updatePosition();openDialog('menu-dialog');};$('menu-close').onclick=()=>{$('menu-dialog').close();if(started)enter();};
@@ -48,7 +48,7 @@ for(const room of rooms){
 $('collection-open').onclick=()=>openDialog('collection-dialog');$('collection-close').onclick=()=>{$('collection-dialog').close();if(started)enter();};$('about-open').onclick=()=>openDialog('about-dialog');$('about-close').onclick=()=>{$('about-dialog').close();if(started)enter();};
 function walkTo(art){
  if(!art.position){$('collection-dialog').close();inspect(art);return;}
- const p=art.position;camera.position.set(p.x+p.normal.x*p.distance,1.67,p.z+p.normal.z*p.distance);camera.lookAt(p.x,Math.min(p.y,3.4),p.z);$('collection-dialog').close();updatePosition();enter();
+ const p=art.position;camera.position.set(p.viewX??p.x+p.normal.x*p.distance,1.67,p.viewZ??p.z+p.normal.z*p.distance);camera.lookAt(p.x,p.lookY??Math.min(p.y,3.4),p.z);$('collection-dialog').close();updatePosition();enter();
 }
 const raycaster=new THREE.Raycaster();raycaster.far=14;
 function pick(pointer=new THREE.Vector2()){raycaster.setFromCamera(pointer,camera);return raycaster.intersectObjects(targets,false)[0]?.object.userData.art||null;}
